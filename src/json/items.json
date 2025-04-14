@@ -1,0 +1,89 @@
+[
+    {
+      "id": 1,
+      "itemType":"周邊商品",
+      "title": "「BanG Dream! It's MyGo!!!!!」壓克力人形立牌 wind ver.",
+      "creator": "ブシロード",
+      "release_date": "2025-03-22",
+      "images": ["img1.jpg"],
+      "currency": "JPY",
+      "discount": 1,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "高松燈",
+          "price": 1760,
+          "stock": 20,
+          "image":"tomori.jpeg"
+        },
+        {
+          "id": 2,
+          "name": "千早愛音",
+          "price": 1760,
+          "stock": 0,
+          "image":"anon.jpg"
+        },
+        {
+          "id": 3,
+          "name": "長崎そよ",
+          "price": 1760,
+          "stock": 15,
+          "image":"soyo.jpg"
+        },
+        {
+          "id": 4,
+          "name": "椎名立希",
+          "price": 1760,
+          "stock": 15,
+          "image":"taki.jpg"
+        },
+        {
+          "id": 5,
+          "name": "要樂奈",
+          "price": 1760,
+          "stock": 15,
+          "image":"rana.jpg"
+        }
+      ],
+      "description": "BanG Dream! It's MyGo!!!!!五位成員的壓克力立牌，描繪了五人在強風吹拂時的姿態!",
+      "likes": 135
+    },
+    {
+      "id": 2,
+      "itemType":"周邊商品",
+      "title": "【預購】「Re:從零開始的異世界生活」 壓克力人形立牌 Winter ver.",
+      "creator": "KADOKAWA",
+      "release_date": "2025-09-30",
+      "images": ["img1.jpg", "img2.jpg"],
+      "currency": "TWD",
+      "discount": 0.8,
+      "discount_end": "2025-05-31",
+      "variants": [
+        {
+          "id": 1,
+          "name": "愛蜜莉雅",
+          "price": 440,
+          "stock": 30,
+          "image":null
+        },
+        {
+          "id": 2,
+          "name": "雷姆",
+          "price": 440,
+          "stock": 10,
+          "image":null
+        },
+        {
+          "id": 3,
+          "name": "拉姆",
+          "price": 440,
+          "stock": 10,
+          "image":null
+        }
+      ],
+      "description": "取自TV動畫『Re:從零開始的異世界生活』，愛蜜莉雅、拉姆、雷姆化身為冬天可愛造型的壓克力人形立牌登場！",
+      "likes": 98
+    }
+  ]
+  
