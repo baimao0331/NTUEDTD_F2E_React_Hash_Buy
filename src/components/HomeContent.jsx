@@ -8,9 +8,9 @@ export default function HomeContent() {
         <>
             <main className=' main w-dvw px-10 '>
                 <Announcement/>
-                <div className='max-w-screen-xl mx-auto my-4 flex justify-between px-15'>
-                    <ul className=' flex flex-col w-48/100'>
-                        <p className=' text-xl font-bold text-orange-900 mb-2'>熱門商品</p>
+                <div className='max-w-screen-xl mx-auto my-4 flex flex-col md:flex-row justify-between md:px-15'>
+                    <ul className=' flex flex-col md:w-48/100'>
+                        <p className=' text-xl font-bold title mb-2'>熱門商品</p>
                         {items.map(item => (
                             <Listitem
                             key = {item.id}
@@ -22,8 +22,8 @@ export default function HomeContent() {
                             />
                         ))}
                     </ul>
-                    <ul className=' flex flex-col w-48/100'>
-                        <p className=' text-xl font-bold text-orange-900 mb-2'>新上架</p>
+                    <ul className=' flex flex-col md:w-48/100'>
+                        <p className=' text-xl font-bold title mb-2'>新上架</p>
                         {items.map(item => (
                             <Listitem
                             key = {item.id}

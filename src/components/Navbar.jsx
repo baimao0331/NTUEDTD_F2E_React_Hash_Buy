@@ -7,7 +7,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className=" bg-stone-300 font-medium">
+            <nav className=" bg-stone-300 font-medium hidden sm:block">
                 <div className='max-w-screen-xl mx-auto h-10 px-10 pr-9 flex justify-between'>
                     <ul className=' flex gap-8 h-full items-center'>
                         <li className='hover:text-stone-600 '>

@@ -105,6 +105,9 @@ button:focus-visible {
 .info-bottom{
   grid-area: infoBottom;
 }
+
+
+
 .price {
   color:theme("color.orange.500")
 }

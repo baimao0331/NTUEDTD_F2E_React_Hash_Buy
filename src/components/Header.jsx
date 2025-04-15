@@ -1,4 +1,4 @@
-import { Search, ShoppingCart } from 'lucide-react';
+import { Search, ShoppingCart, Menu } from 'lucide-react';
 import { Link } from 'react-router'
 import { useSelector } from 'react-redux';
 import { selectCartItems } from '../redux/cartSlice';
@@ -9,13 +9,15 @@ export default function Header() {
     const cartItemNum = (useSelector(selectCartItems)).length;
     return (
         <>
-            <header className=' header bg-orange-300 w-dvw '>
-                <div className='max-w-screen-xl mx-auto h-15 flex justify-between px-10'>
-                    <Link to={`/`} className="left-area h-full items-center">
+            <header className=' header bg-orange-300 '>
+                <div className='max-w-screen-xl mx-auto h-15 flex items-center justify-between px-10'>
+                    <Menu size='40' className=' md:hidden'/>
+                    {/* LOGO */}
+                    <Link to={`/`} className=" h-full items-center ml-20 md:ml-0">
                         <p className=' text-3xl font-extrabold text-orange-900 mt-3'>Hash·Buy</p>
                     </Link>
-                    <div className="right-area flex h-full items-center">
-                        <label className="input bg-stone-50 h-6/10">
+                    <div className="flex h-full items-center ">
+                        <label className="input bg-stone-50 hidden md:flex">
                             <input type="search" required placeholder="輸入關鍵字" className=' text-stone-900 font-bold' />
                         </label>
                         <Search size='40' className=' text-orange-900 ml-4' />
