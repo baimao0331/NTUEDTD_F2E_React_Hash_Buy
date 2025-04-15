@@ -20,7 +20,7 @@ export default function AddToCart(props) {
     }
     return (
         <button 
-            className=" w-full rounded-md shadow-lg flex justify-center gap-4 disabled:!bg-stone-500"
+            className=" w-full rounded-md flex justify-center gap-4 disabled:!bg-stone-500"
             disabled={(outOfStock ? true : false)}
             onClick={addToCart}>
             <ShoppingCart />加入購物車
