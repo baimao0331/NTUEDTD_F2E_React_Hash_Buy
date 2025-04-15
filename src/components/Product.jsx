@@ -143,7 +143,7 @@ export default function Product() {
                                 {/* 品項下拉選單 */}
                                 <select
                                     defaultValue={item.variants[0].name}
-                                    className=" absolute select w-1/2 bottom-0"
+                                    className=" absolute select w-1/2 bottom-0 bg-stone-50 dark:bg-stone-700"
                                     onChange={changeVariantId}>
                                     {item.variants.map(variant => (
                                         <option key={variant.id} value={variant.id - 1}>
@@ -162,14 +162,14 @@ export default function Product() {
                         <div className="info-bottom mt-4">
                             <div className=" flex justify-between mb-8">
                                 {/*數量選擇 */}
-                                <div className=" inline-flex w-1/4 rounded-md ">
-                                    <button className=" btn !p-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700"
+                                <div className=" inline-flex w-1/4 rounded-sm ">
+                                    <button className=" btn !p-2 no-round !rounded-l-sm !rounded-r-none !bg-stone-200 dark:!bg-stone-700 shadow-none"
                                         disabled={(outOfStock ? true : false)}
                                         onClick={handleDecrease}>
                                         <Minus className=" dark:!text-stone-50" />
                                     </button>
                                     <div className="flex items-center flex-1 bg-stone-50 dark:bg-stone-600"><p className=" text-center w-full">{outOfStock ? 0 : qty}</p></div>
-                                    <button className=" btn !p-2 no-round !rounded-r-md !rounded-l-none !bg-stone-200 dark:!bg-stone-700"
+                                    <button className=" btn !p-2 no-round !rounded-r-sm !rounded-l-none !bg-stone-200 dark:!bg-stone-700 shadow-none"
                                         disabled={(outOfStock ? true : false)}
                                         onClick={handleIncrease}>
                                         <Plus className=" dark:!text-stone-50" />
@@ -196,13 +196,13 @@ export default function Product() {
                 </div>
                 <div className="mt-10 flex flex-col md:flex-row gap-4">
                     <div className=" w-full md:w-2/3">
-                        <h3 className="text-xl font-bold title mb-2">簡介</h3>
+                        <h3 className="text-xl font-bold text-orange-900 dark:text-orange-300 mb-2">簡介</h3>
                         <div className="">
                             <p>{item.description}</p>
                         </div>
                     </div>
                     <div className=" w-full flex flex-col md:w-1/3">
-                        <h3 className="text-xl font-bold title mb-2">關聯商品</h3>
+                        <h3 className="text-xl font-bold text-orange-900 dark:text-orange-300mb-2">關聯商品</h3>
                         <ul>
                             {similarItems.map(x => (
                                 <Listitem
@@ -212,6 +212,7 @@ export default function Product() {
                                     title={x.title}
                                     discount={x.discount}
                                     price={x.variants[0].price}
+                                    currency = {item.currency}
                                 />
                             ))}
                         </ul>

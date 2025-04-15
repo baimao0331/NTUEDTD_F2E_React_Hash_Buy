@@ -1,7 +1,13 @@
+import currencyChange from '../js/currencyChange'
+import { useSelector } from "react-redux";
+import { selectCurrency } from "../redux/currencySlice";
+
 export default function PriceCard(props) {
     const { item, isDiscount, selectedVariantId } = props;
+    const targetCurrency = useSelector(selectCurrency);
+    
     return (
-        <div className=" w-4/10  p-4 bg-stone-50 shadow-lg rounded-md flex flex-col justify-between">
+        <div className=" w-4/10  p-4 bg-stone-50 dark:bg-stone-700 shadow-lg rounded-md flex flex-col justify-between">
 
             {/* 折扣資訊 */}
             <div>
@@ -19,16 +25,22 @@ export default function PriceCard(props) {
             {/* 價格資訊 */}
             <div className=" w-full">
                 <div className="w-full grid grid-cols-2 text-lg md:text-right">
-                    <p className=" text-nowrap">原始價格</p>
-                    <p className=" text-right">{item.variants[selectedVariantId].price} {item.currency}</p>
+                    <p className=" text-nowrap text-left">原始價格</p>
+                    <p className=" text-right">
+                        {currencyChange(item.currency, item.variants[selectedVariantId].price)} 
+                        {targetCurrency}
+                    </p>
                     <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600">{item.variants[selectedVariantId].price}{item.currency}</p>
                 </div>
 
                 <div className="w-full grid grid-cols-2 text-lg md:text-right">
-                    <p className=" text-nowrap ">當前價格</p>
+                    <p className=" text-nowrap text-left">當前價格</p>
                     <div className=" flex items-baseline justify-end">
-                        <p className=" text-2xl font-bold price">{Math.round(item.variants[selectedVariantId].price * item.discount)}</p>
-                        <p className="ml-1 text-right">{item.currency}</p>
+                        <p className=" text-2xl font-bold price">
+                            {targetCurrency=="USD"? 
+                            (currencyChange(item.currency, item.variants[selectedVariantId].price) * item.discount).toFixed(2):Math.round(currencyChange(item.currency, item.variants[selectedVariantId].price) * item.discount)}
+                        </p>
+                        <p className="ml-1 text-right">{targetCurrency}</p>
                         
                     </div>
                     <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600">{Math.round(item.variants[selectedVariantId].price * item.discount)}{item.currency}</p>

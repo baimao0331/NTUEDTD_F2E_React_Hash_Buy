@@ -7,7 +7,7 @@ export default function Footer() {
 
     return (
         <>
-            <footer className=" bg-stone-600 text-stone-100 w-dvw px-10 py-8">
+            <footer className=" bg-stone-600 text-stone-100 w-full px-10 py-8">
                 <div className=" max-w-screen-xl mx-auto ">
                     <div className=" grid grid-cols-2 md:grid-cols-5 gap-4">
                         <ul className=" order-1 flex flex-col gap-1">
