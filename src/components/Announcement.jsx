@@ -19,7 +19,7 @@ export default function Announcement() {
 
     return (
         <>
-            <div className=' max-w-screen-lg mx-auto overflow-hidden bg-orange-100 border-1 border-orange-900 rounded-md py-1 flex items-center gap-4'>
+            <div className='  overflow-hidden bg-orange-100 border-1 border-orange-900 rounded-md py-1 flex items-center gap-4'>
                 <Megaphone size='30' className=' text-orange-900 ml-8' />
                 <AnimatePresence mode="wait">
                     <motion.div

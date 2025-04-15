@@ -98,9 +98,9 @@ export default function Product() {
                     </ul>
                 </div>
 
-                <div className=" flex">
+                <div className=" flex flex-col md:flex-row">
                     {/* 左邊圖片區域 */}
-                    <div className="relative flex flex-col w-2/5 ">
+                    <div className="relative flex flex-col w-full md:w-2/5 ">
                         <figure className="aspect-square overflow-hidden rounded-xl border border-stone-300 bg-stone-300">
                             <img
                                 src={`/images/${item.id}/${imgs[displayImage]}`}
@@ -108,12 +108,12 @@ export default function Product() {
                                 className="w-full h-full object-cover object-center"
                             />
                         </figure>
-                        <div className=" flex items-center gap-2 w-full mt-4">
+                        <div className=" relative flex items-center gap-2 w-full mt-4">
                             <button className="btn !py-2 !px-0 h-full !bg-stone-300 text-stone-50"
                                 onClick={() => setDisplayImage(prev => (prev - 1 + imgs.length) % imgs.length)}>
                                 <ChevronLeft />
                             </button>
-                            <div className=" bottom-0 flex h-20 overflow-x-scroll no-scrollbar gap-2 bg-stone-50 p-2 rounded-xl shadow-lg flex-1">
+                            <div className=" flex h-20 overflow-x-scroll no-scrollbar gap-2 bg-stone-50 p-2 rounded-xl shadow-lg flex-1">
                                 {imgs.map((image, i) => (
                                     <img
                                         key={i}
@@ -131,11 +131,11 @@ export default function Product() {
                     </div>
 
                     {/* 右邊資訊與操作區 */}
-                    <div className=" py-4 info-gird-area w-3/5 pl-10">
+                    <div className=" py-4 info-gird-area w-full md:w-3/5 md:pl-10">
                         {/* 標題文字 */}
                         <h2 className="info-title text-xl font-bold min-h-[3rem] leading-snug">{item.title}</h2>
 
-                        <div className="info-main flex justify-between relative">
+                        <div className=" relative info-main flex justify-between">
                             <div className=" w-6/10 mt-4">
                                 <p className="font-bold">by {item.creator}</p>
                                 <p className="text-sm text-stone-600">{item.release_date.replaceAll("-", "/")} 推出</p>
@@ -143,7 +143,7 @@ export default function Product() {
                                 {/* 品項下拉選單 */}
                                 <select
                                     defaultValue={item.variants[0].name}
-                                    className=" absolute select bottom-0"
+                                    className=" absolute select w-1/2 bottom-0"
                                     onChange={changeVariantId}>
                                     {item.variants.map(variant => (
                                         <option key={variant.id} value={variant.id - 1}>
@@ -194,14 +194,14 @@ export default function Product() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-10 flex gap-10">
-                    <div className="w-2/3">
+                <div className="mt-10 flex flex-col md:flex-row gap-4">
+                    <div className=" w-full md:w-2/3">
                         <h3 className="text-xl font-bold title mb-2">簡介</h3>
                         <div className="">
                             <p>{item.description}</p>
                         </div>
                     </div>
-                    <div className=" flex flex-col w-1/3">
+                    <div className=" w-full flex flex-col md:w-1/3">
                         <h3 className="text-xl font-bold title mb-2">關聯商品</h3>
                         <ul>
                             {similarItems.map(x => (
