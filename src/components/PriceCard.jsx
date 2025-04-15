@@ -9,7 +9,7 @@ export default function PriceCard(props) {
                     {isDiscount ? <p>這個商品暫時沒有特價...</p> : <p className=" text-orange-700 font-bold">特價至${item.discount_end.replaceAll("-", "/")}</p>}
                     {isDiscount ?
                         <></> :
-                        <span className=" text-stone-50 bg-orange-700 px-2 rounded-sm h-[1.5rem] mt-0.5 font-normal">
+                        <span className=" text-stone-50 bg-orange-700 px-2 rounded-sm h-[1.5rem] mt-0.5 pt-0.5 font-normal text-sm">
                             {`${100 - item.discount * 100}% off`}
                         </span>}
                 </div>
@@ -20,18 +20,18 @@ export default function PriceCard(props) {
             <div className=" w-full">
                 <div className="w-full grid grid-cols-2 text-lg md:text-right">
                     <p className=" text-nowrap">原始價格</p>
-                    <p>{item.variants[selectedVariantId].price} {item.currency}</p>
-                    <p className=" grid-cols-subgrid text-right text-sm text-stone-600">{item.variants[selectedVariantId].price}{item.currency}</p>
+                    <p className=" text-right">{item.variants[selectedVariantId].price} {item.currency}</p>
+                    <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600">{item.variants[selectedVariantId].price}{item.currency}</p>
                 </div>
 
                 <div className="w-full grid grid-cols-2 text-lg md:text-right">
                     <p className=" text-nowrap ">當前價格</p>
-                    <div className=" flex items-baseline self-end">
+                    <div className=" flex items-baseline justify-end">
                         <p className=" text-2xl font-bold price">{Math.round(item.variants[selectedVariantId].price * item.discount)}</p>
-                        <p className="ml-1">{item.currency}</p>
+                        <p className="ml-1 text-right">{item.currency}</p>
                         
                     </div>
-                    <p className=" text-right text-sm text-stone-600">{Math.round(item.variants[selectedVariantId].price * item.discount)}{item.currency}</p>
+                    <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600">{Math.round(item.variants[selectedVariantId].price * item.discount)}{item.currency}</p>
                 </div>
                 
             </div>

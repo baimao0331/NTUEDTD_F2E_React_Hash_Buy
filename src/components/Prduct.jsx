@@ -162,7 +162,7 @@ export default function Product() {
                         <div className="info-bottom mt-4">
                             <div className=" flex justify-between mb-8">
                                 {/*數量選擇 */}
-                                <div className=" inline-flex w-1/4 rounded-md shadow-lg">
+                                <div className=" inline-flex w-1/4 rounded-md ">
                                     <button className=" btn !p-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700"
                                         disabled={(outOfStock ? true : false)}
                                         onClick={handleDecrease}>
