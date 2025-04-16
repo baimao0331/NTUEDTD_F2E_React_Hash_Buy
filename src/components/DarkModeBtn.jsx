@@ -20,7 +20,7 @@ export default function DarkModeBtn() {
 
         <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
-            <input type="checkbox" className="theme-controller" value="synthwave" checked={lightMode} onClick={toggleColor} />
+            <input type="checkbox" className="theme-controller" value="synthwave" checked={lightMode} onChange={toggleColor} />
 
             {/* sun icon */}
             <SunMedium size="30" className='swap-off ' />

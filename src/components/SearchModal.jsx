@@ -1,12 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Search, X } from 'lucide-react';
+import { useNavigate } from 'react-router';
 
 export default function SearchModal() {
     const [isOpen, setIsOpen] = useState(false);
+    const [keyword, setKeyword] = useState('');
+    const navigate = useNavigate();
     const inputRef = useRef();
 
     const toggleModal = () => setIsOpen(!isOpen);
+
+    const handleSearch = (e) => {
+        e.preventDefault(); // 防止重新整理
+        if (keyword.trim() !== '') {
+          navigate(`/results/${encodeURIComponent(keyword.trim())}`); // 將字串轉換為網址能用的格式
+        }
+      };
 
     // ESC 關閉功能
     useEffect(() => {
@@ -57,13 +67,20 @@ export default function SearchModal() {
                                     <X size='40' className=" cursor-pointer" />
                                 </div>
                             </div>
+                            <form  onSubmit={handleSearch}  className=' flex'>
+                                <input
+                                    ref={inputRef}
+                                    value={keyword}
+                                    onChange={(e) => setKeyword(e.target.value)}
+                                    type="text"
+                                    placeholder="輸入關鍵字..."
+                                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ring-orange-500 dark:bg-stone-700 dark:text-white"
+                                />
+                                <button className=' !px-5 !py-0 ml-4'>
+                                    <Search size='30' className=" text-orange-900" />
+                                </button>
+                            </form>
 
-                            <input
-                                ref={inputRef}
-                                type="text"
-                                placeholder="輸入關鍵字..."
-                                className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ring-orange-500 dark:bg-stone-700 dark:text-white"
-                            />
 
                         </motion.div>
                     </>

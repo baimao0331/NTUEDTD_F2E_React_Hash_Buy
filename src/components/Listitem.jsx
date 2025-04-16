@@ -9,8 +9,8 @@ export default function Listitem(props) {
     
     return (
         <>
-            <hr className=' border-1 border-stone-200 dark:border-stone-600' />
-            <li key={id} className="  h-25 w-full flex pl-4 pr-6 relative group text-stone-900 dark:text-stone-50">
+            
+            <div key={id} className="  h-25 w-full flex pl-4 pr-6 relative group text-stone-900 dark:text-stone-50">
                 <Link to={`/products/id/` + id} className=' w-full h-full flex'>
                     <figure className=" h-2/3 w-1/4 aspect-[2/1] overflow-hidden rounded-sm self-center">
                         <img src={`/images/` + id + `/` + image} alt="商品圖" className=" h-full w-full object-cover object-center" />
@@ -24,7 +24,7 @@ export default function Listitem(props) {
                         </figure>
                     </div>
                 </Link>
-            </li>
+            </div>
         </>
     )
 }
