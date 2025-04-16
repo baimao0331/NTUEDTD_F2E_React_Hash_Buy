@@ -8,7 +8,7 @@ export default function Navbar() {
     const dispatch = useDispatch();
     const currency = useSelector(selectCurrency);
     const lightMode = useSelector(selectLightMode);
-    console.log(lightMode);
+    console.log(lightMode? "明亮模式":"黑暗模式");
 
     const currencyChange = (value) => {
         dispatch(updateCurrency(value));
@@ -16,11 +16,14 @@ export default function Navbar() {
 
     const toggleColor = () => {
         dispatch(setColorMode(!lightMode))
-        if (lightMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
+    }
+
+    if (!lightMode) {
+        document.documentElement.classList.add('dark');
+        console.log("開啟黑暗模式");
+    } else {
+        document.documentElement.classList.remove('dark');
+        console.log("關閉黑暗模式");
     }
 
     return (

@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const lightMode = isDarkMode? false:true;
+const lightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+console.log("初始lightMode",lightMode)
+//const isDarkMode = !isDarkMode;
 
 const initialState = { lightMode };
 const colorSlice = createSlice({
