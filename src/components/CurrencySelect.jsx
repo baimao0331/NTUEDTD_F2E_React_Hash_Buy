@@ -10,16 +10,16 @@ export default function CurrencySelect() {
     };
 
     return (
-        <>
+        <div className=" flex items-center">
             <span className=" text-nowrap">使用幣值 : </span>
             <select
-                value={currency}
+                defaultValue={currency}
                 onChange={(event) => currencyChange(event.target.value)}
-                className="select shadow-none h-8 focus:outline-none ml-1 border-0 bg-stone-300 dark:bg-stone-600 cursor-pointer">
+                className="select shadow-none h-8 focus:outline-none ml-1 mt-0.5 border-0 bg-stone-300 dark:bg-stone-600 cursor-pointer">
                 <option value='TWD' className='dark:bg-stone-600'>TWD</option>
                 <option value='JPY' className='dark:bg-stone-600'>JPY</option>
                 <option value='USD' className=' dark:bg-stone-600'>USD</option>
             </select>
-        </>
+        </div>
     );
 }

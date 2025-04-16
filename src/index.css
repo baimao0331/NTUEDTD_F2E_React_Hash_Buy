@@ -125,6 +125,15 @@ button:focus-visible {
 .title {
   color:theme("color.orange.300")
 }
+
+.hamberger .select{
+  background: none;
+}
+
+footer .select {
+  background: theme('color.stone.600');
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: theme('colors.stone.900');

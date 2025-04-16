@@ -8,7 +8,7 @@ export default function Navbar() {
         <>
             <nav className=" bg-stone-300 dark:bg-stone-700 font-medium hidden sm:block text-stone-900 dark:text-stone-50">
                 <div className='max-w-screen-xl mx-auto h-10 px-10 pr-9 flex justify-between'>
-                    <ul className=' flex gap-8 h-full items-center '>
+                    <ul className=' flex gap-8 h-full items-center justify-start'>
                         <li className='hover:text-stone-600 dark:hover:text-orange-300'>
                             <Link to={`/`}>首頁</Link>
                         </li>
