@@ -1,22 +1,29 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from 'framer-motion';
 import { Search, X } from 'lucide-react';
 import { useNavigate } from 'react-router';
+import { selectSearchHistory, newHistory, clearHistory } from '../redux/searchSlice'
 
 export default function SearchModal() {
+    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const [keyword, setKeyword] = useState('');
     const navigate = useNavigate();
     const inputRef = useRef();
+    const searchHistory = useSelector(selectSearchHistory);
+    console.log(searchHistory);
 
     const toggleModal = () => setIsOpen(!isOpen);
+    const toggleClear = () => dispatch(clearHistory());
 
     const handleSearch = (e) => {
         e.preventDefault(); // 防止重新整理
         if (keyword.trim() !== '') {
-          navigate(`/results/${encodeURIComponent(keyword.trim())}`); // 將字串轉換為網址能用的格式
+            dispatch(newHistory(keyword));
+            navigate(`/results/${encodeURIComponent(keyword.trim())}`); // 將字串轉換為網址能用的格式
         }
-      };
+    };
 
     // ESC 關閉功能
     useEffect(() => {
@@ -67,7 +74,7 @@ export default function SearchModal() {
                                     <X size='40' className=" cursor-pointer" />
                                 </div>
                             </div>
-                            <form  onSubmit={handleSearch}  className=' flex'>
+                            <form onSubmit={handleSearch} className=' flex'>
                                 <input
                                     ref={inputRef}
                                     value={keyword}
@@ -80,7 +87,15 @@ export default function SearchModal() {
                                     <Search size='30' className=" text-orange-900" />
                                 </button>
                             </form>
-
+                            <div>
+                                <ul>
+                                    {searchHistory.map((keyword, index) => (
+                                        <li key={index}>
+                                            {keyword}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
 
                         </motion.div>
                     </>
