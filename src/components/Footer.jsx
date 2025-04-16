@@ -1,9 +1,9 @@
 import { Link } from 'react-router'
-
+import DarkModeBtn from './DarkModeBtn';
+import CurrencySelect from './CurrencySelect';
 
 export default function Footer() {
 
-    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches; //黑暗模式偵測
 
     return (
         <>
@@ -19,14 +19,9 @@ export default function Footer() {
                         </ul>
                         <ul className=" order-3 md:order-2 flex flex-col gap-1">
                             <p className=" font-bold text-base">網站設定</p>
-                            <li>黑暗模式 : <input type="checkbox" defaultChecked={isDarkMode} className="toggle toggle-xs" /></li>
+                            <li className=' flex'><p className='mr-4'>切換顯示 :</p><DarkModeBtn/></li>
                             <li className=" flex items-center">
-                                <span className=" text-nowrap">使用幣值 :</span>
-                                <select defaultValue="TWD" className="select select-ghost h-8 focus:bg-stone-600 focus:outline-none hover:bg-stone-500">
-                                    <option>TWD</option>
-                                    <option>JPY</option>
-                                    <option>USD</option>
-                                </select>
+                            <CurrencySelect/>
                             </li>
                         </ul>
                         <ul className=" order-4 md:order-3 flex flex-col gap-1 md:col-span-2">

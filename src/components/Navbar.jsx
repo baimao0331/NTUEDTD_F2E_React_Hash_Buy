@@ -1,30 +1,8 @@
 import { Link } from 'react-router'
-import { SunMedium, Moon } from 'lucide-react';
-import { useDispatch, useSelector } from "react-redux";
-import { selectCurrency, updateCurrency } from "../redux/currencySlice";
-import { selectLightMode, setColorMode } from '../redux/colorSlice'
+import DarkModeBtn from './DarkModeBtn';
+import CurrencySelect from './CurrencySelect';
 
 export default function Navbar() {
-    const dispatch = useDispatch();
-    const currency = useSelector(selectCurrency);
-    const lightMode = useSelector(selectLightMode);
-    console.log(lightMode? "明亮模式":"黑暗模式");
-
-    const currencyChange = (value) => {
-        dispatch(updateCurrency(value));
-    };
-
-    const toggleColor = () => {
-        dispatch(setColorMode(!lightMode))
-    }
-
-    if (!lightMode) {
-        document.documentElement.classList.add('dark');
-        console.log("開啟黑暗模式");
-    } else {
-        document.documentElement.classList.remove('dark');
-        console.log("關閉黑暗模式");
-    }
 
     return (
         <>
@@ -44,30 +22,10 @@ export default function Navbar() {
                             <Link to={`/`}>購物說明</Link>
                         </li>
                     </ul>
-                    <ul className="flex items-center gap-4">
-                        <li className=" flex items-center">
-                            <span className=" text-nowrap">使用幣值 : </span>
-                            <select
-                                defaultValue={currency}
-                                onChange={(event) => currencyChange(event.target.value)}
-                                className="select shadow-none h-8 focus:outline-none ml-1 border-0 bg-stone-300 dark:bg-stone-600 cursor-pointer">
-                                <option value='TWD' className='dark:bg-stone-600'>TWD</option>
-                                <option value='JPY' className='dark:bg-stone-600'>JPY</option>
-                                <option value='USD' className=' dark:bg-stone-600'>USD</option>
-                            </select>
-                        </li>
-                        <label className="swap swap-rotate">
-                            {/* this hidden checkbox controls the state */}
-                            <input type="checkbox" className="theme-controller" value="synthwave" defaultChecked={lightMode} onClick={toggleColor} />
-
-                            {/* sun icon */}
-                            <SunMedium size="30" className='swap-off ' />
-
-
-                            {/* moon icon */}
-                            <Moon size="30" className=' swap-on' />
-                        </label>
-                    </ul>
+                    <div className="flex items-center gap-4">
+                        <CurrencySelect/>
+                        <DarkModeBtn/>
+                    </div>
                 </div>
 
             </nav>

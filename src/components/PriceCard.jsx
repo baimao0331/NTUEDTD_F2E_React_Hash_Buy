@@ -30,7 +30,7 @@ export default function PriceCard(props) {
                         {currencyChange(item.currency, item.variants[selectedVariantId].price)} 
                         {targetCurrency}
                     </p>
-                    <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600">{item.variants[selectedVariantId].price}{item.currency}</p>
+                    <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600 dark:text-stone-400">{item.variants[selectedVariantId].price}{item.currency}</p>
                 </div>
 
                 <div className="w-full grid grid-cols-2 text-lg md:text-right">
@@ -43,7 +43,7 @@ export default function PriceCard(props) {
                         <p className="ml-1 text-right">{targetCurrency}</p>
                         
                     </div>
-                    <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600">{Math.round(item.variants[selectedVariantId].price * item.discount)}{item.currency}</p>
+                    <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600 dark:text-stone-400">{Math.round(item.variants[selectedVariantId].price * item.discount)}{item.currency}</p>
                 </div>
                 
             </div>

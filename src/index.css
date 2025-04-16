@@ -110,8 +110,14 @@ button:focus-visible {
 .info-bottom{
   grid-area: infoBottom;
 }
-
-
+.main .input ,.main .select{
+  background-color: theme('color.stone.50');
+  border: 1px solid theme('color.stone.300')
+}
+.dark .main .input , .dark .main .select{
+  background-color: theme('color.stone.800');
+  border: 1px solid theme('color.stone.600');
+}
 
 .price {
   color:theme("color.orange.500")

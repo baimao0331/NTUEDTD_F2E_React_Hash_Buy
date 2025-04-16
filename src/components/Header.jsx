@@ -22,7 +22,7 @@ export default function Header() {
                         </label>
                         <Search size='40' className=' text-orange-900 ml-4' />
                         <Link className='relative' to={`/shoppingCart`}>
-                            <div className="absolute badge bg-orange-600 text-stone-50 rounded-full left-14 text-sm font-bold !p-0 !pb-0.5 aspect-square border-2">{cartItemNum}</div>
+                            <div className="absolute badge bg-orange-600 border-orange-300 text-stone-50 rounded-full left-14 text-sm font-bold !p-0 !pb-0.5 aspect-square border-3">{cartItemNum}</div>
                             <ShoppingCart size='40' className=' text-orange-900 ml-8' />
                         </Link>
 
