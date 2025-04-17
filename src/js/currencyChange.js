@@ -16,10 +16,10 @@ export default function currencyChange(currency, price) {
         if (currency == targetCurrency) {
             result = price;
         } else {
-            result = price * exchange[currency][targetCurrency];
+            result = Math.round(price * exchange[currency][targetCurrency]);
         }
     } catch (error) {
-        result = price * (1/exchange[targetCurrency][currency]);
+        result = Math.round(price * (1/exchange[targetCurrency][currency]));
     }
     return(result);
     /*switch (currency) {
