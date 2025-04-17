@@ -18,7 +18,7 @@ export default function Listitem(props) {
                     <div className='self-start mt-4 w-2/3'>
                         <p className=" h-[3rem] self-center text- ml-3 line-clamp-2">{title}</p>
                         <figure className=" absolute bottom-2 right-4 flex gap-1 items-baseline">
-                            <span className={`text-stone-50 px-2 bg-red-800 rounded-lg dark:bg-orange-400 text-sm ${discount==1? 'hidden':''}`}>{discount * 100 == 100 ? null : `-` + (100 - discount * 100) + `%`}</span>
+                            <span className={`text-stone-50 px-2 bg-red-800  dark:bg-orange-400 text-sm ${discount==1? 'hidden':''}`}>{discount * 100 == 100 ? null : `-` + (100 - discount * 100) + `%`}</span>
                             <p className=" text-right min-w-12 price font-bold text-lg">{currencyChange(currency,price)}</p>
                             <p className=' text-sm'>{targetCurrency}</p>
                         </figure>
