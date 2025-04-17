@@ -49,9 +49,9 @@ export default function CheckoutContent() {
                 <hr className='my-4' />
                 <h4 className='text-lg font-bold text-orange-900 dark:text-orange-300 mb-2'>訂單商品</h4>
                 {cartItems.map((item, index) => (
-                    <li key={index} className='grid grid-cols-[1fr_1fr_auto_50px_auto] gap-x-4'>
-                        <p className='text-nowrap truncate'>{item.title}</p>
-                        <p>{item.variantName}</p>
+                    <li key={index} className='grid grid-cols-[1fr_1fr_auto_50px_auto] grid-rows-2 sm:grid-rows-1 gap-x-4'>
+                        <p className='text-nowrap truncate col-span-5 sm:col-span-1'>{item.title}</p>
+                        <p className='col-span-2 sm:col-span-1'>{item.variantName}</p>
                         <p>{item.qty}</p>
                         <p className=' text-right'>{currencyChange(item.currency, item.price)}</p>
                         <p>{targetCurrency}</p>
@@ -249,22 +249,25 @@ export default function CheckoutContent() {
                 </label>
             </div>
 
-            <div className=' grid grid-cols-3 gap-4 w-full  max-w-[80vw] mx-auto p-10'>
-                <h4 className='col-span-3 text-lg font-bold text-orange-900 dark:text-orange-300'>付款資訊</h4>
-                <div>
+            <div className=' grid grid-cols-3 gap-4 w-full max-w-[80vw] mx-auto p-10'>
+                <h4 className='col-span-3 text-lg font-bold text-orange-900 dark:text-orange-300 grid-cols-3'>付款資訊</h4>
+                <div className=' col-span-3 md:col-span-1'>
                     <p>信用卡卡號</p>
-                    <input type="text" name='cc-number' placeholder='請輸入信用卡卡號' className="input" />
+                    <input type="text" name='cc-number' placeholder='請輸入信用卡卡號' className="input w-full" />
                 </div>
-                <div className='col-span-1'>
-                    <p>有效日期</p>
-                    <input type="text" name='cc-exp' placeholder='MM/YY' className="input" />
-                </div>
-                <div className='col-span-1'>
+                <div className=' col-span-1'>
                     <p>安全碼</p>
-                    <input type="text" name='cc-csc' placeholder='CVC' className="input" />
+                    <input type="text" name='cc-csc' placeholder='CVC' className="input w-full" />
+                </div>
+                <div className=' col-span-1'>
+                    <p>有效日期</p>
+                    <input type="text" name='cc-exp' placeholder='MM/YY' className="input w-full" />
                 </div>
             </div>
-            <button className='w-full max-w-[80vw] mx-auto my-15'>確認付款　{totalCost}{targetCurrency}</button>
+            <Link to={`/`}>
+                <button className='w-full max-w-[80vw] mx-auto my-15'>確認付款　{totalCost}{targetCurrency}</button>
+            </Link>
+
         </div>
     )
 }

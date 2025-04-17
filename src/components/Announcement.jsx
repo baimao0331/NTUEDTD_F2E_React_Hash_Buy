@@ -20,7 +20,7 @@ export default function Announcement() {
     return (
         <>
             <div className=' max-w-screen-xl mx-auto overflow-hidden bg-orange-100 dark:bg-stone-800 border-1 text-stone-900 dark:text-stone-50 border-orange-900 dark:border-stone-600 rounded-md py-1 flex items-center gap-4'>
-                <Megaphone size='30' className=' text-orange-900 dark:text-orange-300 ml-8' />
+                <Megaphone size='30' className=' text-orange-900 dark:text-orange-300 ml-4 md:ml-8' />
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={index}
@@ -28,7 +28,7 @@ export default function Announcement() {
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        className=" w-full"
+                        className=" w-full h-[3rem] md:h-auto"
                     >
                         {notices[index]}
                     </motion.div>

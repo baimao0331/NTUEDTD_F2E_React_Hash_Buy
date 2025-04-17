@@ -84,7 +84,7 @@ export default function Product() {
     }
 
     return (
-        <main className=" main">
+        <main className=" main w-screen overflow-hidden">
             <Helmet>
                 <title>{item.title} - Hash·Buy</title>
             </Helmet>
@@ -135,14 +135,14 @@ export default function Product() {
                         <h2 className="info-title text-xl font-bold min-h-[3rem] leading-snug">{item.title}</h2>
 
                         <div className=" relative info-main flex justify-between">
-                            <div className=" w-6/10 mt-4">
+                            <div className=" w-5/10 lg:w-6/10 mt-4">
                                 <p className="font-bold">by {item.creator}</p>
                                 <p className="text-sm text-stone-600 dark:text-stone-400">{item.release_date.replaceAll("-", "/")} 推出</p>
 
                                 {/* 品項下拉選單 */}
                                 <select
                                     defaultValue={item.variants[0].name}
-                                    className=" absolute select w-1/2 bottom-0 bg-stone-50 dark:bg-stone-700"
+                                    className=" absolute select w-1/3 lg:w-1/2 bottom-0 bg-stone-50 dark:bg-stone-700"
                                     onChange={changeVariantId}>
                                     {item.variants.map(variant => (
                                         <option key={variant.id} value={variant.id - 1}>
@@ -162,13 +162,13 @@ export default function Product() {
                             <div className=" flex justify-between mb-8">
                                 {/*數量選擇 */}
                                 <div className=" inline-flex w-1/4 rounded-sm">
-                                    <button className=" btn !p-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700"
+                                    <button className=" btn !p-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700 !shadow-none !px-0 w-1/4"
                                         disabled={(outOfStock ? true : false)}
                                         onClick={handleDecrease}>
                                         <Minus className=" dark:!text-stone-50" />
                                     </button>
-                                    <div className="flex items-center flex-1 bg-stone-50 dark:bg-stone-600"><p className=" text-center w-full">{outOfStock ? 0 : qty}</p></div>
-                                    <button className=" btn !p-2 no-round !rounded-r-sm !rounded-l-none !bg-stone-200 dark:!bg-stone-700 shadow-none"
+                                    <div className="flex items-center w-1/2 bg-stone-50 dark:bg-stone-600"><p className=" text-center w-full">{outOfStock ? 0 : qty}</p></div>
+                                    <button className=" btn !p-2 no-round !rounded-r-sm !rounded-l-none !bg-stone-200 dark:!bg-stone-700 !shadow-none !px-0 w-1/4"
                                         disabled={(outOfStock ? true : false)}
                                         onClick={handleIncrease}>
                                         <Plus className=" dark:!text-stone-50" />

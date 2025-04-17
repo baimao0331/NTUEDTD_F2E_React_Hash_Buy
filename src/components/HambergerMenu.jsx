@@ -55,7 +55,7 @@ export default function HambergerMenu() {
                 </Link>
               </li>
               <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                <Link to={`/`}>
+                <Link to={`/guide`}>
                   <div className='w-[50vw] p-2 rounded-md text-center border-2'>購物說明</div>
                 </Link>
               </li>

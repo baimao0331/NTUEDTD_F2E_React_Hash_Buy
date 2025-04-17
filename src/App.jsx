@@ -8,7 +8,8 @@ import Product from './pages/Product';
 import Category from './pages/Category';
 import store from './redux/store';
 import Checkout from './pages/Checkout';
-import Results from './pages/Results'
+import Results from './pages/Results';
+import ShoppingGuide from './pages/ShoppingGuild';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
               <Route path='/shoppingcart' element={<ShoppingCart />} />
               <Route path='/checkout' element={<Checkout />}/>
               <Route path='/results/:keyword' element={<Results />}/>
+              <Route path='/guide' element={<ShoppingGuide />}/>
               <Route path='/products'>
                 <Route path="category/:categoryName" element={<Category />} />
                 <Route path="id/:id" element={<Product />} />

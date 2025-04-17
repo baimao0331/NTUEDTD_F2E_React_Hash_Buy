@@ -19,7 +19,7 @@ export default function Navbar() {
                             <Link to={`/products/category/周邊商品`}>周邊商品</Link>
                         </li>
                         <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                            <Link to={`/`}>購物說明</Link>
+                            <Link to={`/guide`}>購物說明</Link>
                         </li>
                     </ul>
                     <div className="flex items-center gap-4">

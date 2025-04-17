@@ -27,13 +27,13 @@ export default function Cart() {
                     cartItems.map((item, index) => (
                         <li key={index}>
                         <hr className='border-1 border-stone-300 dark:border-stone-600 my-2' />
-                        <div className="  h-25 lg:w-8/10 mx-auto grid grid-cols-[1fr_auto_1fr_auto] md:grid-rows-2 lg:grid-cols-[100px_1fr_120px_80px] gap-x-5 md:gap-x-10 items-center pl-10 pr-6 relative mb-4">
+                        <div className="  h-25 lg:w-8/10 mx-auto grid grid-cols-[1fr_auto_1fr_auto] md:grid-rows-2 lg:grid-cols-[100px_1fr_120px_80px] gap-x-5 md:gap-x-10 items-center pl-10 pr-6 relative mb-4 overflow-hidden">
                             <X className=' absolute left-2 text-stone-300 cursor-pointer'
                                 onClick={() => {
                                     dispatch(removeItem({ id: item.id, variantID: item.variantID }));
                                 }} />
                             {/*圖片 */}
-                            <figure className=" order-1 col-span-1 row-span-2 lg:order-0 lg:row-span-2 aspect-3/2 md:aspect-2/1 overflow-hidden rounded-xl w-full]">
+                            <figure className=" order-1 col-span-2 sm:col-span-1 row-span-2 lg:order-0 lg:row-span-2 aspect-2/1 overflow-hidden rounded-xl h-full w-full ]">
                                 <img src={`/images/` + item.id + `/` + item.image} alt="商品圖" className=" h-full w-full object-cover object-center" />
                             </figure>
 
@@ -46,16 +46,16 @@ export default function Cart() {
                             </div>
 
                             {/*數量選擇 */}
-                            <div className="order-4 col-span-2 lg:col-span-1 lg:order-2 inline-flex h-1/2 lg:h-1/3 w-2/3 lg:w-full lg:row-span-2 rounded-md border-1 border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-600">
-                                <button className=" btn shadow-none !h-full !px-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700"
+                            <div className="order-4 col-span-2 lg:col-span-1 lg:order-2 inline-flex h-1/2 lg:h-1/3 md:w-2/3 w-full lg:row-span-2 rounded-md border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-600">
+                                <button className=" btn !h-full no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700  !shadow-none !px-0 w-1/4"
                                     onClick={() => {
                                         const newQty = Math.max(1, item.qty - 1);
                                         dispatch(updateQty({ id: item.id, variantID: item.variantID, qty: newQty }));
                                     }}>
                                     <Minus className=" dark:!text-stone-50 size-4" />
                                 </button>
-                                <div className="flex items-center flex-1"><p className=" w-full text-center  text-sm">{item.qty}</p></div>
-                                <button className=" btn shadow-none !h-full !px-2 no-round !rounded-r-md !rounded-l-none !bg-stone-200 dark:!bg-stone-700"
+                                <div className="flex items-center flex-1 h-full"><p className=" h-full w-full text-center text-sm">{item.qty}</p></div>
+                                <button className=" btn !h-full no-round !rounded-r-md !rounded-l-none !bg-stone-200 dark:!bg-stone-700  !shadow-none !px-0 w-1/4"
                                     onClick={() => {
                                         const newQty = Math.min(item.stock, item.qty + 1);
                                         dispatch(updateQty({ id: item.id, variantID: item.variantID, qty: newQty }));

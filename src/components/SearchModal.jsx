@@ -42,11 +42,11 @@ export default function SearchModal() {
     return (
         <>
             {/* 搜尋 icon */}
-            <div onClick={toggleModal} className=' flex cursor-pointer'>
+            <div onClick={toggleModal} className=' flex cursor-pointer items-center'>
                 <label className="input bg-stone-50 hidden md:flex">
                     <input type="search" required placeholder="輸入關鍵字" className=' text-stone-900 font-bold' />
                 </label>
-                <Search size='40' className=" text-orange-900 ml-4" />
+                <Search className=" size-[3vw] max-w-[40px] min-h-[30px] min-w-[30px] text-orange-900 ml-4" />
             </div>
 
             <AnimatePresence>
