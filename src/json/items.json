@@ -364,6 +364,235 @@
       ],
       "description": "印有動畫「孤獨搖滾!」中結束樂團標誌的漁夫帽。",
       "likes": 100
+    },
+    {
+      "id": 13,
+      "itemType":"3D",
+      "title": "オリジナル3Dモデル「マヌカ」ver1.02 ",
+      "creator": "STUDIO JINGO",
+      "release_date": "2023-08-31",
+      "images": ["img1.jpg"],
+      "currency": "JPY",
+      "discount": 1,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "Digital",
+          "price": 6000,
+          "stock": null,
+          "image":null
+        }
+      ],
+      "description": "オリジナル3Dモデル「マヌカ」\n\n製作者: 진권/ジンゴ\n\nこのモデルはBlender\n\n2.83で製作されました。 他のプログラムでの互換性は保障いたしません\n\n▶商品説明◀\nUnity Humanoid, Phys bone, Lip Sync, Eye-Tracking, Full-body Tracking, VRCSDK 3.0 対応\n\n△ 117,236\n\nVRC用リップシンク·アイトラッキングシェープキー 18個\n\n表情シェイプキー406個(MMD互換シェイプキー49個)\n\n素体シェイプキー35個\n\nヘア·衣装 シェイプキー 約66個\n\nマテリアル5個\n\nlilToon Shader\nhttps://lilxyzw.booth.pm/items/3087170\n\nPoiyomi Toon Shader\nhttps://poiyomi.booth.pm/items/4841309\nPoiyomiマテリアル作業者: Poiyomi (@poiyomi)\n\nメッシュ22個\n\n表情アニメーション28個\n\nテクスチャー11個（メインテクスチャー4個）\n\n3.0専用アイコン23個\n\n「マヌカ」専用AFKモーション 4個\nAFKモーション作業者: Levin (@bunny_64479)\n\n※blend, PSD, FBX, VRMファイル同梱※\n\nTwitter: @jingo_1016\nE-mail: studiojingo@gmail.com",
+      "likes": 32219
+    },
+    {
+      "id": 14,
+      "itemType":"3D",
+      "title": "✨✨✨1周年ありがとうセール✨✨✨ 【オリジナル3Dモデル】 Sio / しお / ver.2.00 ",
+      "creator": "Chocolate rice",
+      "release_date": "2024-04-12",
+      "images": ["img1.jpg"],
+      "currency": "JPY",
+      "discount": 0.5,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "Digital",
+          "price": 5500,
+          "stock": null,
+          "image":null
+        }
+      ],
+      "description": 
+      "
+✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦
+Sioちゃん1周年ありがとうセール！
+もう1年なんて(๑˃̵ᴗ˂̵)
+
+感謝の気持ちを込めておトクなセールを開催中💝
+今だけのチャンスだから、ぜひチェックしてねっ！
+✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦
+
+
+
+
+
+
+
+
+- 2024/04/12 [18:00]
+【オリジナル3Dモデル】 Sio / しお ver.1.00 released.
+
+
+- 2024/04/12 [19:26]
+Hair PSD 追加
+Hair PSD 추가
+
+
+- 2024/04/30 [22:00] -> Sio_ver.1.01
+Breast.1_L / コライダー追加
+Costume_Jacket / 細かいテクスチャー修正
+Breast.1_L - 콜라이더 추가
+Costume_Jacket / 미세한 텍스쳐 수정
+
+
+- 2024/06/02 [18:12]
+足の震えを緩和するロコモーションパッチパッケージを追加
+다리 떨림 완화 로코모션 패치 패키지 추가
+
+- 2024/06/05 [18:33]
+ロコモーションパッチ : 瞬きをしないエラー修正
+로코모션 패치 : 눈 깜빡이지 않는 오류 수정
+
+
+- 2024/07/10 [15:49] Update
+Sio_ver.1.02_Chocolate_rice
+まつげ、口の構造、耳ノーマル修正
+속눈썹, 입구조, 귀 노멀 수정
+
+
+- 2024/12/13 [21:14] Update
+
+-Sio_ver.2.0
+- 顔メッシュの全体的な調整
+- シェイプキー調整時の目の歪みを軽減
+
+❗❗❗❗❗ver.2.0以降、顔メッシュが変更されたため、メッシュ情報を参照するアセット（フェイシャルトラッキングパッチなど）は互換性に問題が発生する可能性があります。該当アセットを使用している方は、旧バージョンをそのままお使いいただくか、アセットのアップデートが行われるまでお待ちいただけますようお願いいたします。
+
+❗❗❗❗❗ver.2.0 부터 얼굴 메쉬의 변경점이 있어 메쉬 정보를 참조하는 에셋(페이셜트래킹 패치 등)은 호환이 어려울 수 있으니, 해당 에셋의 사용자분들은 기존 버전의 유지 혹은 해당 에셋의 업데이트를 기다려주세요.
+
+
+
+❗❗❗❗❗顔部分のUVに細かな修正が加えられています。そのため、既存のver.1用メイクアップを適用すると、違和感が生じる場合がありますのでご注意ください。
+
+❗❗❗❗❗얼굴부분에 미세한 UV 수정이 있습니다. 기존 ver.1을 위한 메이크업은 적용시 위화감이 있을 수 있습니다.
+
+
+
+
+- 2024/12/16 [01:20] ver2.0 / Update
+
+更新ログ
+
+1.body_2シェイプキーを使用した際、左手のバーテックスが伸び続ける問題を修正しました。
+2.表情やタッチギミックのアニメーションを微調整しました。
+3.悲しい表情のジェスチャー使用時に、ネコミミが下がらない問題を修正しました。
+4. Kaihen prefebの修正: Kaihen prefebを変更用FXに修正しました。
+
+※こちらは小さな修正なので、バージョンアップはありません。
+
+モデル情報
+モデル名 : Sio / しお
+モデル製作 : Chocolate rice
+現在のモデルバージョン : ver.2.00
+
+動作環境
+- Unity 2022.3.22f1に基づく
+VRChatでの使用を想定した3Dモデルです。
+
+
+-ポリゴン: 126,770
+
+-メッシュ : 23
+-マテリアル : 8
+
+- シェイプキ -
+顔 : 552
+体 : 62
+
+MMD シェイプキー対応
+AFK モーションあり
+
+
+-構成ファイル
+
+Sio Unitypackage
+Sio FBX
+Sio sotai FBX
+Texture
+Texture for Custom
+UV
+PSD
+利用規約PDF (JA, KR, EN, ZH)
+
+
+- ヘア特記事項
+ヘアーベース·ツインテール部分メッシュのUVは
+左右重ねで製作されています。
+
+
+
+
+
+
+
+
+
+
+
+導入方法
+【無料】lilToonシェーダーを先に導入してからインポートしてください。
+https://booth.pm/ko/items/3087170
+
+
+
+
+
+
+
+
+
+
+
+オリジナルモデルSio利用規約
+ユーザーが本モデルを使用してモデルによる被害や問題が発生した場合、その責任はユーザーにあります。
+クリエイターはその被害に対して責任を負いません。
+
+購入時の利用規約は同意とみなされ、ブースの特性返済はできません。
+購入およびご利用前にお読みください。
+
+
+-KR https://drive.google.com/file/d/16V1d8kKnigKflJPJMtEFD58iXNgdOHH_/view?usp=drive_link
+-JA
+https://drive.google.com/file/d/17VWFIPLh6eLYPHl1stdh2rWa-yQT93bg/view?usp=sharing
+- EN
+https://drive.google.com/file/d/1emfgEPY4O0iU6L_ntBSYc3tV9ohSAgRG/view?usp=sharing
+- ZH
+https://drive.google.com/file/d/1WeyWLWlI26PB_Sb-LD2L6XGWDcghipbG/view?usp=sharing
+
+
+
+
+- ! 特記事項 ! -
+VTuberなど商⽤利⽤する場合
+1.Boothメッセージでのお問い合わせ必須
+2.クレジット表記必須
+
+
+・禁止事項・
+
+【購入者本人以外の人に無料又は有料で配布】
+例 1. 知人に無料で送る行為。
+例 2. パブリック化する行為。
+例 3. 自分のboothで販売する行為。
+例 4. アバターを購入していないユーザーにファイルを送ってコミッションを進める行為。
+
+【修正後再販】
+例 1. テクスチャの色を変えて販売する行為。
+例 2. 自分が作ったモデルに一部貼り付けて一緒に販売する行為。
+例 3. 一部を消去して販売する行為。
+例 4. メッシュ、ボーンなどを修正して販売する行為。
+
+
+
+本モデルの購入者以外の人が使用するものとVRCパブリックアップロード、配布は絶対に許可されません。
+
+モデルのオリジナルファイル（3Dファイル、テクスチャなど）を使って改造したものを販売、再配布する行為を禁止します。
+-専用衣装制作時に一部複製を許可 (テクスチャを除く）",
+      "likes": 32219
     }
   ]
   

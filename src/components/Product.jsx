@@ -199,7 +199,7 @@ export default function Product() {
                 </div>
                 <div className="mt-10 flex flex-col md:flex-row gap-4">
                     <div className=" w-full md:w-2/3">
-                        <h3 className="text-xl font-bold text-orange-900 dark:text-orange-300 mb-2">簡介</h3>
+                        <h3 className="text-xl font-bold whitespace-pre-line text-orange-900 dark:text-orange-300 mb-2">簡介</h3>
                         <div className="">
                             <p>{item.description}</p>
                         </div>
