@@ -5,7 +5,7 @@ import Listitem from './Listitem'
 
 export default function HomeContent() {
     const popularItem = items.sort((a,b) => b.likes - a.likes).slice(0,10);
-    const newItem = items.sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+    const newItem = items.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)).slice(0,10);
     return (
         <>
             <main className=' main w-dvw px-10 bg-stone-100 dark:bg-stone-800'>

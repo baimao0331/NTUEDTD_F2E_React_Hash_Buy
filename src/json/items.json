@@ -154,7 +154,7 @@
     {
       "id": 6,
       "itemType":"周邊商品",
-      "title": "【Girls Band Cry】芹井仁菜娃娃",
+      "title": "【Girls Band Cry】井芹仁菜娃娃",
       "creator": "TOEI ANIMATION",
       "release_date": "2025-01-21",
       "images": ["img1.jpg","img2.jpg","img3.jpg","img4.jpg"],
@@ -164,7 +164,7 @@
       "variants": [
         {
           "id": 1,
-          "name": "芹井仁菜",
+          "name": "井芹仁菜",
           "price": 935,
           "stock": 5,
           "image":null
@@ -208,6 +208,162 @@
       ],
       "description": "取自TV動畫『「Re:從零開始的異世界生活」』、使用全新繪製插圖，可愛的婚禮服裝B2半裁掛軸登場！",
       "likes": 88
+    },
+    {
+      "id": 8,
+      "itemType":"周邊商品",
+      "title": "【Girls Band Cry】原創金屬徽章",
+      "creator": "TOEI ANIMATION",
+      "release_date": "2023-07-26",
+      "images": ["img1.jpg"],
+      "currency": "TWD",
+      "discount": 1,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "井芹仁菜",
+          "price": 440,
+          "stock": 0,
+          "image":"nina.jpg"
+        },
+        {
+          "id": 2,
+          "name": "河原木桃香",
+          "price": 440,
+          "stock": 0,
+          "image":"momoka.jpg"
+        },
+        {
+          "id": 3,
+          "name": "安和昴",
+          "price": 440,
+          "stock": 0,
+          "image":"subaru.jpg"
+        },
+        {
+          "id": 4,
+          "name": "海老冢智",
+          "price": 440,
+          "stock": 5,
+          "image":"satoshi.jpg"
+        },
+        {
+          "id": 5,
+          "name": "RUPA",
+          "price": 440,
+          "stock": 5,
+          "image":"rupa.jpg"
+        }
+      ],
+      "description": "來自動畫Girls Band Cry的搖滾樂團「トゲナシ トゲアリ」所出的周邊商品，描繪了五人樣貌的金屬徽章。",
+      "likes": 118
+    },
+    {
+      "id": 9,
+      "itemType":"周邊商品",
+      "title": "【Girls Band Cry】壓克力人形立牌 井芹仁菜",
+      "creator": "TOEI ANIMATION",
+      "release_date": "2023-07-26",
+      "images": ["img1.jpg"],
+      "currency": "JPY",
+      "discount": 1,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "井芹仁菜",
+          "price": 880,
+          "stock": 5,
+          "image":null
+        }
+      ],
+      "description": "來自動畫Girls Band Cry的搖滾樂團「トゲナシ トゲアリ」 vo.井芹仁菜的壓克力立牌登場!可以與同系列商品自由組合。",
+      "likes": 111
+    },
+    {
+      "id": 10,
+      "itemType":"周邊商品",
+      "title": "「BanG Dream! It's MyGo!!!!!」長方形金屬徽章 Zero gravity ver.(共五款隨機一入) ",
+      "creator": "ブシロード",
+      "release_date": "2025-05-10",
+      "images": ["img1.jpg"],
+      "currency": "JPY",
+      "discount": 1,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "共五款隨機一入",
+          "price": 660,
+          "stock": 20,
+          "image":null
+        }
+      ],
+      "description": "BanG Dream! It's MyGo!!!!!五位成員的長方形金屬徽章，描繪了五人在無重力下的姿態!",
+      "likes": 133
+    },
+    {
+      "id": 11,
+      "itemType":"周邊商品",
+      "title": "「孤獨搖滾!」結束樂團T恤-白 ",
+      "creator": "Aniplex",
+      "release_date": "2024-08-01",
+      "images": ["img1.jpg"],
+      "currency": "TWD",
+      "discount": 0.9,
+      "discount_end": "2025-05-10",
+      "variants": [
+        {
+          "id": 1,
+          "name": "M",
+          "price": 1260,
+          "stock": 20,
+          "image":null
+        },        {
+          "id": 2,
+          "name": "L",
+          "price": 1260,
+          "stock": 20,
+          "image":null
+        },        {
+          "id": 3,
+          "name": "XL",
+          "price": 1260,
+          "stock": 20,
+          "image":null
+        },        {
+          "id": 4,
+          "name": "XXL",
+          "price": 1260,
+          "stock": 20,
+          "image":null
+        }
+      ],
+      "description": "動畫「孤獨搖滾!」中結束樂團的白色款T恤。",
+      "likes": 100
+    },
+    {
+      "id": 12,
+      "itemType":"周邊商品",
+      "title": "「孤獨搖滾!」結束樂團漁夫帽 ",
+      "creator": "Aniplex",
+      "release_date": "2024-08-02",
+      "images": ["img1.jpg"],
+      "currency": "TWD",
+      "discount": 0.9,
+      "discount_end": "2025-05-10",
+      "variants": [
+        {
+          "id": 1,
+          "name": "漁夫帽",
+          "price": 1460,
+          "stock": 3,
+          "image":null
+        }
+      ],
+      "description": "印有動畫「孤獨搖滾!」中結束樂團標誌的漁夫帽。",
+      "likes": 100
     }
   ]
   
