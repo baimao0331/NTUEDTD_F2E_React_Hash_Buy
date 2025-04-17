@@ -2,7 +2,7 @@ import { Link } from 'react-router'
 import currencyChange from '../js/currencyChange'
 import { useSelector } from "react-redux";
 import { selectCurrency } from "../redux/currencySlice";
-import { flip, shift, useFloating,useHover, autoUpdate, useInteractions} from '@floating-ui/react';
+import { flip, shift, useFloating,useHover, autoUpdate, useInteractions, safePolygon} from '@floating-ui/react';
 import { useState } from 'react';
 
 export default function Listitem(props) {
@@ -16,7 +16,9 @@ export default function Listitem(props) {
         placement: 'right-start',
         middleware:[flip({crossAxis:false,}),shift({crossAxis:false,})]
     });
-    const hover = useHover(context);
+    const hover = useHover(context, {
+        handleClose: safePolygon(),
+    });
     const {getReferenceProps, getFloatingProps} = useInteractions([
         hover,
     ]);
