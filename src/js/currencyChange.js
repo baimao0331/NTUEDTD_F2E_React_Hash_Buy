@@ -7,6 +7,11 @@ var exchange = {
         'JPY':1,
         'TWD':0.23
     },
+    'USD':{
+        'USD':1,
+        'JPY':143.01,
+        'TWD':32.4
+    }
 }
 
 export default function currencyChange(currency, price) {
