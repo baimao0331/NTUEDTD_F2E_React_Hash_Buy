@@ -29,11 +29,11 @@ export default function Listitem(props) {
 
             {isOpen && (
                 <FloatingPortal>
-                    <div ref={refs.setFloating} style={floatingStyles} className="max-w-sm rounded overflow-hidden shadow-lg" {...getFloatingProps()}>
+                    <div ref={refs.setFloating} style={floatingStyles} className="max-w-sm rounded overflow-hidden bg-neutral-100 dark:bg-neutral-700 shadow-lg" {...getFloatingProps()}>
 
                         <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-                            <p className="text-gray-700 text-base">
+                            <p className="text-stone-900 dark:text-stone-50 text-base">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
                             </p>
                         </div>
