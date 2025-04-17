@@ -12,7 +12,7 @@ export default function Cart() {
     console.log(cartItems);
 
     return (
-        <div className='max-w-screen-xl mx-auto'>
+        <div className='max-w-screen-xl mx-auto w-full px-10'>
             <ul className={`rounded-lg flex flex-col w-full min-h-[80vh] py-3 px-5 ${cartItems.length == 0? '':'bg-stone-50 dark:bg-stone-700'}`}>
                 <li className=' my-5 flex mx-auto items-center gap-2 text-xl text-orange-900 dark:text-orange-300'>
                     <ShoppingCart size={28} />

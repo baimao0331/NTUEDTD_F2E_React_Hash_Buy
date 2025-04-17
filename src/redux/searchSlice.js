@@ -8,10 +8,13 @@ const searchSlice = createSlice({
     reducers: {
         newHistory: (state, action) => {
             const keyword = action.payload;
-            state.searchHistory.push(keyword);
+            state.searchHistory.unshift(keyword);
+            if (state.searchHistory.length > 5) {
+                state.searchHistory = state.searchHistory.slice(0, 5);
+              }
         },
         clearHistory: (state, action) => {
-            searchHistory = [];
+            state.searchHistory = [];
         },
     },
 });
