@@ -47,14 +47,14 @@
         }
       ],
       "description": "BanG Dream! It's MyGo!!!!!五位成員的壓克力立牌，描繪了五人在強風吹拂時的姿態!",
-      "likes": 135
+      "likes": 143
     },
     {
       "id": 2,
       "itemType":"周邊商品",
-      "title": "【預購】「Re:從零開始的異世界生活」 壓克力人形立牌 Winter ver.",
+      "title": "「Re:從零開始的異世界生活」 壓克力人形立牌 Winter ver.",
       "creator": "KADOKAWA",
-      "release_date": "2025-09-30",
+      "release_date": "2025-06-30",
       "images": ["img1.jpg", "img2.jpg"],
       "currency": "TWD",
       "discount": 0.8,
@@ -84,6 +84,130 @@
       ],
       "description": "取自TV動畫『Re:從零開始的異世界生活』，愛蜜莉雅、拉姆、雷姆化身為冬天可愛造型的壓克力人形立牌登場！",
       "likes": 98
+    },
+    {
+      "id": 3,
+      "itemType":"周邊商品",
+      "title": "「Re:從零開始的異世界生活」 Q版閃亮亮徽章套組 Winter ver.",
+      "creator": "KADOKAWA",
+      "release_date": "2025-06-30",
+      "images": ["img1.jpg"],
+      "currency": "TWD",
+      "discount": 0.8,
+      "discount_end": "2025-05-31",
+      "variants": [
+        {
+          "id": 1,
+          "name": "三入組",
+          "price": 350,
+          "stock": 30,
+          "image":null
+        }
+      ],
+      "description": "取自TV動畫『Re:從零開始的異世界生活』，愛蜜莉雅、拉姆、雷姆化身為冬天可愛造型的Q版閃亮亮徽章套組登場！",
+      "likes": 125
+    },
+    {
+      "id": 4,
+      "itemType":"周邊商品",
+      "title": "「Re:從零開始的異世界生活」 Re:從零開始愛蜜莉雅的誕生日生活2024ver. 壓克力多功能立牌",
+      "creator": "KADOKAWA",
+      "release_date": "2025-04-16",
+      "images": ["img1.jpg", "img2.jpg"],
+      "currency": "TWD",
+      "discount": 0.8,
+      "discount_end": "2025-05-31",
+      "variants": [
+        {
+          "id": 1,
+          "name": "壓克力多功能立牌",
+          "price": 815,
+          "stock": 30,
+          "image":null
+        }
+      ],
+      "description": "活動特繪3位角色的插圖！尺寸非常適合學習或辦公桌使用，也可以將智手機和其他小物品放在上面，非常多用途。",
+      "likes": 98
+    },
+    {
+      "id": 5,
+      "itemType":"周邊商品",
+      "title": "【Girls Band Cry】2nd Live 壓克力鑰匙圈(全5款隨機1入)",
+      "creator": "TOEI ANIMATION",
+      "release_date": "2024-10-25",
+      "images": ["img1.jpg"],
+      "currency": "JPY",
+      "discount": 0.75,
+      "discount_end": "2025-06-30",
+      "variants": [
+        {
+          "id": 1,
+          "name": "全5款隨機1入",
+          "price": 800,
+          "stock": 30,
+          "image":null
+        }
+      ],
+      "description": "來自動畫Girls Band Cry的搖滾樂團「トゲナシ トゲアリ」在2nd live所出的周邊商品，描繪了五人帥氣姿態的匹克造型鑰匙圈，共五款隨機出貨。",
+      "likes": 121
+    },
+    {
+      "id": 6,
+      "itemType":"周邊商品",
+      "title": "【Girls Band Cry】芹井仁菜娃娃",
+      "creator": "TOEI ANIMATION",
+      "release_date": "2025-01-21",
+      "images": ["img1.jpg","img2.jpg","img3.jpg","img4.jpg"],
+      "currency": "JPY",
+      "discount": 1,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "芹井仁菜",
+          "price": 935,
+          "stock": 5,
+          "image":null
+        }
+      ],
+      "description": "動畫Girls Band Cry主角芹井仁菜造型的可愛娃娃，以日本傳統的お手玉為主題設計。",
+      "likes": 121
+    },
+    {
+      "id": 7,
+      "itemType":"周邊商品",
+      "title": "【「Re:從零開始的異世界生活」B2半裁掛軸 婚禮 ver. 系列",
+      "creator": "KADOKAWA",
+      "release_date": "2025-01-29",
+      "images": ["img1.jpg","img2.jpg"],
+      "currency": "TWD",
+      "discount": 1,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "愛蜜莉雅",
+          "price": 625,
+          "stock": 5,
+          "image":null
+        },
+        {
+          "id": 2,
+          "name": "特蕾西亞",
+          "price": 625,
+          "stock": 5,
+          "image":null
+        },
+        {
+          "id": 3,
+          "name": "普莉希拉",
+          "price": 625,
+          "stock": 5,
+          "image":null
+        }
+      ],
+      "description": "取自TV動畫『「Re:從零開始的異世界生活」』、使用全新繪製插圖，可愛的婚禮服裝B2半裁掛軸登場！",
+      "likes": 88
     }
   ]
   

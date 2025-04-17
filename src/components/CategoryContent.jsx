@@ -38,7 +38,7 @@ export default function CategoryContent() {
         const nextList = [...displayItems];
         console.log(nextList);
         switch (value) {
-            case 'newToOld': similarItems;
+            case 'newToOld':
                 setDisplayItems(nextList.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)));
                 break;
             case 'oldToNew':

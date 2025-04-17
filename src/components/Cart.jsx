@@ -72,7 +72,7 @@ export default function Cart() {
                     </li>
                     ))
                 ) : (
-                    <p className="text-center text-stone-500">購物車是空的喔</p>
+                    ''
                 )}
 
                 {cartItems.length == 0 ? "" :

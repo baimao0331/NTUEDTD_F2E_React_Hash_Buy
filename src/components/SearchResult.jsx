@@ -25,20 +25,36 @@ export default function SearchResult() {
     const history = useSelector(selectSearchHistory);
     const targetCurrency = useSelector(selectCurrency);
 
+
     useEffect(() => {
+        const keywordLower = param.keyword.toLowerCase().trim();
+
         const titles = items.map(x => x.title);
-        const result = findBestMatch(param.keyword, titles);
+        const result = findBestMatch(keywordLower, titles.map(t => t.toLowerCase()));
+
         const ratedItems = items.map((item, index) => ({
             ...item,
             similarity: result.ratings[index].rating
         }));
-        const newSimilarItems = ratedItems
-            .filter(x => x.similarity > 0.01)
+
+        // ✨ 額外處理「標題有包含 keyword 的」放最前面
+        const containsKeyword = ratedItems.filter(x =>
+            x.title.toLowerCase().includes(keywordLower)
+        );
+
+        const similarItems = ratedItems
+            .filter(x =>
+                !x.title.toLowerCase().includes(keywordLower) &&
+                x.similarity > 0.01
+            )
             .sort((a, b) => b.similarity - a.similarity);
 
-        setDisplayItems(newSimilarItems);
-        setKeyword(''); // 可選：搜尋後清空 input
+        const combined = [...containsKeyword, ...similarItems];
+
+        setDisplayItems(combined);
+        setKeyword('');
     }, [param.keyword]);
+
 
 
     //搜尋
