@@ -12,7 +12,6 @@ export default function SearchModal() {
     const navigate = useNavigate();
     const inputRef = useRef();
     const searchHistory = useSelector(selectSearchHistory);
-    console.log(searchHistory);
 
     const toggleModal = () => setIsOpen(!isOpen);
     const toggleClear = () => dispatch(clearHistory());

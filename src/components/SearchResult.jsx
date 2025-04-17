@@ -7,15 +7,41 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from 'react-router';
 import { useState, useEffect, useRef } from 'react';
 import { selectSearchHistory, newHistory, clearHistory } from '../redux/searchSlice'
+import { selectCurrency } from "../redux/currencySlice";
+import sortCurrencyChange from '../js/sortCurrencyChange'
+
 
 export default function SearchResult() {
     const dispatch = useDispatch();
-    const [keyword, setKeyword] = useState('');
     const navigate = useNavigate();
-    const inputRef = useRef();
     const param = useParams();
-    const history = useSelector(selectSearchHistory);
 
+    //初始化排序
+    const [displayItems, setDisplayItems] = useState([]);
+    const [sortMode, setSortMode] = useState('relative');
+    const [keyword, setKeyword] = useState('');
+
+    const inputRef = useRef();
+    const history = useSelector(selectSearchHistory);
+    const targetCurrency = useSelector(selectCurrency);
+
+    useEffect(() => {
+        const titles = items.map(x => x.title);
+        const result = findBestMatch(param.keyword, titles);
+        const ratedItems = items.map((item, index) => ({
+            ...item,
+            similarity: result.ratings[index].rating
+        }));
+        const newSimilarItems = ratedItems
+            .filter(x => x.similarity > 0.01)
+            .sort((a, b) => b.similarity - a.similarity);
+
+        setDisplayItems(newSimilarItems);
+        setKeyword(''); // 可選：搜尋後清空 input
+    }, [param.keyword]);
+
+
+    //搜尋
     const handleSearch = (e) => {
         e.preventDefault(); // 防止重新整理
         if (keyword.trim() !== '') {
@@ -24,20 +50,33 @@ export default function SearchResult() {
         }
     };
 
-    const titles = items.map(x => x.title);
-    const result = findBestMatch(param.keyword, titles);
-    const ratedItems = items.map((item, index) => ({
-        ...item,
-        similarity: result.ratings[index].rating
-    }));
-    const similarItems = ratedItems
-        .filter(x => x.similarity > 0)
-        .sort((a, b) => b.similarity - a.similarity)
+    //重新排序
+    const handleSort = (value) => {
+        setSortMode(value);
+        const nextList = [...displayItems];
+        console.log(nextList);
+        switch (value) {
+            case 'relative':
+                setDisplayItems(nextList.sort((a, b) => b.similarity - a.similarity));
+                break;
+            case 'newToOld': similarItems;
+                setDisplayItems(nextList.sort((a, b) => new Date(b.release_date) - new Date(a.release_date)));
+                break;
+            case 'oldToNew':
+                setDisplayItems(nextList.sort((a, b) => new Date(a.release_date) - new Date(b.release_date)));
+                break;
+            case 'highToLow':
+                setDisplayItems(nextList.sort((a, b) => Math.round(sortCurrencyChange(a.currency, targetCurrency, a.variants[0].price) * a.discount) - Math.round(sortCurrencyChange(b.currency, targetCurrency, b.variants[0].price) * b.discount)));
+                break;
+            case 'lowToHigh':
+                setDisplayItems(nextList.sort((a, b) => Math.round(sortCurrencyChange(b.currency, targetCurrency, b.variants[0].price) * b.discount) - Math.round(sortCurrencyChange(a.currency, targetCurrency, a.variants[0].price) * a.discount)));
+                break;
+        };
+    };
 
-    console.log(similarItems);
     return (
         <div className='max-w-screen-xl mx-auto px-10 w-full'>
-            <form onSubmit={handleSearch} className=' flex flex-col my-10  w-full gap-4'>
+            <form onSubmit={handleSearch} className=' flex flex-col mt-10 mb-5 w-full gap-4'>
                 <div className='flex'>
                     <label className="input bg-stone-50 border-0 dark:bg-stone-700 w-full">
                         <input type="search"
@@ -53,10 +92,10 @@ export default function SearchResult() {
                     </button>
                 </div>
 
-                <ul className=' flex items-center'>
-                    <li className='text-stone-100'>搜尋歷史</li>
+                <ul className=' flex items-center text-stone-300'>
+                    <li className=''>搜尋歷史：</li>
                     {history.map((keyword, index) => (
-                        <li>
+                        <li key={index}>
                             {<Link
                                 to={`/results/${keyword}`}
                                 className="block px-3 py-1 rounded hover:bg-stone-100 dark:hover:bg-stone-600"
@@ -66,11 +105,23 @@ export default function SearchResult() {
                         </li>
                     ))}
                 </ul>
+                <div className=" flex items-center">
+                    <span className=" text-nowrap">使用幣值 : </span>
+                    <select
+                        defaultValue={sortMode}
+                        onChange={(event) => handleSort(event.target.value)}
+                        className="select shadow-none h-8 focus:outline-none ml-1 mt-0.5 border-0 bg-stone-300 dark:bg-stone-600 cursor-pointer">
+                        <option value='relative' className='dark:bg-stone-600'>關聯性</option>
+                        <option value='newToOld' className='dark:bg-stone-600'>由新到舊</option>
+                        <option value='oldToNew' className='dark:bg-stone-600'>由舊到新</option>
+                        <option value='highToLow' className=' dark:bg-stone-600'>由價格低到高</option>
+                        <option value='lowToHigh' className=' dark:bg-stone-600'>由價格高到低</option>
+                    </select>
+                </div>
             </form>
 
-
             <ul className=' grid grid-cols-2 gap-10'>
-                {similarItems.map((item) => (
+                {displayItems.map((item) => (
                     <div key={item.id}>
                         <hr className=' border-1 border-stone-200 dark:border-stone-600' />
                         <Listitem
