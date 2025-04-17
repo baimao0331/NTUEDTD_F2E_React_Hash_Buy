@@ -92,13 +92,13 @@ export default function SearchResult() {
                     </button>
                 </div>
 
-                <ul className=' flex items-center text-stone-300'>
+                <ul className=' flex items-center text-stone-900 dark:text-stone-50'>
                     <li className=''>搜尋歷史：</li>
                     {history.map((keyword, index) => (
                         <li key={index}>
                             {<Link
                                 to={`/results/${keyword}`}
-                                className="block px-3 py-1 rounded hover:bg-stone-100 dark:hover:bg-stone-600"
+                                className="block px-3 py-1 rounded hover:bg-stone-300 dark:hover:bg-stone-600"
                             >
                                 {keyword}
                             </Link>}
@@ -120,7 +120,7 @@ export default function SearchResult() {
                 </div>
             </form>
 
-            <ul className=' grid grid-cols-2 gap-10'>
+            <ul className=' grid grid-cols-1 lg:grid-cols-2 gap-10'>
                 {displayItems.map((item) => (
                     <div key={item.id}>
                         <hr className=' border-1 border-stone-200 dark:border-stone-600' />

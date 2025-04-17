@@ -84,7 +84,7 @@ export default function SearchModal() {
                                     onChange={(e) => setKeyword(e.target.value)}
                                     type="text"
                                     placeholder="輸入關鍵字..."
-                                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 ring-orange-500 dark:bg-stone-700 dark:text-white"
+                                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 border-stone-600 dark:border-stone-300 ring-orange-500 dark:bg-stone-700 dark:text-white"
                                 />
                                 <button className="!px-5 !py-0 ml-4">
                                     <Search size="30" className="text-orange-900" />
@@ -107,7 +107,7 @@ export default function SearchModal() {
                                             </li>
                                         ))}
                                         <li onClick={toggleClear} 
-                                            className=" mt-10 border-2 text-center p-2 rounded-md border-stone-600 dark:border-stone-50 cursor-pointer dark:hover:border-stone-500 hover:border-stone-100">
+                                            className=" mt-10 border-1 text-center p-2 rounded-md border-stone-600 dark:border-stone-300 cursor-pointer dark:hover:border-stone-500 hover:border-stone-100">
                                             清除搜尋歷史
                                         </li>
                                     </ul>
