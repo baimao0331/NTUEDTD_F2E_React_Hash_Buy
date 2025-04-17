@@ -2,7 +2,7 @@ import { Link } from 'react-router'
 import currencyChange from '../js/currencyChange'
 import { useSelector } from "react-redux";
 import { selectCurrency } from "../redux/currencySlice";
-import { flip, shift, useFloating,useHover, autoUpdate, useInteractions, safePolygon, FloatingOverlay} from '@floating-ui/react';
+import { flip, shift, useFloating,useHover, autoUpdate, useInteractions, safePolygon, FloatingPortal} from '@floating-ui/react';
 import { useState } from 'react';
 
 export default function Listitem(props) {
@@ -14,6 +14,7 @@ export default function Listitem(props) {
         open: isOpen,
         onOpenChange: setIsOpen,
         placement: 'right-start',
+        strategy: 'fixed',
         middleware:[flip({crossAxis:false,}),shift({crossAxis:false,})]
     });
     const hover = useHover(context, {
@@ -27,7 +28,7 @@ export default function Listitem(props) {
         <>
 
             {isOpen && (
-                <FloatingOverlay>
+                <FloatingPortal>
                 <div ref={refs.setFloating} style={floatingStyles} className="max-w-sm rounded overflow-hidden shadow-lg" {...getFloatingProps()}>
                     
                     <div className="px-6 py-4">
@@ -42,7 +43,7 @@ export default function Listitem(props) {
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
                 </div>
                 </div>
-            </FloatingOverlay>
+            </FloatingPortal>
             )}
             <div key={id} ref={refs.setReference} className="  h-25 w-full flex pl-4 pr-6 relative group text-stone-900 dark:text-stone-50"{...getReferenceProps()}>
                 <Link to={`/products/id/` + id} className=' w-full h-full flex'>
