@@ -13,10 +13,10 @@ export default function Navbar() {
                             <Link to={`/`}>首頁</Link>
                         </li>
                         <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                            <Link to={`/products/category/3Dmodel`}>3D模型</Link>
+                            <Link to={`/products/category/3D模型`}>3D模型</Link>
                         </li>
                         <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                            <Link to={`/products/category/goods`}>周邊商品</Link>
+                            <Link to={`/products/category/周邊商品`}>周邊商品</Link>
                         </li>
                         <li className='hover:text-stone-600 dark:hover:text-orange-300'>
                             <Link to={`/`}>購物說明</Link>

@@ -1,4 +1,4 @@
-import { ShoppingCart } from 'lucide-react';
+import { DiscAlbumIcon, ShoppingCart } from 'lucide-react';
 import { useDispatch } from "react-redux";
 import { addCartItems } from "../redux/cartSlice";
 
@@ -17,6 +17,7 @@ export default function AddToCart(props) {
             price: item.variants[selectedVariantId].price,
             stock: item.variants[selectedVariantId].stock,
             currency: item.currency,
+            discount: item.discount,
             qty: qty
         }))
     }

@@ -45,12 +45,12 @@ export default function HambergerMenu() {
                 </Link>
               </li>
               <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                <Link to={`/products/category/3Dmodel`}>
+                <Link to={`/products/category/3D模型`}>
                   <div className='w-[50vw] p-2 rounded-md text-center border-2'>3D模型</div>
                 </Link>
               </li>
               <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                <Link to={`/products/category/goods`}>
+                <Link to={`/products/category/周邊商品`}>
                   <div className='w-[50vw] p-2 rounded-md text-center border-2'>周邊商品</div>
                 </Link>
               </li>

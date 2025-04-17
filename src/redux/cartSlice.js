@@ -27,12 +27,12 @@ const cartSlice = createSlice({
               }
             }
           },
-        removeItem: (state, action) =>{
-            const { id, variantId } = action.payload;
+          removeItem: (state, action) => {
+            const { id, variantID } = action.payload;
             state.cartItems = state.cartItems.filter(
-              item => !(item.id === id && item.variantId === variantId)
+              item => !(item.id === id && item.variantID === variantID)
             );
-        },
+          },
     },
 });
 

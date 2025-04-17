@@ -12,20 +12,24 @@ export default function CheckoutContent() {
     const targetCurrency = useSelector(selectCurrency);
 
     const [buyer, setBuyer] = useState({
-        name: '',
-        phone: '',
+        familyName: '',
+        givenName: '',
+        tel: '',
+        email: '',
         address: '',
-        city: 0
+        city: 0,
+        district: 0,
     });
     const [recipient, setRecipient] = useState({
-        name: '',
-        phone: '',
+        familyName: '',
+        givenName: '',
+        tel: '',
+        email: '',
         address: '',
-        city: 0
+        city: 0,
+        district: 0,
     });
 
-    const [buyerCity, setBuyerCity] = useState(0);
-    const [recipientCity, setRecipientCity] = useState(0);
     let totalCost = 0;
 
     cartItems.forEach(element => {
@@ -34,22 +38,8 @@ export default function CheckoutContent() {
 
     const handleCopyBuyerToRecipient = () => {
         setRecipient(buyer); // 複製所有文字欄位
-        setRecipientCity(buyerCity); // 複製城市 index
     };
 
-    const changeBuyerCity = (event) => {
-        const index = event.target.value;
-        setBuyerCity(index);
-        setBuyer({ ...buyer, city: twCities[index].name });
-    };
-
-    const changeRecipientCity = (event) => {
-        const index = event.target.value;
-        setRecipientCity(index);
-        setRecipient({ ...recipient, city: twCities[index].name });
-    };
-
-    console.log(buyer);
 
     return (
         <div className='max-w-screen-xl mx-auto main'>
@@ -77,28 +67,43 @@ export default function CheckoutContent() {
 
             <div className=' flex flex-col md:flex-row gap-20 max-w-[80vw] mx-auto p-10'>
                 {/*購買人資訊 */}
-                <div className=' grid grid-cols-4 gap-4 w-1/2'>
+                <div className=' grid grid-cols-4 gap-4 w-full lg:w-1/2'>
                     <h4 className='col-span-4 text-lg font-bold text-orange-900 dark:text-orange-300'>購買人資訊</h4>
                     <div>
                         <p>姓</p>
                         <input
-                            name="name"
+                            name="familyName"
                             className=' input'
-                            value={buyer.name}
+                            value={buyer.familyName}
                             onChange={(e) => setBuyer({ ...buyer, [e.target.name]: e.target.value })}
                         />
                     </div>
                     <div className='col-span-2'>
                         <p>名</p>
-                        <input type="text" className="input" />
+                        <input
+                            name="givenName"
+                            className=' input'
+                            value={buyer.givenName}
+                            onChange={(e) => setBuyer({ ...buyer, [e.target.name]: e.target.value })}
+                        />
                     </div>
                     <div className='col-span-4'>
                         <p>電子信箱</p>
-                        <input type="text" placeholder="email@example.com" className="input w-full" />
+                        <input
+                            name="email"
+                            className=' input w-full'
+                            value={buyer.email}
+                            onChange={(e) => setBuyer({ ...buyer, [e.target.name]: e.target.value })}
+                        />
                     </div>
                     <div className='col-span-4'>
                         <p>連絡電話</p>
-                        <input type="text" placeholder="0912345678" className="input w-full" />
+                        <input
+                            name="tel"
+                            className=' input w-full'
+                            value={buyer.tel}
+                            onChange={(e) => setBuyer({ ...buyer, [e.target.name]: e.target.value })}
+                        />
                     </div>
                     <h4 className='col-span-4'>發票地址</h4>
                     <div className='col-span-2'>
@@ -119,47 +124,77 @@ export default function CheckoutContent() {
                     </div>
                     <div className='col-span-2'>
                         <p>行政區</p>
-                        <select defaultValue={twCities[buyer.city].districts[0].name} className="select">
+                        <select
+                            name='district'
+                            value={buyer.district}
+                            className="select"
+                            onChange={(e) =>
+                                setBuyer({ ...buyer, [e.target.name]: Number(e.target.value) })
+                            }
+                        >
                             <option disabled={true}>行政區</option>
                             {twCities[buyer.city].districts.map((district, index) => (
-                                <option key={index} value={district.name}>{district.name}</option>
+                                <option key={index} value={index}>{district.name}</option>
                             ))}
                         </select>
                     </div>
                     <div className='col-span-4'>
-                        <input type="text" placeholder="請輸入詳細地址" className="input w-full" />
+                        <input
+                            name="address"
+                            className=' input w-full'
+                            value={buyer.address}
+                            placeholder='請輸入詳細地址'
+                            onChange={(e) => setBuyer({ ...buyer, [e.target.name]: e.target.value })}
+                        />
                     </div>
                 </div>
                 {/*收件人資訊 */}
-                <div className=' grid grid-cols-4 gap-4 w-1/2'>
-                    <h4 className='col-span-3 text-lg font-bold text-orange-900 dark:text-orange-300'>收件人資訊</h4>
-                    <button
-                        type="button"
-                        onClick={handleCopyBuyerToRecipient}
-                        className="btn btn-sm bg-orange-500 text-white hover:bg-orange-600"
-                    >
-                        從購買人同步
-                    </button>
+                <div className=' grid grid-cols-4 gap-4 w-full lg:w-1/2'>
+                    <div className=' col-span-4 flex justify-between items-center'>
+                        <h4 className='col-span-3 text-lg font-bold text-orange-900 dark:text-orange-300'>收件人資訊</h4>
+                        <p
+                            onClick={handleCopyBuyerToRecipient}
+                            className=" text-stone-700 hover:text-stone-600 dark:text-stone-300 dark:hover:text-stone-400 text-nowrap cursor-pointer"
+                        >
+                            從購買人同步
+                        </p>
+                    </div>
+
                     <div>
                         <p>姓</p>
                         <input
-                            type="text"
-                            className="input"
-                            value={recipient.name}
-                            onChange={(e) => setBuyer({ ...recipient, [e.target.name]: e.target.value })}
+                            name="familyName"
+                            className=' input'
+                            value={recipient.familyName}
+                            onChange={(e) => setRecipient({ ...recipient, [e.target.name]: e.target.value })}
                         />
                     </div>
                     <div className='col-span-2'>
                         <p>名</p>
-                        <input type="text" className="input" />
+                        <input
+                            name="givenName"
+                            className=' input'
+                            value={recipient.givenName}
+                            onChange={(e) => setRecipient({ ...recipient, [e.target.name]: e.target.value })}
+                        />
                     </div>
                     <div className='col-span-4'>
                         <p>電子信箱</p>
-                        <input type="text" placeholder="email@example.com" className="input w-full" />
+                        <input
+                            name="email"
+                            className=' input w-full'
+                            value={recipient.email}
+                            onChange={(e) => setRecipient({ ...recipient, [e.target.name]: e.target.value })}
+                        />
                     </div>
                     <div className='col-span-4'>
                         <p>連絡電話</p>
-                        <input type="text" placeholder="0912345678" className="input w-full" />
+                        <input
+                            name="tel"
+                            className=' input w-full'
+                            value={recipient.tel}
+                            onChange={(e) => setRecipient({ ...recipient, [e.target.name]: e.target.value })}
+                        />
                     </div>
                     <h4 className='col-span-4'>收件地址</h4>
                     <div className='col-span-2'>
@@ -180,15 +215,28 @@ export default function CheckoutContent() {
                     </div>
                     <div className='col-span-2'>
                         <p>行政區</p>
-                        <select defaultValue={twCities[recipient.city].districts[0].name} className="select">
+                        <select
+                            name='district'
+                            value={recipient.district}
+                            className="select"
+                            onChange={(e) =>
+                                setBuyer({ ...recipient, [e.target.name]: Number(e.target.value) })
+                            }
+                        >
                             <option disabled={true}>行政區</option>
                             {twCities[recipient.city].districts.map((district, index) => (
-                                <option key={index} value={district.name}>{district.name}</option>
+                                <option key={index} value={index}>{district.name}</option>
                             ))}
                         </select>
                     </div>
                     <div className='col-span-4'>
-                        <input type="text" placeholder="請輸入詳細地址" className="input w-full" />
+                        <input
+                            name="address"
+                            className=' input w-full'
+                            value={recipient.address}
+                            placeholder='請輸入詳細地址'
+                            onChange={(e) => setRecipient({ ...recipient, [e.target.name]: e.target.value })}
+                        />
                     </div>
                 </div>
             </div>
@@ -205,15 +253,15 @@ export default function CheckoutContent() {
                 <h4 className='col-span-3 text-lg font-bold text-orange-900 dark:text-orange-300'>付款資訊</h4>
                 <div>
                     <p>信用卡卡號</p>
-                    <input type="text" placeholder='請輸入信用卡卡號' className="input" />
+                    <input type="text" name='cc-number' placeholder='請輸入信用卡卡號' className="input" />
                 </div>
                 <div className='col-span-1'>
                     <p>有效日期</p>
-                    <input type="text" placeholder='MM/YY' className="input" />
+                    <input type="text" name='cc-exp' placeholder='MM/YY' className="input" />
                 </div>
                 <div className='col-span-1'>
                     <p>安全碼</p>
-                    <input type="text" placeholder='CVC' className="input" />
+                    <input type="text" name='cc-csc' placeholder='CVC' className="input" />
                 </div>
             </div>
             <button className='w-full max-w-[80vw] mx-auto my-15'>確認付款　{totalCost}{targetCurrency}</button>
