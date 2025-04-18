@@ -6,7 +6,7 @@ import { flip, shift, useFloating, useHover, autoUpdate, useInteractions, safePo
 import { useState } from 'react';
 
 export default function Listitem(props) {
-    const { id, title, image, price, discount, currency } = props;
+    const { id, title, image, price, discount, currency ,description } = props;
     const targetCurrency = useSelector(selectCurrency);
     const [isOpen, setIsOpen] = useState(false);
     const { refs, floatingStyles, context } = useFloating({
@@ -30,17 +30,14 @@ export default function Listitem(props) {
             {isOpen && (
                 <FloatingPortal>
                     <div ref={refs.setFloating} style={floatingStyles} className="max-w-sm rounded overflow-hidden bg-neutral-100 dark:bg-neutral-700 shadow-lg" {...getFloatingProps()}>
-
+                        <figure className=" aspect-1/1 overflow-hidden rounded-sm self-center">
+                            <img src={`/images/` + id + `/` + image} alt="商品圖" className=" h-full w-full object-cover object-center" />
+                        </figure>
                         <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
                             <p className="text-stone-900 dark:text-stone-50 text-base">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
                             </p>
-                        </div>
-                        <div className="px-6 pt-4 pb-2">
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
                         </div>
                     </div>
                 </FloatingPortal>

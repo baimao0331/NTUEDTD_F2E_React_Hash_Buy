@@ -16,7 +16,7 @@ export default function Product() {
     const [displayImage, setDisplayImage] = useState(0);
     const [likesNum, setLikesNum] = useState(item.likes);
     const outOfStock = (item.variants[selectedVariantId].stock <= 0);
-    const isDiscount = item.discount == 1 ? true : false;
+    const isDiscount = item.discount == 1 ? false : true;
     const [qty, setQty] = useState(item.variants[selectedVariantId].stock > 0 ? 1 : 0)
     const [liked, setLiked] = useState(false);
 
@@ -199,8 +199,8 @@ export default function Product() {
                 </div>
                 <div className="mt-10 flex flex-col md:flex-row gap-4">
                     <div className=" w-full md:w-2/3">
-                        <h3 className="text-xl font-bold whitespace-pre-line text-orange-900 dark:text-orange-300 mb-2">簡介</h3>
-                        <div className="">
+                        <h3 className="text-xl font-bold text-orange-900 dark:text-orange-300 mb-2">簡介</h3>
+                        <div className="whitespace-pre-wrap">
                             <p>{item.description}</p>
                         </div>
                     </div>
