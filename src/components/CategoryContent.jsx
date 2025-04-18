@@ -81,6 +81,7 @@ export default function CategoryContent() {
                             discount={item.discount}
                             price={item.variants[0].price}
                             currency={item.currency}
+                            description={item.description}
                         />
                     </div>
                 ))}

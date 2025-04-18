@@ -36,7 +36,7 @@ export default function Listitem(props) {
                         <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
                             <p className="text-stone-900 dark:text-stone-50 text-base">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                                {description}
                             </p>
                         </div>
                     </div>

@@ -216,6 +216,7 @@ export default function Product() {
                                     discount={x.discount}
                                     price={x.variants[0].price}
                                     currency={item.currency}
+                                    description={item.description}
                                 />
                             ))}
                         </ul>
