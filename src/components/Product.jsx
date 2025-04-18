@@ -142,7 +142,8 @@ export default function Product() {
                                 {/* 品項下拉選單 */}
                                 <select
                                     defaultValue={item.variants[0].name}
-                                    className=" absolute select w-1/3 lg:w-1/2 bottom-0 bg-stone-50 dark:bg-stone-700"
+                                    disabled={item.variants.length==1? true:false}
+                                    className={` absolute select w-1/3 lg:w-1/2 bottom-0 bg-stone-50 dark:bg-stone-700 `}
                                     onChange={changeVariantId}>
                                     {item.variants.map(variant => (
                                         <option key={variant.id} value={variant.id - 1}>
@@ -159,7 +160,7 @@ export default function Product() {
 
                         {/* 數量&加入購物車 */}
                         <div className="info-bottom mt-4">
-                            <div className=" flex justify-between mb-8">
+                            <div className={` flex justify-between mb-8 `}>
                                 {/*數量選擇 */}
                                 <div className=" inline-flex w-1/4 rounded-sm">
                                     <button className=" btn !p-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700 !shadow-none !px-0 w-1/4"
