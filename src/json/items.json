@@ -393,7 +393,7 @@
       "title": "✨✨✨1周年ありがとうセール✨✨✨ 【オリジナル3Dモデル】 Sio / しお / ver.2.00",
       "creator": "Chocolate rice",
       "release_date": "2024-04-12",
-      "images": ["img1.jpg"],
+      "images": ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg","img7.jpg","img8.jpg","img9.jpg","img10.jpg","img11.jpg","img12.jpg","img13.jpg","img14.jpg"],
       "currency": "JPY",
       "discount": 1,
       "discount_end": null,
@@ -408,5 +408,147 @@
       ],
       "description": "✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦\nSioちゃん1周年ありがとうセール！\nもう1年なんて(๑˃̵ᴗ˂̵)\n\n感謝の気持ちを込めておトクなセールを開催中💝\n今だけのチャンスだから、ぜひチェックしてねっ！\n✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦✦\n\n- 2024/04/12 [18:00] 【オリジナル3Dモデル】 Sio / しお ver.1.00 released.\n- 2024/04/12 [19:26] Hair PSD 追加 / Hair PSD 추가\n- 2024/04/30 [22:00] -> Sio_ver.1.01\n  - Breast.1_L / コライダー追加 / 콜라이더 추가\n  - Costume_Jacket / 細かいテクスチャー修正 / 미세한 텍스쳐 수정\n- 2024/06/02 [18:12] 足の震えを緩和するロコモーションパッチパッケージを追加 / 다리 떨림 완화 로코모션 패치 패키지 추가\n- 2024/06/05 [18:33] ロコモーションパッチ : 瞬きをしないエラー修正 / 눈 깜빡이지 않는 오류 수정\n- 2024/07/10 [15:49] Update Sio_ver.1.02_Chocolate_rice\n  - まつげ、口の構造、耳ノーマル修正 / 속눈썹, 입구조, 귀 노멀 수정\n\n- 2024/12/13 [21:14] Update - Sio_ver.2.0\n  - 顔メッシュの全体的な調整\n  - シェイプキー調整時の目の歪みを軽減\n❗ ver.2.0以降、顔メッシュが変更されたため、フェイシャルトラッキングパッチ等との互換性が低下する可能性あり。\n\n- 2024/12/16 [01:20] ver2.0 / Update\n更新ログ:\n1. 左手のバーテックスが伸び続ける問題を修正\n2. 表情やタッチギミックのアニメーション微調整\n3. ネコミミのジェスチャー不具合修正\n4. Kaihen prefab を修正\n※ 小規模修正のため、バージョン番号は据え置き\n\nモデル情報:\n- モデル名: Sio / しお\n- 製作: Chocolate rice\n- 現行バージョン: ver.2.00\n\n動作環境:\n- Unity 2022.3.22f1 基準\n- VRChat対応\n\n構成:\n- Polygon: 126,770\n- Mesh: 23\n- Material: 8\n- Shape Keys: 顔 552 / 体 62\n- MMD対応 / AFKモーションあり\n\n同梱ファイル:\n- Unitypackage / FBX / Texture / Custom用Texture / UV / PSD / 規約PDF (JA, KR, EN, ZH)\n\nヘアUV仕様:\n- 左右重ねUVで製作\n\n導入方法:\n- 【無料】lilToonを先に導入: https://booth.pm/ko/items/3087170\n\n利用規約:\n- 使用による損害は自己責任\n- 購入時点で同意とみなす / 返金不可\n- 利用前に必ず規約を確認\n\n規約リンク:\n- KR: https://drive.google.com/file/d/16V1d8kKnigKflJPJMtEFD58iXNgdOHH_/view?usp=drive_link\n- JA: https://drive.google.com/file/d/17VWFIPLh6eLYPHl1stdh2rWa-yQT93bg/view?usp=sharing\n- EN: https://drive.google.com/file/d/1emfgEPY4O0iU6L_ntBSYc3tV9ohSAgRG/view?usp=sharing\n- ZH: https://drive.google.com/file/d/1WeyWLWlI26PB_Sb-LD2L6XGWDcghipbG/view?usp=sharing\n\n特記事項（商用利用）:\n1. Booth訊息詢問必須\n2. クレジット表記必須\n\n禁止事項:\n- 第三者への配布（無料/有料）\n- 修正後の再販\n- 一部使用して他モデルへ転用販売\n- ファイル送信による他人の委託作業支援\n- パブリックアップロード\n- オリジナルファイルを使った改造物の再配布・販売（衣装制作時の一部複製除く / テクスチャ除外）",
       "likes": 32219
+    },
+    {
+      "id": 15,
+      "itemType": "3D模型",
+      "title": "Urban Tech Obsidian",
+      "creator": "Siromori",
+      "release_date": "2023-03-04",
+      "images": ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg","img7.jpg","img8.jpg","img9.jpg","img10.jpg","img11.jpg","img12.jpg","img13.jpg","img14.jpg"],
+      "currency": "JPY",
+      "discount": 1,
+      "discount_end": null,
+      "variants": [
+        {
+          "id": 1,
+          "name": "Full Avatar Package",
+          "price": 5500,
+          "stock": 100,
+          "image": "img5.jpg"
+        },{
+          "id": 2,
+          "name": "Miltina用",
+          "price": 2300,
+          "stock": 100,
+          "image": "miltina.jpg"
+        },{
+          "id": 3,
+          "name": "Shinano用",
+          "price": 2300,
+          "stock": 100,
+          "image": "shinano.jpg"
+        },{
+          "id": 4,
+          "name": "Airi用",
+          "price": 2300,
+          "stock": 100,
+          "image": "airi.jpg"
+        },{
+          "id": 5,
+          "name": "Manuka用",
+          "price": 2300,
+          "stock": 100,
+          "image": "manuka.jpg"
+        },{
+          "id": 6,
+          "name": "Moe用",
+          "price": 2300,
+          "stock": 100,
+          "image": "moe.jpg"
+        },{
+          "id": 7,
+          "name": "Sio用",
+          "price": 2300,
+          "stock": 100,
+          "image": "sio.jpg"
+        },{
+          "id": 8,
+          "name": "Mizuki用",
+          "price": 2300,
+          "stock": 100,
+          "image": "mizuki.jpg"
+        },{
+          "id": 9,
+          "name": "Lime & Chiffon用",
+          "price": 2300,
+          "stock": 100,
+          "image": "lime.jpg"
+        },{
+          "id": 10,
+          "name": "Kikyo用",
+          "price": 2300,
+          "stock": 100,
+          "image": "kikyo.jpg"
+        },{
+          "id": 11,
+          "name": "Selestia用",
+          "price": 2300,
+          "stock": 100,
+          "image": "slestia.jpg"
+        },{
+          "id": 12,
+          "name": "Shinra用",
+          "price": 2300,
+          "stock": 100,
+          "image": "shinra.jpg"
+        },{
+          "id": 13,
+          "name": "Uzuki用",
+          "price": 2300,
+          "stock": 100,
+          "image": "uzuki.jpg"
+        },{
+          "id": 14,
+          "name": "Maya用",
+          "price": 2300,
+          "stock": 100,
+          "image": "maya.jpg"
+        },{
+          "id": 15,
+          "name": "Karin用",
+          "price": 2300,
+          "stock": 100,
+          "image": "karin.jpg"
+        },{
+          "id": 16,
+          "name": "Yugi & Miyo",
+          "price": 2300,
+          "stock": 100,
+          "image": "yugimiyo.jpg"
+        },{
+          "id": 17,
+          "name": "Rindo用",
+          "price": 2300,
+          "stock": 100,
+          "image": "rindo.jpg"
+        },{
+          "id": 18,
+          "name": "Mamehinata用",
+          "price": 2300,
+          "stock": 100,
+          "image": "mamehinata.jpg"
+        },{
+          "id": 19,
+          "name": "Grus用",
+          "price": 2300,
+          "stock": 100,
+          "image": "grus.jpg"
+        },{
+          "id": 20,
+          "name": "TubeRose用",
+          "price": 2300,
+          "stock": 100,
+          "image": "tuberose.jpg"
+        },{
+          "id": 21,
+          "name": "Ukon 2nd用",
+          "price": 2300,
+          "stock": 100,
+          "image": "ukon2nd.jpg"
+        }
+      ],
+      "description": "Urban Tech Obsidianはクラシックなスタイルに未来志向的な感じを加えた衣装です。\n\n本衣装はModular Avatar、あるいは黒鳥ケモノ工房さんのAvatarTools(v2.2.2 BETA以上)を使って衣装をアバターに着せることを前提に作られています。\n\n同梱ファイル:\n衣装FBXファイル、ColorTexutres、PSD(Photoshop Files)、Materials、Prefab\n\n以下の導入手順に従わない場合や、他のアバターに導入する際に発生する問題についてのお問い合わせは受け付けておりません！\n導入中に問題が発生した場合は、以下の導入手順とアバターの最小必要バージョンも必ずご確認ください！\nWe do not accept inquiries about problems that occur when not following the installation instructions below or when installing to other avatars!\nIf you experience problems during installation, please be sure to also check the installation instructions below and the minimum required version of your avatar!\n아래의 도입절차를 따르지 않거나, 다른 아바타에 도입하는 중 발생하는 문제에 대한 문의는 받지 않습니다!\n도입 도중 문제가 발생 시, 아래의 도입절차와 아바타의 최소 요구 버전도 꼭 확인하시기 바랍니다!\n\n対応アバター(Supported Avatars)\n-「桔梗」 by ポンデロニウム研究所 (v1.03以上)\nhttps://ponderogen.booth.pm/items/3681787\n\n-「セレスティア」 by JINGO CHANNEL (v1.02以上)\nhttps://jingo1016.booth.pm/items/4035411\n\n-「舞夜」Maya by キュビクローゼット (v1.02.2以上)\nhttps://kyubihome.booth.pm/items/3390957\n\n-「カリン」Karin by こまど (v1.11以上)\nhttps://komado.booth.pm/items/3470989\n\n-「ユギ」「ミヨ」YUGI & MIYO by SAKI# (v1.03以上)\nhttps://as025886.booth.pm/items/4358508\n\n-「竜胆」Rindo by JINGO CHANNEL (v1.06以上)\nhttps://jingo1016.booth.pm/items/3443188\n\n-「まめひなた」Mamehinata by かめ山 kameyama (v1.30以上)\nhttps://mukumi.booth.pm/items/4340548\n\n-「GRUS」by くじ (v1.15以上)\nhttps://kujishift.booth.pm/items/3190100\n\n-「TubeRose」by みなもとしゅん (v1.06以上)\nhttps://minamotosyun.booth.pm/items/4193460\n\n-「卯月」Uzuki by みなもとしゅん (v1.00以上)\nhttps://minamotosyun.booth.pm/items/4193460\n\n-「森羅」Shinra by mio3io(v1.16以上)\nhttps://mio3works.booth.pm/items/4707634\n\n-「萌」Moe by キュビクローゼット (v1.01以上, 2023.04.14)\nhttps://kyubihome.booth.pm/items/4667400\n別のポストですが、同じ商品です:\nhttps://siromori.booth.pm/items/4692790\n\n-「ライム」/「シフォン」Lime / Chiffon by こまど (v1.00以上)\nhttps://komado.booth.pm/items/4876459\nhttps://komado.booth.pm/items/5354471\n\n-「マヌカ」Manuka by JINGO CHANNEL (v1.00以上)\nhttps://jingo1016.booth.pm/items/5058077\n\n- 「右近弐式(Ukon second type)」by キツネツキ(v1.12以上)\nhttps://kitsune-tsuki.booth.pm/items/4839004\n\n- 「瑞希(Mizuki)」by IKUSIA(v1.09以上)\nhttps://paryi.booth.pm/items/5132797\n\n- 「しお(Sio)」by Chocolate rice\nhttps://chocolaterice.booth.pm/items/5650156\n\n-「しなの」Shinano by ポンデロニウム研究所\nhttps://ponderogen.booth.pm/items/6106863\n\n-「愛莉」Airi by キュビクローゼット(v1.01以上)\nhttps://kyubihome.booth.pm/items/6082686\n\n-「ミルティナ」Miltina by DOLOS(v1.01以上)\nhttps://dolosart.booth.pm/items/6538026\n\n導入手続き (How to Apply)\n〇必要アセット\n\nこのモデルの導入を成功させるために、次のアセットを先に準備してください。 このアセットはこちらの商品に同梱されていません。\n\n- LilToon Shader\nhttps://lilxyzw.booth.pm/items/3087170\n\n以下のツールのいずれかを選択してください。\n\n- AvatarTools by 黒鳥ケモノ工房(v2.2.2 BETA以上)\nhttps://booth.pm/ja/items/1564788\n\nor\n\n- Modular Avatar\nhttps://modular-avatar.nadena.dev/\n\n\n〇導入手続き\nVRCSDK旧バージョンを使用するプロジェクトでは、衣装を着せたアバタープリファブの手の動きなどが正常に作動しないことがあります。\nVRChat公式チームでサポートを中断したVRCSDKを使用せず、VCCを使用してください。\n\n上記のニーズアセットを最初にUnityプロジェクトにインポートしてから、ここからダウンロードしたUnityパッケージをインポートしてください。\nこの商品の場合、各アバターに対応した3D衣装モデルのUnityPackageと、共通で使用するTextureが含まれたUnityPackageに分かれています。 目的のアバターのパッケージとテクスチャパッケージの両方をユニティプロジェクトにインポートしてください。\n\nアバターにこの服をあらかじめ置いておいたPrefabがUnityパッケージに基本的に含まれています。\nこの服だけを着て使用することが目的であれば、そのPrefabを使用するだけです。\n自分で服を着たい場合は、服だけが存在するPrefabと服を着るアバターをSceneに取り出してください。\nAvatarToolsのAvatarAssemblerを使用してアバターに服を着てください。使用方法はAvatarToolsのリンクを参考にしてください。\nModular Avatarを使用する場合は、Modular Avatarのリンクの文書を確認してください。\n\n※ 特定の状況で服から肉が突出する場合があるため、アバター素体のShrink_Hipシェイプキーを使用します。\n\n利用規約 (Terms of Use)\n本商品はVN3Licenseを使用しています。\n下記のLicenseを確認してください。\n\nThis product uses VN3 license.\nPlease check the license below.\n\n본 상품은 VN3 License 를 사용하고 있습니다.\n아래의 License를 확인해 주세요.\n\n本产品使用了VN3 License。\n请确认下面的License。\n\n\nJA:\nhttps://drive.google.com/file/d/1YXJ2j6JKr8QkddfhqmKmGsXTWtqKaTiS/view?usp=sharing\n\nEN:\nhttps://drive.google.com/file/d/12EWk0CsO6N5Kx01D-Dt1S8lGzdeEzwex/view?usp=sharing\n\nKO:\nhttps://drive.google.com/file/d/1xIo-LFlqONkS92gyq8NKl-1z3Iq5S-m9/view?usp=sharing\n\nZH:\nhttps://drive.google.com/file/d/1VrH-vc4CutU-e7eY_IU4IRuCV7mgfulj/view?usp=sharing\n\n連絡 (Contact)\nお問い合わせ、ご質問等ございましたら、こちらへご連絡ください。\nIf you have any questions, please contact me here.\n\nTwitter: https://twitter.com/SiromoriVR\n\nCredits\n〇PV Credits\n\n●ASGARD_ON\nhttps://twitter.com/ASGARD0224_ON\n\n\n〇Picture Model Credits\n\n●HopeSkyD\nhttps://twitter.com/GGamang_7\n\n●BLASI\nhttps://twitter.com/SkadiBLS\n\n●BurnWithHeat\nhttps://twitter.com/burnwithheat\n\n●FLIP\nhttps://twitter.com/Mini_Flip_\n\n●Levin\nhttps://twitter.com/bunny_64479\n\n●MOOD\nhttps://twitter.com/MOOD_VRC\n\n●ROUSI\nhttps://twitter.com/ROUSIVRC1\n\n●Sch9\nhttps://twitter.com/kuromori_sachi\n\n●SKET\nhttps://twitter.com/siroMOSE\n\n●skn\nhttps://twitter.com/skn_vrc\n\n●wdms\nhttps://twitter.com/wdms_vr\n\n●たっくん\nhttps://twitter.com/KARlKARlChiken\n\n●ちべたろー\nhttps://twitter.com/rururu_himaman\n\n●べましゃま\nhttps://twitter.com/e_vemant\n\n●ルチン\nhttps://twitter.com/Ruu_astro\n\n●春羽しか\nhttps://twitter.com/sika_VRChat\n\n●UncleB\nhttps://twitter.com/UncleB90009062\n\n\n皆さん、本当にありがとうございます。",
+      "likes": 20113
     }
 ]
