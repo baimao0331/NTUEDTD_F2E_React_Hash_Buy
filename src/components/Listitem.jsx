@@ -34,7 +34,7 @@ export default function Listitem(props) {
                             <img src={`/images/` + id + `/` + image} alt="商品圖" className=" h-full w-full object-cover object-center" />
                         </figure>
                         <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+                            <div className="font-bold text-xl mb-2">{title}</div>
                             <p className="text-stone-900 dark:text-stone-50 text-base">
                                 {description}
                             </p>
