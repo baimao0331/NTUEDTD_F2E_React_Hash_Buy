@@ -54,7 +54,7 @@ export default function Cart() {
                                     }}>
                                     <Minus className=" dark:!text-stone-50 size-4" />
                                 </button>
-                                <div className="flex items-center flex-1 h-full"><p className=" h-full w-full text-center text-sm">{item.qty}</p></div>
+                                <div className="flex items-center flex-1 h-full"><p className=" w-full text-center text-sm">{item.qty}</p></div>
                                 <button className=" btn !h-full no-round !rounded-r-md !rounded-l-none !bg-stone-200 dark:!bg-stone-700  !shadow-none !px-0 w-1/4"
                                     onClick={() => {
                                         const newQty = Math.min(item.stock, item.qty + 1);
