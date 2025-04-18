@@ -92,7 +92,7 @@ export default function Product() {
                 <div className="breadcrumbs text-sm mb-4">
                     <ul>
                         <li><Link to={`/`}>首頁</Link></li>
-                        <li><a>{item.itemType}</a></li>
+                        <li><Link to={`/products/category/${encodeURIComponent(item.itemType.trim())}`} >{item.itemType}</Link></li>
                         <li>{item.title}</li>
                     </ul>
                 </div>
@@ -142,7 +142,8 @@ export default function Product() {
                                 {/* 品項下拉選單 */}
                                 <select
                                     defaultValue={item.variants[0].name}
-                                    className=" absolute select w-1/3 lg:w-1/2 bottom-0 bg-stone-50 dark:bg-stone-700"
+                                    disabled={item.variants.length==1? true:false}
+                                    className={` absolute select w-1/3 lg:w-1/2 bottom-0 bg-stone-50 dark:bg-stone-700 `}
                                     onChange={changeVariantId}>
                                     {item.variants.map(variant => (
                                         <option key={variant.id} value={variant.id - 1}>
@@ -159,7 +160,7 @@ export default function Product() {
 
                         {/* 數量&加入購物車 */}
                         <div className="info-bottom mt-4">
-                            <div className=" flex justify-between mb-8">
+                            <div className={` flex justify-between mb-8 `}>
                                 {/*數量選擇 */}
                                 <div className=" inline-flex w-1/4 rounded-sm">
                                     <button className=" btn !p-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700 !shadow-none !px-0 w-1/4"
@@ -176,10 +177,11 @@ export default function Product() {
                                 </div>
                                 <div className=" flex items-center gap-2">
                                     <p className=" text-lg text-right">{likesNum}</p>
-                                    <div onClick={changeliked} className="cursor-pointer">
-                                            <Heart fill={liked? "currentColor":"none"} className="size-8 text-orange-900 dark:text-orange-300" />
-                                            
-                                    </div>
+                                    <label className="cursor-pointer swap swap-flip">
+                                            <input type="checkbox" onChange={changeliked}/>
+                                            <Heart fill='none' className="size-8 text-orange-900 dark:text-orange-300 swap-off" />
+                                            <Heart fill="currentColor" className="size-8 text-orange-900 dark:text-orange-300 swap-on" />
+                                    </label>
 
                                 </div>
                             </div>
@@ -200,7 +202,7 @@ export default function Product() {
                 <div className="mt-10 flex flex-col md:flex-row gap-4">
                     <div className=" w-full md:w-2/3">
                         <h3 className="text-xl font-bold text-orange-900 dark:text-orange-300 mb-2">簡介</h3>
-                        <div className="whitespace-pre-wrap">
+                        <div className="whitespace-pre-wrap overflow-y-auto">
                             <p>{item.description}</p>
                         </div>
                     </div>

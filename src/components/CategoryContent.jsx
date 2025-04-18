@@ -69,7 +69,7 @@ export default function CategoryContent() {
                 </select>
             </div>
 
-            <ul className=' grid grid-cols-1 lg:grid-cols-2 gap-10'>
+            <ul className=' grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5'>
                 {displayItems.map((item) => (
                     <div key={item.id}>
                         <hr className=' border-1 border-stone-200 dark:border-stone-600' />

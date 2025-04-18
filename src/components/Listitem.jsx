@@ -27,21 +27,7 @@ export default function Listitem(props) {
     return (
         <>
 
-            {isOpen && (
-                <FloatingPortal>
-                    <div ref={refs.setFloating} style={floatingStyles} className="max-w-sm rounded overflow-hidden bg-neutral-100 dark:bg-neutral-700 shadow-lg" {...getFloatingProps()}>
-                        <figure className=" aspect-1/1 overflow-hidden rounded-sm self-center">
-                            <img src={`/images/` + id + `/` + image} alt="商品圖" className=" h-full w-full object-cover object-center" />
-                        </figure>
-                        <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-                            <p className="text-stone-900 dark:text-stone-50 text-base">
-                                {description}
-                            </p>
-                        </div>
-                    </div>
-                </FloatingPortal>
-            )}
+
             <div key={id} ref={refs.setReference} className="  h-25 w-full flex pl-4 pr-6 relative group text-stone-900 dark:text-stone-50"{...getReferenceProps()}>
                 <Link to={`/products/id/` + id} className=' w-full h-full flex'>
                     <figure className=" h-2/3 w-1/4 aspect-[2/1] overflow-hidden rounded-sm self-center">
@@ -57,7 +43,21 @@ export default function Listitem(props) {
                     </div>
                 </Link>
             </div>
-
+            {isOpen && (
+                <FloatingPortal>
+                    <div ref={refs.setFloating} style={floatingStyles} className="max-w-sm hidden lg:block rounded overflow-hidden bg-neutral-100 dark:bg-neutral-700/80 backdrop-blur-lg shadow-xl" {...getFloatingProps()}>
+                        <figure className=" aspect-1/1 overflow-hidden rounded-sm self-center">
+                            <img src={`/images/` + id + `/` + image} alt="商品圖" className=" h-full w-full object-cover object-center" />
+                        </figure>
+                        <div className="px-6 py-4">
+                            <div className="font-bold text-xl mb-2">{title}</div>
+                            <p className="text-stone-900 dark:text-stone-50 text-base">
+                                {description}
+                            </p>
+                        </div>
+                    </div>
+                </FloatingPortal>
+            )}
         </>
     )
 }

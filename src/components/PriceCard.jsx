@@ -5,7 +5,6 @@ import { selectCurrency } from "../redux/currencySlice";
 export default function PriceCard(props) {
     const { item, isDiscount, selectedVariantId } = props;
     const targetCurrency = useSelector(selectCurrency);
-    console.log(isDiscount);
     
     return (
         <div className=" w-6/10 md:w-1/2 p-4 bg-stone-50 dark:bg-stone-700 shadow-lg rounded-md flex flex-col justify-between">
@@ -34,7 +33,7 @@ export default function PriceCard(props) {
                     <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600 dark:text-stone-400">{item.variants[selectedVariantId].price}{item.currency}</p>
                 </div>
 
-                <div className="w-full grid grid-cols-2 text-lg md:text-right">
+                <div className="w-full grid grid-cols-2 text-lg md:text-right items-baseline">
                     <p className=" text-nowrap text-left">當前價格</p>
                     <div className=" flex items-baseline justify-end">
                         <p className=" text-2xl font-bold price">
