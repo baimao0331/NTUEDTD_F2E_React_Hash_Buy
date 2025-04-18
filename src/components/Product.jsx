@@ -217,8 +217,8 @@ export default function Product() {
                                     title={x.title}
                                     discount={x.discount}
                                     price={x.variants[0].price}
-                                    currency={item.currency}
-                                    description={item.description}
+                                    currency={x.currency}
+                                    description={x.description}
                                 />
                             ))}
                         </ul>
