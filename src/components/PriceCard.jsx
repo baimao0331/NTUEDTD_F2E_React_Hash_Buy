@@ -12,7 +12,7 @@ export default function PriceCard(props) {
             {/* 折扣資訊 */}
             <div>
                 <div className=" flex flex-col sm:flex-row sm:justify-between items-center text-nowrap md:text-xs lg:text-base">
-                    {isDiscount ? <p className=" order-2 sm:order-0 text-orange-700 dark:text-orange-400 font-bold w-full">特價至${item.discount_end.replaceAll("-", "/")}</p>:<p>這個商品暫時沒有特價...</p>}
+                    {isDiscount ? <p className=" order-2 sm:order-0 text-orange-700 dark:text-orange-400 font-bold w-full">特價至{item.discount_end.replaceAll("-", "/")}</p>:<p>這個商品暫時沒有特價...</p>}
                     {isDiscount ?
                         <span className=" text-stone-50 bg-orange-700 dark:bg-orange-400 px-2 rounded-sm h-[1.5rem] mt-0.5 pt-0.5 font-normal text-sm w-full sm:w-auto">
                             {`${100 - item.discount * 100}% off`}
