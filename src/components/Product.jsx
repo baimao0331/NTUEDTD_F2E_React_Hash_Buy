@@ -177,10 +177,11 @@ export default function Product() {
                                 </div>
                                 <div className=" flex items-center gap-2">
                                     <p className=" text-lg text-right">{likesNum}</p>
-                                    <div onClick={changeliked} className="cursor-pointer">
-                                            <Heart fill={liked? "currentColor":"none"} className="size-8 text-orange-900 dark:text-orange-300" />
-                                            
-                                    </div>
+                                    <label className="cursor-pointer swap swap-flip">
+                                            <input type="checkbox" onChange={changeliked}/>
+                                            <Heart fill='none' className="size-8 text-orange-900 dark:text-orange-300 swap-off" />
+                                            <Heart fill="currentColor" className="size-8 text-orange-900 dark:text-orange-300 swap-on" />
+                                    </label>
 
                                 </div>
                             </div>
