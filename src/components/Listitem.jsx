@@ -29,7 +29,7 @@ export default function Listitem(props) {
 
             {isOpen && (
                 <FloatingPortal>
-                    <div ref={refs.setFloating} style={floatingStyles} className="max-w-sm rounded overflow-hidden bg-neutral-100 dark:bg-neutral-700 shadow-lg" {...getFloatingProps()}>
+                    <div ref={refs.setFloating} style={floatingStyles} className="max-w-sm rounded overflow-hidden bg-neutral-100 dark:bg-neutral-700/80 backdrop-blur-lg shadow-xl" {...getFloatingProps()}>
                         <figure className=" aspect-1/1 overflow-hidden rounded-sm self-center">
                             <img src={`/images/` + id + `/` + image} alt="商品圖" className=" h-full w-full object-cover object-center" />
                         </figure>

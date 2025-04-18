@@ -34,7 +34,7 @@ export default function PriceCard(props) {
                     <p className=" col-span-2 grid-cols-subgrid text-right text-sm text-stone-600 dark:text-stone-400">{item.variants[selectedVariantId].price}{item.currency}</p>
                 </div>
 
-                <div className="w-full grid grid-cols-2 text-lg md:text-right">
+                <div className="w-full grid grid-cols-2 text-lg md:text-right items-baseline">
                     <p className=" text-nowrap text-left">當前價格</p>
                     <div className=" flex items-baseline justify-end">
                         <p className=" text-2xl font-bold price">

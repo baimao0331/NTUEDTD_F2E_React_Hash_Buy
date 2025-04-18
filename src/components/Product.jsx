@@ -92,7 +92,7 @@ export default function Product() {
                 <div className="breadcrumbs text-sm mb-4">
                     <ul>
                         <li><Link to={`/`}>首頁</Link></li>
-                        <li><a>{item.itemType}</a></li>
+                        <li><Link to={`/products/category/${encodeURIComponent(item.itemType.trim())}`} >{item.itemType}</Link></li>
                         <li>{item.title}</li>
                     </ul>
                 </div>
@@ -200,7 +200,7 @@ export default function Product() {
                 <div className="mt-10 flex flex-col md:flex-row gap-4">
                     <div className=" w-full md:w-2/3">
                         <h3 className="text-xl font-bold text-orange-900 dark:text-orange-300 mb-2">簡介</h3>
-                        <div className="whitespace-pre-wrap">
+                        <div className="whitespace-pre-wrap overflow-y-auto">
                             <p>{item.description}</p>
                         </div>
                     </div>
