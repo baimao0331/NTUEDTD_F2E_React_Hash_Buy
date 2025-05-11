@@ -122,7 +122,7 @@ export default function SearchResult() {
                     ))}
                 </ul>
                 <div className=" flex items-center">
-                    <span className=" text-nowrap">使用幣值 : </span>
+                    <span className=" text-nowrap">顯示排序 : </span>
                     <select
                         defaultValue={sortMode}
                         onChange={(event) => handleSort(event.target.value)}

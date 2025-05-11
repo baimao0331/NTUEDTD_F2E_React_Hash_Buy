@@ -10,6 +10,8 @@ import store from './redux/store';
 import Checkout from './pages/Checkout';
 import Results from './pages/Results';
 import ShoppingGuide from './pages/ShoppingGuild';
+import Login from './pages/Login';
+import Regiser from './pages/Register';
 
 function App() {
 
@@ -21,12 +23,16 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/shoppingcart' element={<ShoppingCart />} />
-              <Route path='/checkout' element={<Checkout />}/>
-              <Route path='/results/:keyword' element={<Results />}/>
-              <Route path='/guide' element={<ShoppingGuide />}/>
+              <Route path='/checkout' element={<Checkout />} />
+              <Route path='/results/:keyword' element={<Results />} />
+              <Route path='/guide' element={<ShoppingGuide />} />
               <Route path='/products'>
                 <Route path="category/:categoryName" element={<Category />} />
                 <Route path="id/:id" element={<Product />} />
+              </Route>
+              <Route path='/account'>
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Regiser />} />
               </Route>
             </Routes>
           </BrowserRouter>
