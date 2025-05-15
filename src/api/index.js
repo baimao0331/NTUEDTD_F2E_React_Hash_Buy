@@ -1,5 +1,7 @@
-import { getApps, getApp, initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -15,3 +17,9 @@ const app_length = getApps().length > 0;
 
 // Initialize Firebase
 const app = app_length? getApp() : initializeApp(firebaseConfig);
+
+console.log("Firebase initialized:", app.name); // 通常是 "DEFAULT"
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+export { app, auth, db };

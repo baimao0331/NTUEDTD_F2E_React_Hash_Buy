@@ -2,9 +2,26 @@ import { Helmet } from "react-helmet-async"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { Link } from "react-router"
+import { useState } from "react";
+import { registerUser } from "../api/register";
 
 
-export default function Home() {
+
+export default function Regiser() {
+    const [email, setEmail] = useState("");
+    const [nickname, setNickname] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleRegister = async (e) => {
+        e.preventDefault(); // 防止預設 form 提交造成頁面跳轉
+
+        try {
+            const user = await registerUser(email, password, nickname);
+            console.log("註冊成功:", user.uid);
+        } catch (err) {
+            console.error("註冊失敗:", err.message);
+        }
+    };
     return (
         <>
             <Helmet>
@@ -17,12 +34,12 @@ export default function Home() {
                         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight">
                             註冊新帳號
                         </h2>
-                        <hr className="w-1/4 border-orange-300 border-3 mt-4 rounded-2xl justify-self-center"/>
+                        <hr className="w-1/4 border-orange-300 border-3 mt-4 rounded-2xl justify-self-center" />
                     </div>
 
                     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                        <form action="#" method="POST" className="space-y-6">
-                        <div>
+                        <form onSubmit={handleRegister} className="space-y-6">
+                            <div>
                                 <label htmlFor="username" className="block text-sm/6 font-medium">
                                     暱稱
                                 </label>
@@ -30,9 +47,11 @@ export default function Home() {
                                     <input
                                         id="username"
                                         name="username"
-                                        type="username"
+                                        type="text"
                                         required
                                         autoComplete="username"
+                                        value={nickname}
+                                        onChange={(e) => setNickname(e.target.value)}
                                         className="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-stone-300 placeholder:text-stone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
                                     />
                                 </div>
@@ -48,6 +67,8 @@ export default function Home() {
                                         type="email"
                                         required
                                         autoComplete="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         className="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-stone-300 placeholder:text-stone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
                                     />
                                 </div>
@@ -66,6 +87,8 @@ export default function Home() {
                                         type="password"
                                         required
                                         autoComplete="current-password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         className="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-stone-300 placeholder:text-stone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
                                     />
                                 </div>

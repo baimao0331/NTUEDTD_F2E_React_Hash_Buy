@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
+import './api/index';
 import './App.css';
 import Home from './pages/Home';
 import ShoppingCart from './pages/ShoppingCart';
