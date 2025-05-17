@@ -146,7 +146,7 @@ footer .select {
     background-color: theme('colors.stone.50');
   }
   .price{
-    color:theme("color.orange.700")
+    color:theme("color.orange.500")
   }
   .title {
     color:theme("color.orange.900")

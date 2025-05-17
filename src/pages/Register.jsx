@@ -4,13 +4,18 @@ import Footer from "../components/Footer"
 import { Link } from "react-router"
 import { useState } from "react";
 import { registerUser } from "../api/register";
-
+import { useNavigate, useLocation } from "react-router";
 
 
 export default function Regiser() {
     const [email, setEmail] = useState("");
     const [nickname, setNickname] = useState("");
     const [password, setPassword] = useState("");
+    const [successModal, setSuccessModal] = useState(false);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const fromPage = location.state?.from || "/"; // 預設跳回首頁
 
     const handleRegister = async (e) => {
         e.preventDefault(); // 防止預設 form 提交造成頁面跳轉
@@ -18,6 +23,7 @@ export default function Regiser() {
         try {
             const user = await registerUser(email, password, nickname);
             console.log("註冊成功:", user.uid);
+            setSuccessModal(true);
         } catch (err) {
             console.error("註冊失敗:", err.message);
         }
@@ -29,7 +35,21 @@ export default function Regiser() {
             </Helmet>
             <Header />
             <main>
-                <div className="flex min-h-full flex-1 flex-col px-6 py-12 lg:px-8 bg-stone-50 dark:bg-stone-700 rounded-lg w-2/3 justify-self-center mb-10">
+                {successModal && (
+                    <div className="fixed bg-stone-300/50 dark:bg-stone-700/50 backdrop-blur-xl inset-0 bg-opacity-50 flex items-center justify-center z-50">
+                        <div className=" rounded-lg bg-stone-50 dark:bg-stone-600 p-6 shadow-lg w-80 text-center">
+                            <h2 className="text-xl font-bold mb-2">註冊成功</h2>
+                            <p className="mb-4">需要完成驗證才能進行購物</p>
+                            <span
+                                onClick={() => navigate(fromPage)}
+                                className="dark:text-orange-300 text-orange-400  cursor-pointer font-bold"
+                            >
+                                沒問題，返回首頁
+                            </span>
+                        </div>
+                    </div>
+                )}
+                <div className="flex min-h-full flex-1 flex-col px-6 py-12 lg:px-8 bg-stone-50 dark:bg-stone-700 rounded-lg w-2/3 justify-self-center mb-10 shadow-xl">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight">
                             註冊新帳號
