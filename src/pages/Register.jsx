@@ -39,7 +39,7 @@ export default function Regiser() {
                     <div className="fixed bg-stone-300/50 dark:bg-stone-700/50 backdrop-blur-xl inset-0 bg-opacity-50 flex items-center justify-center z-50">
                         <div className=" rounded-lg bg-stone-50 dark:bg-stone-600 p-6 shadow-lg w-80 text-center">
                             <h2 className="text-xl font-bold mb-2">註冊成功</h2>
-                            <p className="mb-4">需要完成驗證才能進行購物</p>
+                            <p className="mb-4">需要完成信箱驗證並至會員中心填寫資料才能進行購物</p>
                             <span
                                 onClick={() => navigate(fromPage)}
                                 className="dark:text-orange-300 text-orange-400  cursor-pointer font-bold"

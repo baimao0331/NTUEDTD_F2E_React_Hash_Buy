@@ -15,6 +15,7 @@ import Results from './pages/Results';
 import ShoppingGuide from './pages/ShoppingGuild';
 import Login from './pages/Login';
 import Regiser from './pages/Register';
+import Setting from './pages/setting';
 
 const auth = getAuth();
 
@@ -54,6 +55,9 @@ function App() {
             <Route path='/account'>
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Regiser />} />
+              <Route path='setting'  element={ <Setting/> }/>
+              <Route path='liked'  element={ <></> }/>
+              <Route path='order'  element={ <></> }/>
             </Route>
           </Routes>
         </BrowserRouter>

@@ -41,7 +41,8 @@ export default function Navbar() {
                         <span className=' select-none'>|</span>
                         {user ? (
                             <div className="flex items-center gap-4">
-                                <span>歡迎，{user.displayName || "使用者"}</span>
+                                <HoverUnderLine to={`/account/setting`}>會員中心</HoverUnderLine>
+                                <span className=' select-none'>|</span>
                                 <HoverUnderLine to={`#`}>
                                     <span onClick={handleLogout}>登出</span>
                                 </HoverUnderLine>

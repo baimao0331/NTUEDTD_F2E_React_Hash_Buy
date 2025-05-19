@@ -13,6 +13,14 @@ export const registerUser = async (email, password, nickname) => {
     nickname,
     emailVerified: user.emailVerified,
     createdAt: new Date(),
+    familyName:"",
+    givenName:"",
+    gender:"",
+    birthday:"",
+    tel:"",
+    city:"",
+    district:"",
+    address:"",
   });
 
   return user;
