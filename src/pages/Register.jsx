@@ -9,7 +9,7 @@ import { useNavigate, useLocation } from "react-router";
 
 export default function Regiser() {
     const [email, setEmail] = useState("");
-    const [nickname, setNickname] = useState("");
+    const [displayName, setDisplayName] = useState("");
     const [password, setPassword] = useState("");
     const [successModal, setSuccessModal] = useState(false);
 
@@ -19,9 +19,8 @@ export default function Regiser() {
 
     const handleRegister = async (e) => {
         e.preventDefault(); // 防止預設 form 提交造成頁面跳轉
-
         try {
-            const user = await registerUser(email, password, nickname);
+            const user = await registerUser(email, password, displayName);
             console.log("註冊成功:", user.uid);
             setSuccessModal(true);
         } catch (err) {
@@ -70,8 +69,8 @@ export default function Regiser() {
                                         type="text"
                                         required
                                         autoComplete="username"
-                                        value={nickname}
-                                        onChange={(e) => setNickname(e.target.value)}
+                                        value={displayName}
+                                        onChange={(e) => setDisplayName(e.target.value)}
                                         className="block w-full rounded-md px-3 py-1.5 text-base outline-1 -outline-offset-1 outline-stone-300 placeholder:text-stone-400 focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
                                     />
                                 </div>

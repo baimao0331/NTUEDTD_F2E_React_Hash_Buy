@@ -18,7 +18,7 @@ const app_length = getApps().length > 0;
 // Initialize Firebase
 const app = app_length? getApp() : initializeApp(firebaseConfig);
 
-console.log("Firebase initialized:", app.name); // 通常是 "DEFAULT"
+console.log("Firebase initialized:", app.name);
 const auth = getAuth(app);
 const db = getFirestore(app);
 

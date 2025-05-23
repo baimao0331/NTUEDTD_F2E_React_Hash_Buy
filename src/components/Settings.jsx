@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems } from '../redux/cartSlice';
-import currencyChange from '../js/currencyChange';
 import { selectCurrency } from "../redux/currencySlice";
 import twCities from '../json/TwCities.json';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, use } from 'react';
 import { getAuth, signOut } from "firebase/auth";
-import { app } from '../api/index'
+import { sendEmailVerification } from "firebase/auth";
+import { app } from '../api/index';
 import { Link } from 'react-router';
 import { CircleHelp } from 'lucide-react';
+import { setDoc, doc } from "firebase/firestore";
+import { auth, db } from "../api";
 
 export default function CheckoutContent() {
     const user = useSelector((state) => state.auth.user);
@@ -43,22 +44,81 @@ export default function CheckoutContent() {
 
     const days = Array.from({ length: getDaysInMonth(year, month) }, (_, i) => i + 1);
 
+
     const [buyer, setBuyer] = useState({
-        familyName: '',
+        familyName: "",
         givenName: '',
         tel: '',
         email: '',
         address: '',
         gender: '',
-        city: 0,
-        district: 0,
-    });
+        birthday: "",
+        cityId: 0,
+        cityName: "",
+        districtId: 0,
+        districtName: "",
+    }, user);
 
-    console.log(user);
+    useEffect(() => {
+        const selectedCity = twCities[user.cityId || 0];
+        const selectedDistrict = selectedCity.districts[user.districtId || 0];
+        if (user) {
+            setBuyer((prev) => ({
+                ...prev,
+                familyName: user.familyName || '',
+                givenName: user.givenName || '',
+                tel: user.tel || '',
+                email: user.email || '',
+                address: user.address || '',
+                gender: user.gender || '',
+                birthday: "",
+                cityId: user.cityId || 0,
+                cityName: selectedCity?.name || "",
+                districtId: user.districtId || 0,
+                districtName: selectedDistrict?.name || "",
+            }));
+        }
+    }, [user]);
+
+    useEffect(() => {
+        if (year && month && day) {
+            const paddedMonth = String(month).padStart(2, "0");
+            const paddedDay = String(day).padStart(2, "0");
+            const birthdayStr = `${year}-${paddedMonth}-${paddedDay}`; // YYYY-MM-DD
+
+            setBuyer((prev) => ({
+                ...prev,
+                birthday: birthdayStr,
+            }));
+        }
+    }, [year, month, day]);
+
+
+    const handleResentMail = (e) => {
+        const mailUser = auth.currentUser;
+        sendEmailVerification(mailUser);
+    }
+
+    const handleSubmit = async () => {
+        const auth = getAuth();
+        const currentuser = auth.currentUser;
+        try {
+            const ref = doc(db, "users", currentuser.uid); // 🔥 將資料存到 users/{uid}
+
+            await setDoc(ref, buyer, { merge: true }); // merge: true → 不會覆蓋整份資料
+
+            alert("✅ 資料儲存成功！");
+        } catch (err) {
+            console.error("❌ 資料儲存失敗:", err);
+            alert("儲存失敗，請稍後再試");
+        }
+    };
+
+    console.log(buyer);
 
     return (
         <div className='max-w-screen-xl mx-auto main'>
-            <div className=' px-8 py-4 w-[80vw] bg-stone-50 dark:bg-stone-700 mx-auto rounded-xl'>
+            <div className=' px-8 py-4 w-8/10 bg-stone-50 dark:bg-stone-700 mx-auto rounded-xl'>
                 {user ? (
                     <>
                         <h3 className=' text-center text-xl font-bold text-orange-900 dark:text-orange-300 mt-10'>設定</h3>
@@ -80,14 +140,22 @@ export default function CheckoutContent() {
                                 <p>{user.emailVerified ? "已完成" : "尚未完成"}</p>
                                 <div className="tooltip flex gap-2" data-tip="若已完成驗證卻顯示尚未完成請嘗試重新登入">
                                     <CircleHelp className=' cursor-pointer' />
-                                    <p className=' lg:hidden'>若已完成驗證卻顯示尚未完成請嘗試重新登入</p>
                                 </div>
+                                <button className=' !h-8 leading-1 !rounded-4xl disabled:!bg-stone-500'
+                                    onClick={handleResentMail}
+                                    disabled={user.emailVerified ? true : false}
+                                >{user.emailVerified ? "已完成驗證" : "重新寄送驗證信"}</button>
                             </div>
                             <hr className=' border-1 border-stone-300 dark:border-stone-600 w-full' />
                         </div>
                         <div className=' flex flex-col md:flex-row gap-20 max-w-[80vw] mx-auto p-10'>
                             <div className=' grid grid-cols-8 gap-4 w-full'>
-                                <h4 className='col-span-8 text-lg font-bold text-orange-900 dark:text-orange-300'>編輯會員資料</h4>
+                                <div className=' col-span-8 flex gap-8 items-center'>
+                                    <h4 className=' text-lg font-bold text-orange-900 dark:text-orange-300'>編輯會員資料</h4>
+                                    <div className="tooltip flex gap-2" data-tip="完成資料填寫可加快您結帳的速度">
+                                        <CircleHelp className=' cursor-pointer' />
+                                    </div>
+                                </div>
                                 <div className='col-span-1'>
                                     <p className='font-black mt-4'>姓</p>
                                     <input
@@ -189,14 +257,23 @@ export default function CheckoutContent() {
                                 <div className='col-span-1'>
                                     <p>城市</p>
                                     <select
-                                        name="city"
-                                        value={buyer.city}
+                                        name="cityId"
+                                        value={buyer.cityId}
                                         className=' select'
-                                        onChange={(e) =>
-                                            setBuyer({ ...buyer, [e.target.name]: Number(e.target.value) })
-                                        }
+                                        onChange={(e) => {
+                                            const selectedId = Number(e.target.value);
+                                            const selectedCity = twCities[selectedId];
+
+                                            setBuyer((prev) => ({
+                                                ...prev,
+                                                cityId: selectedId,
+                                                cityName: selectedCity.name,
+                                                districtId: 0,
+                                                districtName: "",
+                                            }));
+                                        }}
                                     >
-                                        <option disabled={true}>城市</option>
+                                        <option value="" disabled>城市</option>
                                         {twCities.map((city, index) => (
                                             <option key={index} value={index}>{city.name}</option>
                                         ))}
@@ -205,15 +282,23 @@ export default function CheckoutContent() {
                                 <div className='col-span-1'>
                                     <p>行政區</p>
                                     <select
-                                        name='district'
-                                        value={buyer.district}
+                                        name='districtId'
+                                        value={buyer.districtId}
                                         className="select"
-                                        onChange={(e) =>
-                                            setBuyer({ ...buyer, [e.target.name]: Number(e.target.value) })
-                                        }
+                                        onChange={(e) => {
+                                            const selectedId = Number(e.target.value);
+                                            const selectedDistrict = twCities[buyer.cityId].districts[selectedId];
+
+                                            setBuyer((prev) => ({
+                                                ...prev,
+                                                districtId: selectedId,
+                                                districtName: selectedDistrict.name,
+                                            }));
+                                        }}
+
                                     >
-                                        <option disabled={true}>行政區</option>
-                                        {twCities[buyer.city].districts.map((district, index) => (
+                                        <option value="" disabled>行政區</option>
+                                        {twCities[buyer.cityId].districts.map((district, index) => (
                                             <option key={index} value={index}>{district.name}</option>
                                         ))}
                                     </select>
@@ -228,7 +313,8 @@ export default function CheckoutContent() {
                                         onChange={(e) => setBuyer({ ...buyer, [e.target.name]: e.target.value })}
                                     />
                                 </div>
-                                <button className=' col-span-8 mt-8'>儲存修改</button>
+                                <button className=' col-span-8 mt-8'
+                                    onClick={handleSubmit}>儲存修改</button>
                             </div>
                         </div>
 

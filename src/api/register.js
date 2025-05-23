@@ -2,15 +2,15 @@ import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification } 
 import { setDoc, doc } from "firebase/firestore";
 import { auth, db } from "../api";
 
-export const registerUser = async (email, password, nickname) => {
+export const registerUser = async (email, password, displayName) => {
   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
   const user = userCredential.user;
 
-  await updateProfile(user, { displayName: nickname });
+  await updateProfile(user, { displayName: displayName });
   await sendEmailVerification(user);
   await setDoc(doc(db, "users", user.uid), {
     email: user.email,
-    nickname,
+    displayName,
     emailVerified: user.emailVerified,
     createdAt: new Date(),
     familyName:"",
@@ -18,8 +18,10 @@ export const registerUser = async (email, password, nickname) => {
     gender:"",
     birthday:"",
     tel:"",
-    city:"",
-    district:"",
+    cityId: 0,
+    cityName: "",
+    districtId:0,
+    districtName: "",
     address:"",
   });
 
