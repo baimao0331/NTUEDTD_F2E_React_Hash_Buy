@@ -4,17 +4,14 @@ import twCities from '../json/TwCities.json';
 import { useRef, useEffect, useState, use } from 'react';
 import { getAuth, signOut } from "firebase/auth";
 import { sendEmailVerification } from "firebase/auth";
-import { app } from '../api/index';
 import { Link } from 'react-router';
 import { CircleHelp } from 'lucide-react';
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../api";
+import { useQuery } from '@tanstack/react-query';
 
 export default function CheckoutContent() {
-    const user = useSelector((state) => state.auth.user);
-    const auth = getAuth(app);
-    const dispatch = useDispatch();
-    const targetCurrency = useSelector(selectCurrency);
+    const user = auth.currentUser;
 
     const [year, setYear] = useState(2000);
     const [month, setMonth] = useState(1);
@@ -43,7 +40,6 @@ export default function CheckoutContent() {
     };
 
     const days = Array.from({ length: getDaysInMonth(year, month) }, (_, i) => i + 1);
-
 
     const [buyer, setBuyer] = useState({
         familyName: "",
@@ -103,7 +99,7 @@ export default function CheckoutContent() {
         const auth = getAuth();
         const currentuser = auth.currentUser;
         try {
-            const ref = doc(db, "users", currentuser.uid); // 🔥 將資料存到 users/{uid}
+            const ref = doc(db, "users", currentuser.uid); // 將資料存到 users/{uid}
 
             await setDoc(ref, buyer, { merge: true }); // merge: true → 不會覆蓋整份資料
 
@@ -114,11 +110,47 @@ export default function CheckoutContent() {
         }
     };
 
+    //將使用者資料同步過來
+    const fetchUserData = async (uid) => {
+        const ref = doc(db, "users", uid);
+        const snap = await getDoc(ref);
+        if (!snap.exists()) throw new Error("找不到使用者資料");
+        return snap.data();
+    };
+    const { data: userData, isLoading, error } = useQuery({
+        queryKey: ['userData', user?.uid],
+        queryFn: () => fetchUserData(user.uid),
+        enabled: !!user, // 確保登入後才執行
+    });
+
+    useEffect(() => {
+        if (user && userData) {
+            const selectedCity = twCities[userData.cityId || 0];
+            const selectedDistrict = selectedCity?.districts[userData.districtId || 0];
+
+            setBuyer((prev) => ({
+                ...prev,
+                ...userData,
+                email: user.email || userData.email,
+                cityName: selectedCity?.name || '',
+                districtName: selectedDistrict?.name || '',
+            }));
+        }
+    }, [user, userData]);
+    useEffect(() => {
+        if (userData?.birthday) {
+            const [y, m, d] = userData.birthday.split('-').map(Number);
+            setYear(y);
+            setMonth(m);
+            setDay(d);
+        }
+    }, [userData]);
+
     console.log(buyer);
 
     return (
         <div className='max-w-screen-xl mx-auto main'>
-            <div className=' px-8 py-4 w-8/10 bg-stone-50 dark:bg-stone-700 mx-auto rounded-xl'>
+            <div className=' px-8 py-4 w-8/10 bg-stone-50 dark:bg-stone-700 mx-auto rounded-xl border border-stone-300 dark:border-stone-600'>
                 {user ? (
                     <>
                         <h3 className=' text-center text-xl font-bold text-orange-900 dark:text-orange-300 mt-10'>設定</h3>
@@ -138,9 +170,6 @@ export default function CheckoutContent() {
                             <div className=' flex gap-8 items-center'>
                                 <p className=' text-orange-400 dark:text-orange-300 font-bold'>驗證</p>
                                 <p>{user.emailVerified ? "已完成" : "尚未完成"}</p>
-                                <div className="tooltip flex gap-2" data-tip="若已完成驗證卻顯示尚未完成請嘗試重新登入">
-                                    <CircleHelp className=' cursor-pointer' />
-                                </div>
                                 <button className=' !h-8 leading-1 !rounded-4xl disabled:!bg-stone-500'
                                     onClick={handleResentMail}
                                     disabled={user.emailVerified ? true : false}
@@ -177,13 +206,14 @@ export default function CheckoutContent() {
                                 <span className='col-span-1'></span>
                                 <div className='col-span-4'>
                                     <p className='font-black mt-4'>性別</p>
-                                    <div className=' flex gap-8'>
+                                    <div className=' flex gap-8 py-2'>
                                         <label className="flex items-center gap-2">
                                             <input
                                                 type="radio"
                                                 name="gender"
                                                 value="male"
                                                 checked={buyer.gender === "male"}
+                                                className="radio bg-stone-300 dark:bg-stone-600 checked:bg-orange-300 checked:text-stone-50 dark:checked:text-stone-700 checked:border-ornage-300"
                                                 onChange={(e) =>
                                                     setBuyer({ ...buyer, gender: e.target.value })
                                                 }
@@ -197,6 +227,7 @@ export default function CheckoutContent() {
                                                 name="gender"
                                                 value="female"
                                                 checked={buyer.gender === "female"}
+                                                className="radio bg-stone-300 dark:bg-stone-600 checked:bg-orange-300 checked:text-stone-50 dark:checked:text-stone-700 checked:border-ornage-300"
                                                 onChange={(e) =>
                                                     setBuyer({ ...buyer, gender: e.target.value })
                                                 }
@@ -210,6 +241,7 @@ export default function CheckoutContent() {
                                                 name="gender"
                                                 value="other"
                                                 checked={buyer.gender === "other"}
+                                                className="radio bg-stone-300 dark:bg-stone-600 checked:bg-orange-300 checked:text-stone-50 dark:checked:text-stone-700 checked:border-ornage-300"
                                                 onChange={(e) =>
                                                     setBuyer({ ...buyer, gender: e.target.value })
                                                 }
@@ -219,9 +251,9 @@ export default function CheckoutContent() {
                                     </div>
                                 </div>
                                 <h4 className='col-span-8 font-black mt-4'>生日</h4>
-                                <div className='col-span-1'>
+                                <div className='col-span-2'>
                                     <p>年</p>
-                                    <select name="birthday" id="year" className=' select' onChange={(e) => setYear(parseInt(e.target.value))}>
+                                    <select name="birthday" id="year" className=' select' value={year} onChange={(e) => setYear(parseInt(e.target.value))}>
                                         {years.map(y => (
                                             <option key={y} value={y}>{y}</option>
                                         ))}
@@ -229,7 +261,7 @@ export default function CheckoutContent() {
                                 </div>
                                 <div className='col-span-1'>
                                     <p>月</p>
-                                    <select name="birthday" id="month" className=' select' onChange={(e) => setMonth(parseInt(e.target.value))}>
+                                    <select name="birthday" id="month" className=' select' value={month} onChange={(e) => setMonth(parseInt(e.target.value))}>
                                         {months.map(m => (
                                             <option key={m} value={m}>{m}</option>
                                         ))}
@@ -237,13 +269,12 @@ export default function CheckoutContent() {
                                 </div>
                                 <div className='col-span-1'>
                                     <p>日</p>
-                                    <select name="birthday" id="day" className=' select' onChange={(e) => setDay(parseInt(e.target.value))}>
+                                    <select name="birthday" id="day" className=' select' value={day} onChange={(e) => setDay(parseInt(e.target.value))}>
                                         {days.map(d => (
                                             <option key={d} value={d}>{d}</option>
                                         ))}
                                     </select>
                                 </div>
-                                <span className='col-span-1'></span>
                                 <div className='col-span-4'>
                                     <p className='font-black'>連絡電話</p>
                                     <input
@@ -254,7 +285,7 @@ export default function CheckoutContent() {
                                     />
                                 </div>
                                 <h4 className='col-span-8 font-black mt-4'>聯絡地址</h4>
-                                <div className='col-span-1'>
+                                <div className='col-span-2'>
                                     <p>城市</p>
                                     <select
                                         name="cityId"
@@ -279,7 +310,7 @@ export default function CheckoutContent() {
                                         ))}
                                     </select>
                                 </div>
-                                <div className='col-span-1'>
+                                <div className='col-span-2'>
                                     <p>行政區</p>
                                     <select
                                         name='districtId'
@@ -331,8 +362,6 @@ export default function CheckoutContent() {
                 }
 
             </div>
-
-
         </div>
     )
 }

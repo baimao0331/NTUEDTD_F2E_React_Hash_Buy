@@ -1120,6 +1120,18 @@
     "@tailwindcss/oxide" "4.1.3"
     tailwindcss "4.1.3"
 
+"@tanstack/query-core@5.80.2":
+  version "5.80.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.80.2.tgz#1e0e2a35ff2a5f5a613706fbc6fafa395f1ec909"
+  integrity sha512-g2Es97uwFk7omkWiH9JmtLWSA8lTUFVseIyzqbjqJEEx7qN+Hg6jbBdDvelqtakamppaJtGORQ64hEJ5S6ojSg==
+
+"@tanstack/react-query@^5.80.2":
+  version "5.80.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.80.2.tgz#42f1231a9f7cc78fb0906f38b7851d4662cbb95c"
+  integrity sha512-LfA0SVheJBOqC8RfJw/JbOW3yh2zuONQeWU5Prjm7yjUGUONeOedky1Bj39Cfj8MRdXrZV+DxNT7/DN/M907lQ==
+  dependencies:
+    "@tanstack/query-core" "5.80.2"
+
 "@types/babel__core@^7.20.5":
   version "7.20.5"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.20.5.tgz#3df15f27ba85319caa07ba08d0721889bb39c017"
@@ -2049,6 +2061,11 @@ react-fast-compare@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
+
+react-firebase-hooks@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-firebase-hooks/-/react-firebase-hooks-5.1.1.tgz#fc92bb4b860c6753c806583f64d7f069b6ee6785"
+  integrity sha512-y2UpWs82xs+39q5Rc/wq316ca52QsC0n8m801V+yM4IC4hbfOL4yQPVSh7w+ydstdvjN9F+lvs1WrO2VYxpmdA==
 
 react-helmet-async@^2.0.5:
   version "2.0.5"

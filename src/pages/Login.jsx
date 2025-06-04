@@ -2,18 +2,21 @@ import { Helmet } from "react-helmet-async"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { Link } from "react-router"
-import { useState } from "react";
 import { loginUser } from "../api/login";
 import { useNavigate, useLocation } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/authSlice";
-
+import { useSearchParams } from "react-router";
+import { useEffect, useState } from "react";
+import Toast from "../components/Toast";
 
 export default function Home() {
     const [email, setEmail] = useState("");
     const [successModal, setSuccessModal] = useState(false);
     const [password, setPassword] = useState("");
     const [errCode, setErrCode] = useState(null);
+    const [searchParams] = useSearchParams();
+    const [toastMsg, setToastMsg] = useState(null);
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
@@ -47,6 +50,23 @@ export default function Home() {
         }
     };
 
+    useEffect(() => {
+        const reason = searchParams.get("reason");
+
+        if (reason === "notLoggedIn") {
+            setToastMsg("請先登入後繼續操作");
+        } else if (reason === "notVerified") {
+            setToastMsg("請完成信箱驗證");
+        }
+
+        if (reason) {
+            const timer = setTimeout(() => {
+                setToastMsg(null);
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [searchParams]);
+
     return (
         <>
             <Helmet>
@@ -54,6 +74,7 @@ export default function Home() {
             </Helmet>
             <Header />
             <main>
+                <Toast message={toastMsg} />
                 {successModal && (
                     <div className="fixed bg-stone-300/50 dark:bg-stone-700/50 backdrop-blur-xl inset-0 bg-opacity-50 flex items-center justify-center z-50">
                         <div className=" rounded-lg bg-stone-50 dark:bg-stone-600 p-6 shadow-lg w-80 text-center">
@@ -118,9 +139,9 @@ export default function Home() {
                                     />
                                 </div>
                                 <div className="text-sm mt-4">
-                                    <a href="#" className="font-semibold text-orange-300 hover:text-orange-500">
+                                    <Link to="/account/reset" className="font-semibold text-orange-300 hover:text-orange-500">
                                         忘記密碼?
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
 
