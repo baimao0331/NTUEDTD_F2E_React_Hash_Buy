@@ -179,13 +179,13 @@ export default function CheckoutContent() {
                         </div>
                         <div className=' flex flex-col md:flex-row gap-20 max-w-[80vw] mx-auto p-10'>
                             <div className=' grid grid-cols-8 gap-4 w-full'>
-                                <div className=' col-span-8 flex gap-8 items-center'>
+                                <div className=' col-span-8 md:col-span-8 flex gap-8 items-center'>
                                     <h4 className=' text-lg font-bold text-orange-900 dark:text-orange-300'>編輯會員資料</h4>
                                     <div className="tooltip flex gap-2" data-tip="完成資料填寫可加快您結帳的速度">
                                         <CircleHelp className=' cursor-pointer' />
                                     </div>
                                 </div>
-                                <div className='col-span-1'>
+                                <div className=' col-span-4 md:col-span-1'>
                                     <p className='font-black mt-4'>姓</p>
                                     <input
                                         name="familyName"
@@ -194,7 +194,7 @@ export default function CheckoutContent() {
                                         onChange={(e) => setBuyer({ ...buyer, [e.target.name]: e.target.value })}
                                     />
                                 </div>
-                                <div className='col-span-2'>
+                                <div className='col-span-4 md:col-span-2'>
                                     <p className='font-black mt-4'>名</p>
                                     <input
                                         name="givenName"
@@ -203,10 +203,10 @@ export default function CheckoutContent() {
                                         onChange={(e) => setBuyer({ ...buyer, [e.target.name]: e.target.value })}
                                     />
                                 </div>
-                                <span className='col-span-1'></span>
-                                <div className='col-span-4'>
+                                <span className=' col-span-0 md:col-span-1'></span>
+                                <div className='col-span-8 md:col-span-4'>
                                     <p className='font-black mt-4'>性別</p>
-                                    <div className=' flex gap-8 py-2'>
+                                    <div className=' flex gap-8 py-2 flex-col md:flex-row'>
                                         <label className="flex items-center gap-2">
                                             <input
                                                 type="radio"

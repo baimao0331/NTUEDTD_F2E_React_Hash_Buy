@@ -89,7 +89,7 @@ export default function Home() {
                         </div>
                     </div>
                 )}
-                <div className="flex min-h-full flex-1 flex-col px-6 py-12 lg:px-8 bg-stone-50 dark:bg-stone-700 rounded-lg w-2/3 justify-self-center mb-10 shadow-xl">
+                <div className="flex min-h-full max-w-screen-xl flex-1 flex-col px-6 py-12 lg:px-8 bg-stone-50 dark:bg-stone-700 rounded-lg w-8/10 lg:w-2/3 justify-self-center mb-10 shadow-xl">
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight">
                             登入帳號

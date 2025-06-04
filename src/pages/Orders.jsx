@@ -37,7 +37,7 @@ export default function Orders() {
             <>
                 <Header />
                 <div className="max-w-screen-xl mx-auto  bg-stone-50 dark:bg-stone-700 rounded-xl p-8 border border-stone-300 dark:border-stone-600 rounded-xl shadow w-2/3 py-8 px-24 ">
-                    <div className=" w-1/2 mx-auto flex flex-col justify-center">
+                    <div className=" w-8/10 lg:w-1/2 mx-auto flex flex-col justify-center">
                         <h3 className=' font-bold text-center my-5 flex mx-auto items-center gap-2 text-xl text-orange-900 dark:text-orange-300'>
                             你的訂單
                         </h3>
@@ -52,9 +52,9 @@ export default function Orders() {
     return (
         <>
             <Header />
-            <div className=" max-w-screen-xl px-10 mx-auto w-8/10">
+            <div className=" max-w-screen-xl mx-auto w-8/10">
                 <div className=" bg-stone-50 dark:bg-stone-700 rounded-xl p-8 border border-stone-300 dark:border-stone-600">
-                    <div className=" w-1/2 mx-auto flex flex-col justify-center">
+                    <div className="lg:w-1/2 mx-auto flex flex-col justify-center">
                         <h3 className=' font-bold text-center my-5 flex mx-auto items-center gap-2 text-xl text-orange-900 dark:text-orange-300'>
                             你的訂單
                         </h3>
@@ -62,18 +62,17 @@ export default function Orders() {
                     </div>
                     <ul className=" flex flex-col gap-4">
                         {orders.map(order => (
-                            <li key={order.id} className=" flex flex-col my-2 w-8/10 mx-auto">
+                            <li key={order.id} className=" flex flex-col my-2 md:w-8/10 mx-auto">
                                 <div className="collapse  collapse-arrow border border-stone-300 dark:border-stone-600">
                                     <input type="checkbox" />
-                                    <div className="collapse-title flex justify-between">
-                                        <p>訂單編號<br />{order.id}</p>
-                                        <p>訂購日期<br />{order.createdAt?.toDate().toLocaleString()}</p>
-                                        <p>總價<br />{order.total}{order.items[0].currency}</p>
+                                    <div className="collapse-title flex flex-col gap-2 md:flex-row md:justify-between">
+                                        <div className=" flex md:gap-2 flex-col"><p>訂單編號</p><p className=" font-black">{order.id}</p></div>
+                                        <div className=" flex flex-row gap-2 text-sm md:text-md md:flex-col"><p>訂購日期</p><p>{order.createdAt?.toDate().toLocaleString()}</p></div>
+                                        <div className=" flex flex-row gap-2 justify-between md:flex-col"><p>總價</p><p className=" text-orange-900 dark:text-orange-300 font-bold">{order.total}{order.items[0].currency}</p></div>
                                         </div>
                                     <div className="collapse-content">
                                         <hr  className=" my-2  border-stone-300 dark:border-stone-600"/>
-                                        <div className=" w-full grid grid-cols-[auto_2fr_1fr_1fr] ">
-                                            <span className="w-20"></span>
+                                        <div className=" w-full grid grid-cols-[2fr_1fr_1fr] ">
                                             <p className=" truncate">商品名</p>
                                             <p className=" text-center">數量</p>
                                             <div className=" flex gap-2 justify-end mr-10">
@@ -82,7 +81,6 @@ export default function Orders() {
                                         </div>
                                         <ul className=" flex flex-col gap-2 mt-4">{order.items.map((item, index) => (
                                             <li key={index} className=" flex gap-4">
-                                                <img src={`/images/` + item.id + `/` + item.image} className=" w-16 aspect-1/1 object-cover" alt="" />
                                                 <div className=" w-full grid grid-cols-[2fr_1fr_1fr]">
                                                     <p className=" truncate">{item.title}</p>
                                                     <p className=" text-center">{item.qty}</p>
