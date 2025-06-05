@@ -36,6 +36,7 @@ export default function Cart() {
             navigate("/checkout");
         }
     };
+    console.log(cartItems);
 
     return (
         <div className='max-w-screen-xl mx-auto w-full px-10'>

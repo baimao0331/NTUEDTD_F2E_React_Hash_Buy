@@ -6,17 +6,13 @@ import { loginUser } from "../api/login";
 import { useNavigate, useLocation } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/authSlice";
-import { useSearchParams } from "react-router";
 import { useEffect, useState } from "react";
-import Toast from "../components/Toast";
 
 export default function Home() {
     const [email, setEmail] = useState("");
-    const [successModal, setSuccessModal] = useState(false);
+    const [verifyModal, setVerifyModal] = useState(false);
     const [password, setPassword] = useState("");
     const [errCode, setErrCode] = useState(null);
-    const [searchParams] = useSearchParams();
-    const [toastMsg, setToastMsg] = useState(null);
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
@@ -27,45 +23,43 @@ export default function Home() {
         e.preventDefault();
         try {
             const user = await loginUser(email, password);
-            console.log("登入成功", user);
-            console.log(user.emailVerified);
-            await user.reload();
+            await user.reload(); // 確保 emailVerified 最新
+
+            if (!user.emailVerified) {
+                // 尚未驗證 ➜ 顯示 Modal，3 秒後回原頁（不加參數、不顯示 toast）
+                setSuccessModal(true);
+                setTimeout(() => {
+                    navigate(fromPage);
+                }, 3000);
+                return;
+            }
+
+            //已驗證 ➜ 設定 Redux 狀態並直接導向，附加 reason 參數
             dispatch(setUser({
                 uid: user.uid,
                 email: user.email,
                 displayName: user.displayName,
                 emailVerified: user.emailVerified,
             }));
-            setSuccessModal(true);
-            setTimeout(() => {
-                navigate(fromPage);
-            }, 3000);
+
+            // 導向並加參數
+            const url = new URL(fromPage, window.location.origin);
+            url.searchParams.set("reason", "loginSuccess");
+            navigate(url.pathname + url.search);
+
         } catch (err) {
             console.error("登入失敗", err.message);
             switch (err.message) {
                 case "Firebase: Error (auth/invalid-credential).":
                     setErrCode("信箱或密碼錯誤");
                     break;
+                default:
+                    setErrCode("登入失敗，請稍後再試");
+                    break;
             }
         }
     };
 
-    useEffect(() => {
-        const reason = searchParams.get("reason");
-
-        if (reason === "notLoggedIn") {
-            setToastMsg("請先登入後繼續操作");
-        } else if (reason === "notVerified") {
-            setToastMsg("請完成信箱驗證");
-        }
-
-        if (reason) {
-            const timer = setTimeout(() => {
-                setToastMsg(null);
-            }, 3000);
-            return () => clearTimeout(timer);
-        }
-    }, [searchParams]);
 
     return (
         <>
@@ -74,8 +68,7 @@ export default function Home() {
             </Helmet>
             <Header />
             <main>
-                <Toast message={toastMsg} />
-                {successModal && (
+                {verifyModal && (
                     <div className="fixed bg-stone-300/50 dark:bg-stone-700/50 backdrop-blur-xl inset-0 bg-opacity-50 flex items-center justify-center z-50">
                         <div className=" rounded-lg bg-stone-50 dark:bg-stone-600 p-6 shadow-lg w-80 text-center">
                             <h2 className="text-xl font-bold mb-2">登入成功</h2>

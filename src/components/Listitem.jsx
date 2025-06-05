@@ -26,8 +26,6 @@ export default function Listitem(props) {
 
     return (
         <>
-
-
             <div key={id} ref={refs.setReference} className="  h-25 w-full flex pl-4 pr-6 relative group text-stone-900 dark:text-stone-50"{...getReferenceProps()}>
                 <Link to={`/products/id/` + id} className=' w-full h-full flex'>
                     <figure className=" h-2/3 w-1/4 aspect-[2/1] overflow-hidden rounded-sm self-center">

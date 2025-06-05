@@ -9,6 +9,7 @@ export default function AddToCart(props) {
     const { item, selectedVariantId, qty, outOfStock } = props;
     const addToCart = () => {
         dispatch(addCartItems({
+            type: item.itemType,
             id: item.id,
             title: item.title,
             variantID: item.variants[selectedVariantId].id,

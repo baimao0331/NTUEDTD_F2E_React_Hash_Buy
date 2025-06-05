@@ -4,13 +4,15 @@ import currencyChange from '../js/currencyChange'
 import { selectCurrency } from "../redux/currencySlice";
 import twCities from '../json/TwCities.json'
 import { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router';
+import { useNavigate } from "react-router";
+import { clearCart } from "../redux/cartSlice";
 import { auth, db } from '../api/index'
 import { doc, getDoc, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function CheckoutContent() {
     const user = auth.currentUser;
     const userId = user.uid;
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const cartItems = useSelector(selectCartItems);
     const targetCurrency = useSelector(selectCurrency);
@@ -119,7 +121,6 @@ export default function CheckoutContent() {
             return;
         }
 
-
         try {
             const orderData = {
                 userId: userId,
@@ -139,6 +140,9 @@ export default function CheckoutContent() {
 
             const docRef = await addDoc(collection(db, "orders"), orderData);
             console.log("訂單已建立，ID：", docRef.id);
+
+            dispatch(clearCart());
+            navigate("/?reason=finishCheckout");
 
         } catch (error) {
             console.error("送出訂單時發生錯誤：", error);

@@ -142,7 +142,7 @@ export default function Product() {
                                 {/* 品項下拉選單 */}
                                 <select
                                     defaultValue={item.variants[0].name}
-                                    disabled={item.variants.length==1? true:false}
+                                    disabled={item.variants.length == 1 ? true : false}
                                     className={` absolute select w-1/3 lg:w-1/2 bottom-0 bg-stone-50 dark:bg-stone-700 `}
                                     onChange={changeVariantId}>
                                     {item.variants.map(variant => (
@@ -162,25 +162,28 @@ export default function Product() {
                         <div className="info-bottom mt-4">
                             <div className={` flex justify-between mb-8 `}>
                                 {/*數量選擇 */}
-                                <div className=" inline-flex w-1/4 rounded-sm">
-                                    <button className=" btn !p-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700 !shadow-none !px-0 w-1/4"
-                                        disabled={(outOfStock ? true : false)}
-                                        onClick={handleDecrease}>
-                                        <Minus className=" dark:!text-stone-50" />
-                                    </button>
-                                    <div className="flex items-center w-1/2 bg-stone-50 dark:bg-stone-600"><p className=" text-center w-full">{outOfStock ? 0 : qty}</p></div>
-                                    <button className=" btn !p-2 no-round !rounded-r-sm !rounded-l-none !bg-stone-200 dark:!bg-stone-700 !shadow-none !px-0 w-1/4"
-                                        disabled={(outOfStock ? true : false)}
-                                        onClick={handleIncrease}>
-                                        <Plus className=" dark:!text-stone-50" />
-                                    </button>
-                                </div>
+                                {item.itemType !== "3D模型" ? (
+                                    <div className=" inline-flex w-1/4 rounded-sm">
+                                        <button className={` btn !p-2 no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700 !shadow-none !px-0 w-1/4`}
+                                            disabled={(outOfStock ? true : false)}
+                                            onClick={handleDecrease}>
+                                            <Minus className=" dark:!text-stone-50" />
+                                        </button>
+                                        <div className="flex items-center w-1/2 bg-stone-50 dark:bg-stone-600"><p className=" text-center w-full">{outOfStock ? 0 : qty}</p></div>
+                                        <button className=" btn !p-2 no-round !rounded-r-sm !rounded-l-none !bg-stone-200 dark:!bg-stone-700 !shadow-none !px-0 w-1/4"
+                                            disabled={(outOfStock ? true : false)}
+                                            onClick={handleIncrease}>
+                                            <Plus className=" dark:!text-stone-50" />
+                                        </button>
+                                    </div>) : 
+                                    (<div className=" inline-flex w-1/3 rounded-sm text-stone-600 border p-2 cursor-not-allowed"><p className=" w-full text-center">數位商品不提供複數購買</p></div>)}
+
                                 <div className=" flex items-center gap-2">
                                     <p className=" text-lg text-right">{likesNum}</p>
                                     <label className="cursor-pointer swap swap-flip">
-                                            <input type="checkbox" onChange={changeliked}/>
-                                            <Heart fill='none' className="size-8 text-orange-900 dark:text-orange-300 swap-off" />
-                                            <Heart fill="currentColor" className="size-8 text-orange-900 dark:text-orange-300 swap-on" />
+                                        <input type="checkbox" onChange={changeliked} />
+                                        <Heart fill='none' className="size-8 text-orange-900 dark:text-orange-300 swap-off" />
+                                        <Heart fill="currentColor" className="size-8 text-orange-900 dark:text-orange-300 swap-on" />
                                     </label>
 
                                 </div>
