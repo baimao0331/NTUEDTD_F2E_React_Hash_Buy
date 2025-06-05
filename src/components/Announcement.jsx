@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Announcement() {
     const notices = [
-        '服務試營運開始! 暫不開放會員系統',
+        '服務試營運第二階段開始! 開放會員系統',
         '慶祝開發者還有呼吸 全站免運直到開發者沒有呼吸',
         '提醒! 沒有收到商品是正常現象'
     ];

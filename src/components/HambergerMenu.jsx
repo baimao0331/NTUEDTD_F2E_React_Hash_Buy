@@ -53,7 +53,28 @@ export default function HambergerMenu() {
 
             {/* 選單內容 */}
             <ul className=' flex flex-col gap-8 h-full items-center mt-[20vh]'>
-              <li>
+
+              <li className='hover:text-stone-600 dark:hover:text-orange-300'>
+                <Link to={`/`}>
+                  <div className='w-[50vw] p-2 rounded-md text-center border-2'>首頁</div>
+                </Link>
+              </li>
+              <li className='hover:text-stone-600 dark:hover:text-orange-300'>
+                <Link to={`/products/category/3D模型`}>
+                  <div className='w-[50vw] p-2 rounded-md text-center border-2'>3D模型</div>
+                </Link>
+              </li>
+              <li className='hover:text-stone-600 dark:hover:text-orange-300'>
+                <Link to={`/products/category/周邊商品`}>
+                  <div className='w-[50vw] p-2 rounded-md text-center border-2'>周邊商品</div>
+                </Link>
+              </li>
+              <li className='hover:text-stone-600 dark:hover:text-orange-300'>
+                <Link to={`/guide`}>
+                  <div className='w-[50vw] p-2 rounded-md text-center border-2'>購物說明</div>
+                </Link>
+              </li>
+                            <li>
                 {user ? (
                   <ul className="grid grid-cols-2 w-[50vw] gap-4">
                     <li className=' col-span-2 p-2 rounded-md text-center border-2'>
@@ -80,26 +101,6 @@ export default function HambergerMenu() {
                     <span className=' select-none'>|</span>
                     <Link to={`/account/login`}>登入</Link>
                   </div>)}
-              </li>
-              <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                <Link to={`/`}>
-                  <div className='w-[50vw] p-2 rounded-md text-center border-2'>首頁</div>
-                </Link>
-              </li>
-              <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                <Link to={`/products/category/3D模型`}>
-                  <div className='w-[50vw] p-2 rounded-md text-center border-2'>3D模型</div>
-                </Link>
-              </li>
-              <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                <Link to={`/products/category/周邊商品`}>
-                  <div className='w-[50vw] p-2 rounded-md text-center border-2'>周邊商品</div>
-                </Link>
-              </li>
-              <li className='hover:text-stone-600 dark:hover:text-orange-300'>
-                <Link to={`/guide`}>
-                  <div className='w-[50vw] p-2 rounded-md text-center border-2'>購物說明</div>
-                </Link>
               </li>
               <li className='flex justify-between w-[50vw] px-2 mt-2'>
                 <CurrencySelect />

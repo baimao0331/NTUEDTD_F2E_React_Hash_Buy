@@ -72,7 +72,7 @@ export default function Orders() {
                                         </div>
                                     <div className="collapse-content">
                                         <hr  className=" my-2  border-stone-300 dark:border-stone-600"/>
-                                        <div className=" w-full grid grid-cols-[2fr_1fr_1fr] ">
+                                        <div className=" w-full grid grid-cols-[1fr_1fr_1fr] md:grid-cols-[2fr_1fr_1fr] ">
                                             <p className=" truncate">商品名</p>
                                             <p className=" text-center">數量</p>
                                             <div className=" flex gap-2 justify-end mr-10">
