@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <Helmet>
-                <title>結帳</title>
+                <title>設定</title>
             </Helmet>
             <Header></Header>
             <Settings />

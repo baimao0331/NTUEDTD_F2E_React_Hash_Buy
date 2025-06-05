@@ -1,9 +1,12 @@
 import { DiscAlbumIcon, ShoppingCart } from 'lucide-react';
 import { useDispatch } from "react-redux";
 import { addCartItems } from "../redux/cartSlice";
+import { useNavigate, useLocation } from 'react-router';
 
 export default function AddToCart(props) {
     const dispatch = useDispatch();
+    const location = useLocation();
+    const navigate = useNavigate();
 
 
     const { item, selectedVariantId, qty, outOfStock } = props;
@@ -21,9 +24,11 @@ export default function AddToCart(props) {
             discount: item.discount,
             qty: qty
         }))
+        const currentPath = location.pathname;
+        navigate(`${currentPath}?reason=addtoCart`);
     }
     return (
-        <button 
+        <button
             className=" w-full !rounded-sm flex justify-center gap-4 disabled:!bg-stone-500"
             disabled={(outOfStock ? true : false)}
             onClick={addToCart}>

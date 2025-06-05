@@ -35,6 +35,15 @@ export default function Header() {
                 setToastMsg("成功登入");
                 setToastType("success");
                 break;
+                break;
+            case "logout":
+                setToastMsg("成功登出");
+                setToastType("success");
+                break;
+            case "addtoCart":
+                setToastMsg("已加入購物車");
+                setToastType("success");
+                break;
             default:
                 setToastMsg("發生未知狀態");
                 setToastType("error");

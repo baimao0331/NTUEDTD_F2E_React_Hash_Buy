@@ -7,15 +7,21 @@ import { getAuth, signOut } from "firebase/auth";
 import { app } from '../api/index'
 import { Link } from 'react-router';
 import { Settings, ShoppingBag, LogOut, User } from 'lucide-react'
+import { useNavigate, useLocation } from 'react-router';
 
 export default function Navbar() {
     const user = useSelector((state) => state.auth.user);
     const auth = getAuth(app);
     const dispatch = useDispatch();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogout = async () => {
         await signOut(auth);
         dispatch(clearUser());
+
+        const currentPath = location.pathname;
+        navigate(`${currentPath}?reason=logout`);
     };
 
 
@@ -46,7 +52,7 @@ export default function Navbar() {
                             <div className="flex items-center gap-4 h-full group hover:bg-stone-300 dark:hover:bg-stone-600 px-2 rounded-lg ">
                                 <div className="relative">
                                     <div className='flex gap-2 items-center cursor-pointer'>
-                                        <User/>
+                                        <User />
                                         <p>帳號</p>
                                     </div>
                                     <div className="absolute top-full right-0 mt-2 w-48 bg-stone-200 dark:bg-stone-700 border border-stone-300 dark:border-stone-600 rounded-xl shadow-2xl z-[999] 

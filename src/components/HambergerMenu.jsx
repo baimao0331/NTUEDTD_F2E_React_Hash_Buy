@@ -9,16 +9,21 @@ import { app } from '../api/index'
 import DarkModeBtn from './DarkModeBtn';
 import { Settings, ShoppingBag, LogOut, User } from 'lucide-react'
 import CurrencySelect from './CurrencySelect';
+import { useNavigate, useLocation } from 'react-router';
 
 export default function HambergerMenu() {
   const [hambergerMenu, setHamberger] = useState(false);
   const user = useSelector((state) => state.auth.user);
   const auth = getAuth(app);
   const dispatch = useDispatch();
+      const location = useLocation();
+    const navigate = useNavigate();
 
   const handleLogout = async () => {
     await signOut(auth);
     dispatch(clearUser());
+    const currentPath = location.pathname;
+    navigate(`${currentPath}?reason=logout`);
   };
 
 
@@ -74,7 +79,7 @@ export default function HambergerMenu() {
                   <div className='w-[50vw] p-2 rounded-md text-center border-2'>購物說明</div>
                 </Link>
               </li>
-                            <li>
+              <li>
                 {user ? (
                   <ul className="grid grid-cols-2 w-[50vw] gap-4">
                     <li className=' col-span-2 p-2 rounded-md text-center border-2'>

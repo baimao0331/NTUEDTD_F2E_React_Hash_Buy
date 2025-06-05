@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { app } from "../api/index";
-import { Helmet } from "react-helmet-async"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import { Helmet } from "react-helmet-async";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { Link } from "react-router";
 
 export default function ResetPassword() {
@@ -26,6 +26,9 @@ export default function ResetPassword() {
 
     return (
         <>
+            <Helmet>
+                <title>重設密碼</title>
+            </Helmet>
             <Header />
             <div className="max-w-screen-xl mx-auto bg-white dark:bg-stone-700 rounded-xl shadow w-8/10 px-6 md:pb-20 lg:w-2/3 py-8 lg:px-24 ">
                 <div className=" lg:w-1/2 mx-auto">

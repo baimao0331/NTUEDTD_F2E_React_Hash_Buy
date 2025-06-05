@@ -35,6 +35,9 @@ export default function Orders() {
     if (!orders?.length)
         return (
             <>
+                <Helmet>
+                    <title>訂單</title>
+                </Helmet>
                 <Header />
                 <div className="max-w-screen-xl mx-auto  bg-stone-50 dark:bg-stone-700 rounded-xl p-8 border border-stone-300 dark:border-stone-600 rounded-xl shadow w-2/3 py-8 px-24 ">
                     <div className=" w-8/10 lg:w-1/2 mx-auto flex flex-col justify-center">
@@ -51,6 +54,9 @@ export default function Orders() {
 
     return (
         <>
+            <Helmet>
+                <title>訂單</title>
+            </Helmet>
             <Header />
             <div className=" max-w-screen-xl mx-auto w-8/10">
                 <div className=" bg-stone-50 dark:bg-stone-700 rounded-xl p-8 border border-stone-300 dark:border-stone-600">
@@ -69,9 +75,9 @@ export default function Orders() {
                                         <div className=" flex md:gap-2 flex-col  justify-between"><p>訂單編號</p><p className=" font-black">{order.id}</p></div>
                                         <div className=" flex flex-row gap-2 text-sm md:text-md md:flex-col justify-between"><p>訂購日期</p><p>{order.createdAt?.toDate().toLocaleString()}</p></div>
                                         <div className=" flex flex-row gap-2 md:flex-col  justify-between"><p>總價</p><p className=" text-orange-900 dark:text-orange-300 font-bold">{order.total}{order.items[0].currency}</p></div>
-                                        </div>
+                                    </div>
                                     <div className="collapse-content">
-                                        <hr  className=" my-2  border-stone-300 dark:border-stone-600"/>
+                                        <hr className=" my-2  border-stone-300 dark:border-stone-600" />
                                         <div className=" w-full grid grid-cols-[1fr_1fr_1fr] md:grid-cols-[2fr_1fr_1fr] ">
                                             <p className=" truncate">商品名</p>
                                             <p className=" text-center">數量</p>
