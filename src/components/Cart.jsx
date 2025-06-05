@@ -99,23 +99,30 @@ export default function Cart() {
                                 </div>
 
                                 {/*數量選擇 */}
-                                <div className="order-4 col-span-2 lg:col-span-1 lg:order-2 inline-flex h-1/2 lg:h-1/3 md:w-2/3 w-full lg:row-span-2 rounded-md border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-600">
-                                    <button className=" btn !h-full no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700  !shadow-none !px-0 w-1/4"
-                                        onClick={() => {
-                                            const newQty = Math.max(1, item.qty - 1);
-                                            dispatch(updateQty({ id: item.id, variantID: item.variantID, qty: newQty }));
-                                        }}>
-                                        <Minus className=" dark:!text-stone-50 size-4" />
-                                    </button>
-                                    <div className="flex items-center flex-1 h-full"><p className=" w-full text-center text-sm">{item.qty}</p></div>
-                                    <button className=" btn !h-full no-round !rounded-r-md !rounded-l-none !bg-stone-200 dark:!bg-stone-700  !shadow-none !px-0 w-1/4"
-                                        onClick={() => {
-                                            const newQty = Math.min(item.stock, item.qty + 1);
-                                            dispatch(updateQty({ id: item.id, variantID: item.variantID, qty: newQty }));
-                                        }}>
-                                        <Plus className=" dark:!text-stone-50 size-4" />
-                                    </button>
-                                </div>
+                                {item.type == "3D模型" ?
+                                    (
+                                        <div className=' order-4 col-span-2 lg:col-span-1 lg:order-2  lg:row-span-2'>
+                                            <p className=' text-center'>{item.qty}</p>
+                                        </div>
+                                    ) : (
+                                        <div className=" mx-auto order-4 col-span-2 lg:col-span-1 lg:order-2 inline-flex h-1/2 lg:h-1/3 md:w-2/3 w-full lg:row-span-2 rounded-md border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-600">
+                                            <button className=" btn !h-full no-round !rounded-l-md !rounded-r-none !bg-stone-200 dark:!bg-stone-700  !shadow-none !px-0 w-1/4"
+                                                onClick={() => {
+                                                    const newQty = Math.max(1, item.qty - 1);
+                                                    dispatch(updateQty({ id: item.id, variantID: item.variantID, qty: newQty }));
+                                                }}>
+                                                <Minus className=" dark:!text-stone-50 size-4" />
+                                            </button>
+                                            <div className="flex items-center flex-1 h-full"><p className=" w-full text-center text-sm">{item.qty}</p></div>
+                                            <button className=" btn !h-full no-round !rounded-r-md !rounded-l-none !bg-stone-200 dark:!bg-stone-700  !shadow-none !px-0 w-1/4"
+                                                onClick={() => {
+                                                    const newQty = Math.min(item.stock, item.qty + 1);
+                                                    dispatch(updateQty({ id: item.id, variantID: item.variantID, qty: newQty }));
+                                                }}>
+                                                <Plus className=" dark:!text-stone-50 size-4" />
+                                            </button>
+                                        </div>
+                                    )}
 
                                 <figure className=" order-3 col-span-1 row-span-2 lg:order-3 lg:row-span-2 flex gap-1 items-baseline">
                                     <p className=" text-right min-w-12 price font-bold text-xl">{sortCurrencyChange(item.currency, targetCurrency, (item.price * item.qty * item.discount))}</p>

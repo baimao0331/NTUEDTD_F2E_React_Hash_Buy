@@ -49,7 +49,7 @@ export default function Listitem(props) {
                         </figure>
                         <div className="px-6 py-4">
                             <div className="font-bold text-xl mb-2">{title}</div>
-                            <p className="text-stone-900 dark:text-stone-50 text-base">
+                            <p className="text-stone-900 dark:text-stone-50 text-base max-h-[20vh] overflow-y-scroll overflow-x-hidden">
                                 {description}
                             </p>
                         </div>

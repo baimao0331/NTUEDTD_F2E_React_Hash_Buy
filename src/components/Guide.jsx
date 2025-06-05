@@ -2,7 +2,7 @@ export default function Guide() {
     return (
         <div className=" main max-w-screen-xl mx-auto">
             <div class="shopping-info text-sm leading-relaxed">
-                <h2 class="text-lg font-bold text-orange-900 dark:text-orange-300 mb-4">🛒 購物須知 FAQ</h2>
+                <h2 class="text-lg font-bold text-orange-900 dark:text-orange-300 mb-4">購物須知 FAQ</h2>
 
                 <div>
                     <p class="font-semibold">Q1. 我下單後會收到什麼通知？</p>
