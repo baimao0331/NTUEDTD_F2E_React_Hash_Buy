@@ -63,7 +63,7 @@ export default function Header() {
                 <div className=' relative  max-w-screen-xl mx-auto max-h-16 p-2 flex items-center justify-between px-5 md:px-10'>
                     <HambergerMenu className='' />
                     {/* LOGO */}
-                    <Link to={`/`} className=" md:absolute h-full items-center ml-[7.5vw] md:ml-0">
+                    <Link to={`/`} className=" lg:absolute h-full items-center ml-[7.5vw] md:ml-0">
                         <img src="/images/HASH BUY.png" className='max-h-14' alt="" />
                     </Link>
                     <div className="flex h-full items-center ">

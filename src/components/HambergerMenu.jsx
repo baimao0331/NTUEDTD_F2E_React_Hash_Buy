@@ -35,7 +35,7 @@ export default function HambergerMenu() {
     <div className='hamberger'>
       {/* 漢堡按鈕 */}
       <label onClick={toggleHamberger}>
-        <Menu size='40' className='md:hidden cursor-pointer text-orange-900' />
+        <Menu size='40' className='lg:hidden cursor-pointer text-orange-900' />
       </label>
 
       {/* 動畫區塊 */}

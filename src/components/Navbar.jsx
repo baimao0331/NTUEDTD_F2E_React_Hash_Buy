@@ -24,7 +24,6 @@ export default function Navbar() {
         navigate(`${currentPath}?reason=logout`);
     };
 
-
     return (
         <>
             <nav className=" bg-stone-200 dark:bg-stone-700 font-medium hidden sm:block text-stone-900 dark:text-stone-50 !overflow-visible">
