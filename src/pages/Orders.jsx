@@ -47,7 +47,7 @@ export default function Orders() {
                 <Header />
                 <div className="max-w-screen-xl mx-auto  bg-stone-50 dark:bg-stone-700 rounded-xl p-8 border border-stone-300 dark:border-stone-600 shadow w-2/3 py-8 px-24 ">
                     <div className=" w-8/10 lg:w-1/2 mx-auto flex flex-col justify-center">
-                        <h3 className=' font-bold text-center my-5 flex mx-auto items-center gap-2 text-xl text-orange-900 dark:text-orange-300'>
+                        <h3 className=' font-bold text-center my-5 flex mx-auto items-center gap-2 text-xl text-orange-800 dark:text-orange-300'>
                             你的訂單
                         </h3>
                         <hr className="w-1/4 border-orange-300 border-3 mt-4 rounded-2xl mx-auto mb-4" />
