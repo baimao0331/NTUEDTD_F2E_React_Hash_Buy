@@ -64,7 +64,7 @@ export default function Header() {
                     <HambergerMenu className='' />
                     {/* LOGO */}
                     <Link to={`/`} className=" md:absolute h-full items-center ml-[7.5vw] md:ml-0">
-                        <img src="images/HASH BUY.png" className='max-h-14' alt="" />
+                        <img src="/images/HASH BUY.png" className='max-h-14' alt="" />
                     </Link>
                     <div className="flex h-full items-center ">
                         <SearchModal />
