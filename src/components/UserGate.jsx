@@ -46,13 +46,5 @@ export default function UserGate({ children }) {
         return null; // 或者顯示 loading 畫面以防跳轉時閃現
     }
 
-    if (!user.emailVerified) {
-        return (
-            <div className="w-screen h-screen flex items-center justify-center bg-stone-50 text-orange-500 text-center p-4">
-                已發送驗證信到您的信箱，請點擊後重新登入。
-            </div>
-        );
-    }
-
     return children;
 }

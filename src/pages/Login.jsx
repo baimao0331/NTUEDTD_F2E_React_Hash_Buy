@@ -27,7 +27,7 @@ export default function Home() {
 
             if (!user.emailVerified) {
                 // 尚未驗證 ➜ 顯示 Modal，3 秒後回原頁（不加參數、不顯示 toast）
-                setSuccessModal(true);
+                setVerifyModal(true);
                 setTimeout(() => {
                     navigate(fromPage);
                 }, 3000);
