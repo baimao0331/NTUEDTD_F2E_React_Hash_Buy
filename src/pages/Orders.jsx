@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import LoadingHash from '../components/LoadingHash';
-import OrderStatusStepper from "./OrderStatus";
+import OrderStatusStepper from "../components/OrderStatus";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../api/index";
