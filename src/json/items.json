@@ -58,7 +58,7 @@
       "images": ["img1.jpg", "img2.jpg"],
       "currency": "TWD",
       "discount": 0.8,
-      "discount_end": "2025-05-31",
+      "discount_end": "2025-08-31",
       "variants": [
         {
           "id": 1,
@@ -94,7 +94,7 @@
       "images": ["img1.jpg"],
       "currency": "TWD",
       "discount": 0.8,
-      "discount_end": "2025-05-31",
+      "discount_end": "2025-07-31",
       "variants": [
         {
           "id": 1,
@@ -116,7 +116,7 @@
       "images": ["img1.jpg", "img2.jpg"],
       "currency": "TWD",
       "discount": 0.8,
-      "discount_end": "2025-05-31",
+      "discount_end": "2025-06-30",
       "variants": [
         {
           "id": 1,
@@ -312,7 +312,7 @@
       "images": ["img1.jpg"],
       "currency": "TWD",
       "discount": 0.9,
-      "discount_end": "2025-05-10",
+      "discount_end": "2025-08-10",
       "variants": [
         {
           "id": 1,
@@ -352,7 +352,7 @@
       "images": ["img1.jpg"],
       "currency": "TWD",
       "discount": 0.9,
-      "discount_end": "2025-05-10",
+      "discount_end": "2025-06-10",
       "variants": [
         {
           "id": 1,
@@ -396,7 +396,7 @@
       "images": ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg","img7.jpg","img8.jpg","img9.jpg","img10.jpg","img11.jpg","img12.jpg","img13.jpg","img14.jpg"],
       "currency": "JPY",
       "discount": 0.5,
-      "discount_end": "2025-05-31",
+      "discount_end": "2025-08-31",
       "variants": [
         {
           "id": 1,

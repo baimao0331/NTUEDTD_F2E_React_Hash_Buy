@@ -11,12 +11,15 @@ import AddToCart from "./AddToCart";
 
 export default function Product() {
     const param = useParams();
+    const now = new Date();
     const item = items.find((x) => x.id === parseInt(param.id));
     const [selectedVariantId, setSelectedVariantId] = useState(0);
     const [displayImage, setDisplayImage] = useState(0);
     const [likesNum, setLikesNum] = useState(item.likes);
     const outOfStock = (item.variants[selectedVariantId].stock <= 0);
-    const isDiscount = item.discount == 1 ? false : true;
+    //const isDiscountValid = item.discount_end && new Date(item.discount_end) > new Date();
+    //const displayPrice = isDiscountValid ? Math.round(item.price * item.discount) : item.price;
+    const isDiscount = (item.discount !== 1) ? true : false;
     const [qty, setQty] = useState(item.variants[selectedVariantId].stock > 0 ? 1 : 0)
     const [liked, setLiked] = useState(false);
 
@@ -155,7 +158,8 @@ export default function Product() {
                             <PriceCard
                                 item={item}
                                 isDiscount={isDiscount}
-                                selectedVariantId={selectedVariantId} />
+                                selectedVariantId={selectedVariantId}
+                                 />
                         </div>
 
                         {/* 數量&加入購物車 */}
@@ -175,7 +179,7 @@ export default function Product() {
                                             onClick={handleIncrease}>
                                             <Plus className=" dark:!text-stone-50" />
                                         </button>
-                                    </div>) : 
+                                    </div>) :
                                     (<div className=" inline-flex w-1/3 rounded-sm text-stone-600 border p-2 cursor-not-allowed"><p className=" w-full text-center">數位商品不提供複數購買</p></div>)}
 
                                 <div className=" flex items-center gap-2">

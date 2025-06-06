@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectCurrency } from "../redux/currencySlice";
 
 export default function PriceCard(props) {
-    const { item, isDiscount, selectedVariantId } = props;
+    const { item, isDiscount, selectedVariantId, nowPrice } = props;
     const targetCurrency = useSelector(selectCurrency);
     
     return (
