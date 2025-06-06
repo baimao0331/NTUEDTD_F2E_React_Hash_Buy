@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import LoadingHash from '../components/LoadingHash';
+import OrderStatusStepper from "./OrderStatus";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../api/index";
@@ -71,10 +72,13 @@ export default function Orders() {
                             <li key={order.id} className=" flex flex-col my-2 md:w-8/10 mx-auto">
                                 <div className="collapse  collapse-arrow border border-stone-300 dark:border-stone-600">
                                     <input type="checkbox" />
-                                    <div className="collapse-title flex flex-col gap-2 md:flex-row md:justify-between">
-                                        <div className=" flex md:gap-2 flex-col  justify-between"><p>訂單編號</p><p className=" font-black">{order.id}</p></div>
-                                        <div className=" flex flex-row gap-2 text-sm md:text-md md:flex-col justify-between"><p>訂購日期</p><p>{order.createdAt?.toDate().toLocaleString()}</p></div>
-                                        <div className=" flex flex-row gap-2 md:flex-col  justify-between"><p>總價</p><p className=" text-orange-900 dark:text-orange-300 font-bold">{order.total}{order.items[0].currency}</p></div>
+                                    <div className="collapse-title">
+                                        <div className="  flex flex-col gap-2 md:flex-row md:justify-between">
+                                            <div className=" flex md:gap-2 flex-col  justify-between"><p>訂單編號</p><p className=" font-black">{order.id}</p></div>
+                                            <div className=" flex flex-row gap-2 text-sm md:text-md md:flex-col justify-between"><p>訂購日期</p><p>{order.createdAt?.toDate().toLocaleString()}</p></div>
+                                            <div className=" flex flex-row gap-2 md:flex-col  justify-between"><p>總價</p><p className=" text-orange-900 dark:text-orange-300 font-bold">{order.total}{order.items[0].currency}</p></div>
+                                        </div>
+                                        <OrderStatusStepper status={order.status} />
                                     </div>
                                     <div className="collapse-content">
                                         <hr className=" my-2  border-stone-300 dark:border-stone-600" />
@@ -98,6 +102,9 @@ export default function Orders() {
                                                 </div>
                                             </li>))}
                                         </ul>
+                                        <div className=" w-full flex justify-end p-4">
+                                            <button className=" btn">給評價</button>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
