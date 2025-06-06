@@ -154,30 +154,30 @@ export default function CheckoutContent() {
                 {user ? (
                     <>
                         <h3 className=' text-center text-xl font-bold text-orange-900 dark:text-orange-300 mt-10'>設定</h3>
-                        <div className=' flex flex-col max-w-[80vw] mx-auto p-8 gap-4'>
-                            <h4 className='text-lg font-bold text-orange-900 dark:text-orange-300'>帳號設定</h4>
+                        <div className=' flex flex-col max-w-[80vw] mx-auto p-2 md:p-8 gap-4'>
+                            <h4 className='text-lg font-bold text-orange-900 dark:text-orange-300 text-nowrap'>帳號設定</h4>
                             <hr className=' border-1 border-stone-300 dark:border-stone-600 w-full' />
                             <div className=' flex gap-8 items-center'>
-                                <p className=' text-orange-400 dark:text-orange-300 font-bold'>暱稱</p>
+                                <p className=' text-orange-400 dark:text-orange-300 font-bold  text-nowrap'>暱稱</p>
                                 <p>{user.displayName}</p>
-                                <button className=' !h-8 leading-1 !rounded-4xl'>修改</button>
+                                <button className=' !h-8 leading-1 !rounded-4xl  text-nowrap'>修改</button>
                             </div>
                             <div className=' flex gap-8 items-center'>
-                                <p className=' text-orange-400 dark:text-orange-300 font-bold'>信箱</p>
-                                <p>{user.email}</p>
-                                <button className=' !h-8 leading-1 !rounded-4xl'>修改</button>
+                                <p className=' text-orange-400 dark:text-orange-300 font-bold text-nowrap'>信箱</p>
+                                <p className=' truncate'>{user.email}</p>
+                                <button className=' !h-8 leading-1 !rounded-4xl  text-nowrap'>修改</button>
                             </div>
                             <div className=' flex gap-8 items-center'>
-                                <p className=' text-orange-400 dark:text-orange-300 font-bold'>驗證</p>
-                                <p>{user.emailVerified ? "已完成" : "尚未完成"}</p>
-                                <button className=' !h-8 leading-1 !rounded-4xl disabled:!bg-stone-500'
+                                <p className=' text-orange-400 dark:text-orange-300 font-bold  text-nowrap'>驗證</p>
+                                <p className=' text-nowrap'>{user.emailVerified ? "已完成" : "尚未完成"}</p>
+                                <button className=' !h-8 leading-1 !rounded-4xl disabled:!bg-stone-500 text-nowrap'
                                     onClick={handleResentMail}
                                     disabled={user.emailVerified ? true : false}
                                 >{user.emailVerified ? "已完成驗證" : "重新寄送驗證信"}</button>
                             </div>
                             <hr className=' border-1 border-stone-300 dark:border-stone-600 w-full' />
                         </div>
-                        <div className=' flex flex-col md:flex-row gap-20 max-w-[80vw] mx-auto p-10'>
+                        <div className=' flex flex-col md:flex-row gap-20 max-w-[80vw] mx-auto p-2 md:p-8'>
                             <div className=' grid grid-cols-8 gap-4 w-full'>
                                 <div className=' col-span-8 md:col-span-8 flex gap-8 items-center'>
                                     <h4 className=' text-lg font-bold text-orange-900 dark:text-orange-300'>編輯會員資料</h4>
@@ -250,8 +250,8 @@ export default function CheckoutContent() {
                                         </label>
                                     </div>
                                 </div>
-                                <h4 className='col-span-8 font-black mt-4'>生日</h4>
-                                <div className='col-span-2'>
+                                <h4 className=' col-span-8 font-black mt-4'>生日</h4>
+                                <div className=' col-span-8 md:col-span-2'>
                                     <p>年</p>
                                     <select name="birthday" id="year" className=' select' value={year} onChange={(e) => setYear(parseInt(e.target.value))}>
                                         {years.map(y => (
@@ -259,7 +259,7 @@ export default function CheckoutContent() {
                                         ))}
                                     </select>
                                 </div>
-                                <div className='col-span-1'>
+                                <div className='col-span-4 md:col-span-1'>
                                     <p>月</p>
                                     <select name="birthday" id="month" className=' select' value={month} onChange={(e) => setMonth(parseInt(e.target.value))}>
                                         {months.map(m => (
@@ -267,7 +267,7 @@ export default function CheckoutContent() {
                                         ))}
                                     </select>
                                 </div>
-                                <div className='col-span-1'>
+                                <div className='col-span-4 md:col-span-1'>
                                     <p>日</p>
                                     <select name="birthday" id="day" className=' select' value={day} onChange={(e) => setDay(parseInt(e.target.value))}>
                                         {days.map(d => (
@@ -275,7 +275,7 @@ export default function CheckoutContent() {
                                         ))}
                                     </select>
                                 </div>
-                                <div className='col-span-4'>
+                                <div className='col-span-8 md:col-span-4'>
                                     <p className='font-black'>連絡電話</p>
                                     <input
                                         name="tel"
@@ -285,7 +285,7 @@ export default function CheckoutContent() {
                                     />
                                 </div>
                                 <h4 className='col-span-8 font-black mt-4'>聯絡地址</h4>
-                                <div className='col-span-2'>
+                                <div className='col-span-4 md:col-span-2'>
                                     <p>城市</p>
                                     <select
                                         name="cityId"
@@ -310,7 +310,7 @@ export default function CheckoutContent() {
                                         ))}
                                     </select>
                                 </div>
-                                <div className='col-span-2'>
+                                <div className='col-span-4 md:col-span-2'>
                                     <p>行政區</p>
                                     <select
                                         name='districtId'
@@ -334,7 +334,7 @@ export default function CheckoutContent() {
                                         ))}
                                     </select>
                                 </div>
-                                <div className='col-span-4'>
+                                <div className='col-span-8 md:col-span-4'>
                                     <p>詳細地址</p>
                                     <input
                                         name="address"
