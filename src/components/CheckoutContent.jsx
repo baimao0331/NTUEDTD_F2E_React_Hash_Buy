@@ -155,14 +155,14 @@ export default function CheckoutContent() {
             <div className=' w-8/10 bg-stone-50 dark:bg-stone-700 rounded-xl py-4 px-8 mx-auto border border-stone-300 dark:border-stone-600'>
                 <h3 className=' text-center text-xl font-bold text-orange-900 dark:text-orange-300 mt-10'>結帳</h3>
 
-                <ul className='w-full max-w-[80vw] mx-auto py-5 px-10 my-5'>
+                <ul className='w-full max-w-[80vw] mx-auto py-5 px-2 md:px-10 my-5'>
                     <hr className='my-4' />
                     <h4 className='text-lg font-bold text-orange-900 dark:text-orange-300 mb-2'>訂單商品</h4>
                     {cartItems.map((item, index) => (
                         <li key={index} className='grid grid-cols-[1fr_1fr_auto_50px_auto] grid-rows-2 sm:grid-rows-1 gap-x-4 mb-2'>
                             <p className='text-nowrap truncate col-span-5 sm:col-span-1'>{item.title}</p>
                             <p className='col-span-2 sm:col-span-1 text-center'>{item.variantName}</p>
-                            <p>{item.qty}</p>
+                            <p>{item.qty}個</p>
                             <p className=' text-right'>{currencyChange(item.currency, item.price)}</p>
                             <p>{targetCurrency}</p>
                         </li>
@@ -175,16 +175,20 @@ export default function CheckoutContent() {
                     <hr className='my-4' />
                 </ul>
 
-                <div className=' flex flex-col md:flex-row gap-20 max-w-[80vw] mx-auto p-10'>
+                <div className=' flex flex-col md:flex-row gap-20 max-w-[80vw] mx-auto p-2 md:p-10'>
                     {/*購買人資訊 */}
                     <div className=' grid grid-cols-4 gap-4 w-full lg:w-1/2'>
-                        <h4 className='col-span-3 text-lg font-bold text-orange-900 dark:text-orange-300'>購買人資訊</h4>
-                        <p
-                            onClick={handleImportMemberinfo}
-                            className=" col-span-1 text-stone-700 hover:text-stone-600 dark:text-stone-300 dark:hover:text-stone-400 text-nowrap cursor-pointer"
-                        >
-                            匯入會員資料
-                        </p>
+                        <div className=' col-span-4 flex justify-between'>
+                            <h4 className='text-lg font-bold text-orange-900 dark:text-orange-300'>
+                                購買人資訊
+                            </h4>
+                            <p
+                                onClick={handleImportMemberinfo}
+                                className=" text-right right-0 col-span-1 text-stone-700 hover:text-stone-600 dark:text-stone-300 dark:hover:text-stone-400 text-nowrap cursor-pointer"
+                            >
+                                匯入會員資料
+                            </p>
+                        </div>
                         <div>
                             <p>姓</p>
                             <input
@@ -265,7 +269,7 @@ export default function CheckoutContent() {
                         </div>
                     </div>
                     {/*收件人資訊 */}
-                    <div className=' grid grid-cols-4 gap-4 w-full lg:w-1/2'>
+                    <div className=' grid grid-cols-4 gap-4 w-full lg:w-1/2 '>
                         <div className=' col-span-4 flex justify-between items-center'>
                             <h4 className='col-span-3 text-lg font-bold text-orange-900 dark:text-orange-300'>收件人資訊</h4>
                             <p
@@ -357,7 +361,7 @@ export default function CheckoutContent() {
                     </div>
                 </div>
 
-                <div className='max-w-[80vw] mx-auto py-5 px-10 my-5 flex flex-col gap-2'>
+                <div className='max-w-[80vw] mx-auto py-5 px-2 md:p-10 my-5 flex flex-col gap-2'>
                     <h4 className='text-lg font-bold text-orange-900 dark:text-orange-300 mb-2'>取貨方式</h4>
                     <label className=' flex gap-4 items-center ml-5'>
                         <input type="checkbox" checked={true} onChange={() => ('')} className="checkbox border-stone-300 bg-stone-50 dark:border-stone-600 dark:bg-stone-800 checked:bg-orange-300 checked:text-orange-900 checked:border-orange-300 " />
@@ -365,7 +369,7 @@ export default function CheckoutContent() {
                     </label>
                 </div>
 
-                <div className=' grid grid-cols-3 gap-4 w-full max-w-[80vw] mx-auto p-10'>
+                <div className=' grid grid-cols-3 gap-4 w-full max-w-[80vw] mx-auto p-2 md:p-10'>
                     <h4 className='col-span-3 text-lg font-bold text-orange-900 dark:text-orange-300 grid-cols-3'>付款資訊</h4>
                     <div className="col-span-3 md:col-span-1">
                         <p>信用卡卡號</p>

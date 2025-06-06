@@ -100,11 +100,11 @@ export default function Product() {
                 <div className=" flex flex-col md:flex-row">
                     {/* 圖片區域 */}
                     <div className="relative flex flex-col w-full md:w-2/5 ">
-                        <figure className="aspect-square overflow-hidden rounded-xl border border-stone-300 bg-stone-300">
+                        <figure className="aspect-square overflow-hidden rounded-xl border border-stone-500 bg-stone-500/50">
                             <img
                                 src={`/images/${item.id}/${imgs[displayImage]}`}
                                 alt=""
-                                className="w-full h-full object-cover object-center"
+                                className="w-full h-full object-contain object-center"
                             />
                         </figure>
                         <div className=" relative flex items-center gap-2 w-full mt-4">
