@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async"
+import { useDispatch, useSelector } from 'react-redux';
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import LoadingHash from '../components/LoadingHash';
@@ -7,9 +8,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../api/index";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { selectCurrency } from "../redux/currencySlice";
+import sortCurrencyChange from '../js/sortCurrencyChange'
 
 export default function Orders() {
     const [user, loadingAuth] = useAuthState(auth);
+    const dispatch = useDispatch();
+    const targetCurrency = useSelector(selectCurrency);
 
     const fetchOrdersByUser = async (uid) => {
         const q = query(collection(db, "orders"), where("userId", "==", uid));
@@ -40,7 +45,7 @@ export default function Orders() {
                     <title>訂單</title>
                 </Helmet>
                 <Header />
-                <div className="max-w-screen-xl mx-auto  bg-stone-50 dark:bg-stone-700 rounded-xl p-8 border border-stone-300 dark:border-stone-600 rounded-xl shadow w-2/3 py-8 px-24 ">
+                <div className="max-w-screen-xl mx-auto  bg-stone-50 dark:bg-stone-700 rounded-xl p-8 border border-stone-300 dark:border-stone-600 shadow w-2/3 py-8 px-24 ">
                     <div className=" w-8/10 lg:w-1/2 mx-auto flex flex-col justify-center">
                         <h3 className=' font-bold text-center my-5 flex mx-auto items-center gap-2 text-xl text-orange-900 dark:text-orange-300'>
                             你的訂單
@@ -76,7 +81,7 @@ export default function Orders() {
                                         <div className="  flex flex-col gap-2 md:flex-row md:justify-between">
                                             <div className=" flex md:gap-2 flex-col  justify-between"><p>訂單編號</p><p className=" font-black">{order.id}</p></div>
                                             <div className=" flex flex-row gap-2 text-sm md:text-md md:flex-col justify-between"><p>訂購日期</p><p>{order.createdAt?.toDate().toLocaleString()}</p></div>
-                                            <div className=" flex flex-row gap-2 md:flex-col  justify-between"><p>總價</p><p className=" text-orange-900 dark:text-orange-300 font-bold">{order.total}{order.items[0].currency}</p></div>
+                                            <div className=" flex flex-row gap-2 md:flex-col  justify-between"><p>總價</p><p className=" text-orange-900 dark:text-orange-300 font-bold">{sortCurrencyChange(order.currency, targetCurrency, order.total)}{targetCurrency}</p></div>
                                         </div>
                                         <OrderStatusStepper status={order.status} />
                                     </div>
@@ -95,8 +100,8 @@ export default function Orders() {
                                                     <p className=" truncate">{item.title}</p>
                                                     <p className=" text-center">{item.qty}</p>
                                                     <div className=" flex gap-2 justify-end  mr-10">
-                                                        <p>{item.price}</p>
-                                                        <p>{item.currency}</p>
+                                                        <p>{sortCurrencyChange(item.currency, targetCurrency, Math.round(item.price*item.discount*item.qty))}</p>
+                                                        <p>{targetCurrency}</p>
                                                     </div>
                                                     <p className="ml-2">{item.variantName}</p>
                                                 </div>

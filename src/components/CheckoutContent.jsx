@@ -63,7 +63,7 @@ export default function CheckoutContent() {
     }, []);
 
     const totalCost = cartItems.reduce((sum, item) => {
-        return sum + currencyChange(item.currency, item.price) * item.qty;
+        return sum + currencyChange(item.currency, Math.round(item.price*item.discount)) * item.qty;
     }, 0);
 
     const handleImportMemberinfo = () => {
@@ -129,6 +129,7 @@ export default function CheckoutContent() {
                 createdAt: serverTimestamp(),
                 status: "pending",
                 total: totalCost,
+                currency : targetCurrency,
                 items: cartItems, payment: {
                     method: "credit_card",
                     creditCard: {
@@ -163,7 +164,7 @@ export default function CheckoutContent() {
                             <p className='text-nowrap truncate col-span-5 sm:col-span-1'>{item.title}</p>
                             <p className='col-span-2 sm:col-span-1 text-center'>{item.variantName}</p>
                             <p>{item.qty}個</p>
-                            <p className=' text-right'>{currencyChange(item.currency, item.price)}</p>
+                            <p className=' text-right'>{currencyChange(item.currency, Math.round(item.price*item.discount))}</p>
                             <p>{targetCurrency}</p>
                         </li>
                     ))}
